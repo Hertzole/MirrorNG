@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Lifecycle of a GameObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Lifecycle of a GameObject ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="lifecycle-of-a-gameobject">Lifecycle of a GameObject</h2>
+
+<p>Networked GameObjects go through several lifecycle states.
+You can add custom logic to the object lifecycle events by subscribing to the corresponding event in <a class="xref" href="../../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a></p>
+<table>
+<thead>
+<tr>
+<th>Server</th>
+<th>Client</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#server-instantiate">Instantiate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#server-start">Start Server</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#client-instantiate">Instantiate</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#client-start-authority">StartAuthority</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#start-client">StartClient</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#start-local-player">StartLocalPlayer</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#stop-authority">StopAuthority</a></td>
+</tr>
+<tr>
+<td><a href="#server-stop">StopServer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="#server-destroy">Destroy</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#stop-client">StopClient</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#client-destroy">Destroy</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note:</strong> In Mirror and UNet, you can add logic to lifecycle events by overriding methods in NetworkBehaviour
+In MirrorNG you do it by subscribing to events in <a class="xref" href="../../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a></p>
+</blockquote>
+<h1 id="server-instantiate">Server Instantiate</h1>
+<p>This is done usual by you using Unity's <code>GameObject.Instantiate</code>
+This goes through the regular GameObject Lifecycle events such as Awake, Start, Enabled, etc..
+Basically this is outside MirrorNG's control.</p>
+<p><a href="SceneObjects.html">Scene Objects</a> are normally instantiated as part of the scene.</p>
+<h1 id="server-start">Server Start</h1>
+<p>To start a server object,  <a href="SpawnObject.html">spawn it</a>.
+If you wish to perform some logic when the object starts in the server, add a
+component in your gameobject with your own method and subscribe to
+<a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartServer">OnStartServer</a></p>
+<p>For example:</p>
+<pre><code class="lang-cs">class MyComponent : MonoBehaviour {
+
+    public void Awake() {
+        GetComponent&lt;NetworkIdentity&gt;.OnStartServer.AddListener(OnStartServer);
+    }
+
+    public void OnStartServer() {
+        Debug.Log(&quot;The object started on the server&quot;)
+    }
+}
+</code></pre>
+<p>You can also simply drag your <code>OnStartServer</code> method in the <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartServer">OnStartServer</a> event in the inspector.</p>
+<p>During the spawn a message will be sent to all the clients telling them to spawn the object. The message
+will include all the data in <a href="../Sync/SyncVars.html">SyncVars</a>, <a href="../Sync/SyncLists.html">SyncLists</a>, <a href="../Sync/SyncHashSet.html">SyncSet</a>, <a href="../Sync/SyncDictionary.html">SyncDictionary</a></p>
+<h1 id="client-instantiate">Client Instantiate</h1>
+<p>When an object is spawned,  the server will send a message to the clients telling it to spawn a GameObject and provide
+an asset id.</p>
+<p>By default, MirrorNG will look up all the known prefabs looking for that asset id.<br>
+Make sure to add your prefabs in the NetworkClient list of prefabs.
+Then MirrorNG will instantiate the prefab,  and it will go through the regular Unity Lifecycle events.
+You can customize how objects are instantiated using Spawn Handlers.</p>
+<p>Do not add Network logic to these events.  Instead,  use these events to subscribe to network events in NetworkIdentity.</p>
+<p>Immediatelly after the object is instantiated, all the data is updated to match the data in the server.</p>
+<h1 id="client-start-authority">Client Start Authority</h1>
+<p>If the object is owned by this client, then NetworkIdentity will invoke the <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartAuthority">OnStartAuthority</a>
+Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.
+Note the Authority can be revoked, and granted again.  Every time the client gains authority, this event will be invoked again.</p>
+<h1 id="start-client">Start Client</h1>
+<p>The event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartClient">OnStartClient</a> will be invoked.
+Subscribe to this event by using <code>AddListener</code> or adding your method in the event in the inspector</p>
+<h1 id="start-local-player">Start Local Player</h1>
+<p>If the object spawned is the <a href="SpawnPlayer.html">player object</a>,  the event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartLocalPlayer">OnStartLocalPlayer</a>
+is invoked.
+Subscribe to this event by using <code>AddListener</code> or adding your method in the event in the inspector</p>
+<h1 id="stop-authority">Stop Authority</h1>
+<p>If the object loses authority over the object, then NetworkIdentity will invoke the <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStopAuthority">OnStopAuthority</a>
+Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.
+Note the Authority can be revoked, and granted again.  Every time the client loses authority, this event will be invoked again.</p>
+<h1 id="server-stop">Server Stop</h1>
+<p>Either because the client disconnected, the server stopped,
+you called <a class="xref" href="../../../api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_UnSpawn_GameObject_">UnSpawn(GameObject)</a>,  or you called <a class="xref" href="../../../api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Destroy_GameObject_">Destroy(GameObject)</a> the object may stop in the server.
+During this state, a message is sent to all the clients to unspawn the object.
+The event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStopServer">OnStopServer</a> will be invoked.</p>
+<p>Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.</p>
+<h1 id="server-destroy">Server Destroy</h1>
+<p>By default, the server will call <code>GameObject.Destroy</code> to destroy the object.<br>
+Note that if it is a <a href="SceneObjects.html">Scene Object</a> the server will invoke <code>GameObject.SetActive(false)</code> instead.</p>
+<p>The regular unity lifecycle events apply.</p>
+<p>Note that the server will destroy the object, and will not wait for the clients to unspawn their objects.</p>
+<h1 id="stop-client">Stop Client</h1>
+<p>This can be triggered either because the client received an Unspawn message or the client was disconnected
+The event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStopClient">OnStopClient</a> will be invoke.<br>
+Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.</p>
+<p>Use it to cleanup any network related resource used by this object.</p>
+<h1 id="client-destroy">Client Destroy</h1>
+<p>After an object is stopped on the client,  by default unity will call <code>GameObject.Destroy</code> if it is a prefab <a href="SpawnObject.html">Spawned Object</a>
+Or it will call <code>GameObject.SetActive(false)</code> if it is a <a href="SceneObjects.html">Scene Object</a>
+You can customize how objects are destroying using Spawn Handlers</p>
+<p>The normal Unity lifecycle events applies.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/doc/Articles/Guides/GameObjects/Lifecycle.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PooledNetworkWriter
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="http://mirror-networking.com">
-                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -137,21 +137,24 @@
     <div>
       <a class="xref" href="Mirror.NetworkWriter.html#Mirror_NetworkWriter_WriteInt64_System_Int64_">NetworkWriter.WriteInt64(Int64)</a>
     </div>
+    <div>
+      <a class="xref" href="Mirror.NetworkWriter.html#Mirror_NetworkWriter_Write__1___0_">NetworkWriter.Write&lt;T&gt;(T)</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
   <h6><strong>Assembly</strong>: doc.dll</h6>
   <h5 id="Mirror_PooledNetworkWriter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PooledNetworkWriter : NetworkWriter, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PooledNetworkWriter : NetworkWriter, IDisposable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_PooledNetworkWriter_Dispose.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkWriter.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_PooledNetworkWriter_Dispose.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkWriter.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkWriterPool.cs/#L11">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkWriterPool.cs/#L11">View Source</a>
   </span>
   <a id="Mirror_PooledNetworkWriter_Dispose_" data-uid="Mirror.PooledNetworkWriter.Dispose*"></a>
   <h4 id="Mirror_PooledNetworkWriter_Dispose" data-uid="Mirror.PooledNetworkWriter.Dispose">Dispose()</h4>
@@ -166,6 +169,15 @@
       <span class="xref">IDisposable</span>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_WriteGameObject_Mirror_NetworkWriter_Mirror_GameObjectSyncvar_">GameObjectSerializers.WriteGameObject(NetworkWriter, GameObjectSyncvar)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_WriteNetworkBehavior_Mirror_NetworkWriter_Mirror_NetworkBehaviorSyncvar_">NetworkBehaviorSerializers.WriteNetworkBehavior(NetworkWriter, NetworkBehaviorSyncvar)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_WriteNetworkIdentity_Mirror_NetworkWriter_Mirror_NetworkIdentitySyncvar_">NetworkIdentitySerializers.WriteNetworkIdentity(NetworkWriter, NetworkIdentitySyncvar)</a>
+  </div>
   <div>
       <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteByte_Mirror_NetworkWriter_System_Byte_">NetworkWriterExtensions.WriteByte(NetworkWriter, Byte)</a>
   </div>
@@ -251,7 +263,7 @@
       <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteRay_Mirror_NetworkWriter_Ray_">NetworkWriterExtensions.WriteRay(NetworkWriter, Ray)</a>
   </div>
   <div>
-      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteMatrix4x4_Mirror_NetworkWriter_Matrix4x4_">NetworkWriterExtensions.WriteMatrix4x4(NetworkWriter, Matrix4x4)</a>
+      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteMatrix4X4_Mirror_NetworkWriter_Matrix4x4_">NetworkWriterExtensions.WriteMatrix4X4(NetworkWriter, Matrix4x4)</a>
   </div>
   <div>
       <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteGuid_Mirror_NetworkWriter_Guid_">NetworkWriterExtensions.WriteGuid(NetworkWriter, Guid)</a>
@@ -260,16 +272,16 @@
       <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteNetworkIdentity_Mirror_NetworkWriter_Mirror_NetworkIdentity_">NetworkWriterExtensions.WriteNetworkIdentity(NetworkWriter, NetworkIdentity)</a>
   </div>
   <div>
-      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteTransform_Mirror_NetworkWriter_Transform_">NetworkWriterExtensions.WriteTransform(NetworkWriter, Transform)</a>
-  </div>
-  <div>
-      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteGameObject_Mirror_NetworkWriter_GameObject_">NetworkWriterExtensions.WriteGameObject(NetworkWriter, GameObject)</a>
-  </div>
-  <div>
       <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteUri_Mirror_NetworkWriter_Uri_">NetworkWriterExtensions.WriteUri(NetworkWriter, Uri)</a>
   </div>
   <div>
-      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteMessage__1_Mirror_NetworkWriter___0_">NetworkWriterExtensions.WriteMessage&lt;T&gt;(NetworkWriter, T)</a>
+      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteList__1_Mirror_NetworkWriter_List___0__">NetworkWriterExtensions.WriteList&lt;T&gt;(NetworkWriter, List&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteArray__1_Mirror_NetworkWriter___0___">NetworkWriterExtensions.WriteArray&lt;T&gt;(NetworkWriter, T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteArraySegment__1_Mirror_NetworkWriter_ArraySegment___0__">NetworkWriterExtensions.WriteArraySegment&lt;T&gt;(NetworkWriter, ArraySegment&lt;T&gt;)</a>
   </div>
 </article>
           </div>
@@ -279,15 +291,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_PooledNetworkWriter.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkWriter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_PooledNetworkWriter.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkWriter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkWriterPool.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkWriterPool.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

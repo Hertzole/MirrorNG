@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Network Authority </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Network Authority ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="network-authority">Network Authority</h1>
+
+<p>Authority is a way of deciding who owns an object and has control over it.</p>
+<h2 id="server-authority">Server Authority</h2>
+<p>Server authority means that the server has control of an object. Server has authority over an object by default. This means the server would manage and control of all collectible items, moving platforms, NPCs, and any other networked objects that aren't the player.</p>
+<h2 id="client-authority">Client Authority</h2>
+<p>Client authority means that the client has control of an object.</p>
+<p>When a client has authority over an object it means that they can call <a href="Communications/RemoteActions.html">ServerRpc</a> and that the object will automatically be destroyed when the client disconnects.</p>
+<p>Even if a client has authority over an object the server still controls SyncVar and control other serialization features. A component will need to use a <a href="Communications/RemoteActions.html">ServerRpc</a> to update the state on the server in order for it to sync to other clients.</p>
+<h2 id="how-to-give-authority">How to give authority</h2>
+<p>By default the server has Authority over all objects. The server can give authority to objects that a client needs to control, like the player object.</p>
+<p>If you spawn a player object using <code>NetworkServer.AddPlayerForConnection</code> then it will automatically be given authority.</p>
+<h3 id="using-networkserverspawn">Using NetworkServer.Spawn</h3>
+<p>You can give authority to a client when an object is spawned. This is done by passing in the connection to the spawn message</p>
+<pre><code class="lang-cs">GameObject go = Instantiate(prefab);
+NetworkServer.Spawn(go, connectionToClient);
+</code></pre>
+<h3 id="using-identityassignclientauthority">Using identity.AssignClientAuthority</h3>
+<p>You can give authority to a client any time using <code>AssignClientAuthority</code>. This can be done by calling <code>AssignClientAuthority</code> on the object you want to give authority too</p>
+<pre><code class="lang-cs">identity.AssignClientAuthority(conn);
+</code></pre>
+<p>You may want to do this when a player picks up an item</p>
+<pre><code class="lang-cs">// Command on player object
+[ServerRpc]
+void PickupItem(NetworkIdentity item)
+{
+    item.AssignClientAuthority(connectionToClient); 
+}
+</code></pre>
+<h2 id="how-to-remove-authority">How to remove authority</h2>
+<p>You can use <code>identity.RemoveClientAuthority</code> to remove client authority from an object.</p>
+<pre><code class="lang-cs">identity.RemoveClientAuthority();
+</code></pre>
+<p>Authority can't be removed from the player object. Instead you will have to replace the player object using <code>NetworkServer.ReplacePlayerForConnection</code>.</p>
+<h2 id="on-authority">On Authority</h2>
+<p>When authority is given to or removed from an object a message will be sent to that client to notify them. This will cause the <code>OnStartAuthority</code> or <code>OnStopAuthority</code> functions to be called.</p>
+<h2 id="check-authority">Check Authority</h2>
+<h3 id="client-side">Client Side</h3>
+<p>The <code>identity.hasAuthority</code> property can be used to check if the local player has authority over an object.</p>
+<h3 id="server-side">Server Side</h3>
+<p>The <code>identity.connectionToClient</code> property can be check to see which client has authority over an object. If it is null then the server has authority.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/doc/Articles/Guides/Authority.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

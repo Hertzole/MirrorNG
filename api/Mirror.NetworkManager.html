@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NetworkManager
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="http://mirror-networking.com">
-                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -90,24 +90,20 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">NetworkManager</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Mirror.INetworkManager.html">INetworkManager</a></div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
   <h6><strong>Assembly</strong>: doc.dll</h6>
   <h5 id="Mirror_NetworkManager_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class NetworkManager : MonoBehaviour, INetworkManager</code></pre>
+    <pre><code class="lang-csharp hljs">public class NetworkManager : MonoBehaviour</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_client.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager_client.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L45">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L14">View Source</a>
   </span>
   <h4 id="Mirror_NetworkManager_client" data-uid="Mirror.NetworkManager.client">client</h4>
   <div class="markdown level1 summary"></div>
@@ -133,79 +129,17 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_clientLoadedScene.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.clientLoadedScene%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager_clientObjectManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.clientObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L64">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L17">View Source</a>
   </span>
-  <h4 id="Mirror_NetworkManager_clientLoadedScene" data-uid="Mirror.NetworkManager.clientLoadedScene">clientLoadedScene</h4>
-  <div class="markdown level1 summary"><p>This is true if the client loaded a new scene when connecting to the server.</p>
-<p>This is set before OnClientConnect is called, so it can be checked there to perform different logic if a scene load occurred.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool clientLoadedScene</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_dontDestroyOnLoad.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.dontDestroyOnLoad%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L29">View Source</a>
-  </span>
-  <h4 id="Mirror_NetworkManager_dontDestroyOnLoad" data-uid="Mirror.NetworkManager.dontDestroyOnLoad">dontDestroyOnLoad</h4>
-  <div class="markdown level1 summary"><p>A flag to control whether the NetworkManager object is destroyed when the scene changes.</p>
-<p>This should be set if your game has a single NetworkManager that exists for the lifetime of the process. If there is a NetworkManager in each scene, then this should not be set.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool dontDestroyOnLoad</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_loadingSceneAsync.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.loadingSceneAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L361">View Source</a>
-  </span>
-  <h4 id="Mirror_NetworkManager_loadingSceneAsync" data-uid="Mirror.NetworkManager.loadingSceneAsync">loadingSceneAsync</h4>
+  <h4 id="Mirror_NetworkManager_clientObjectManager" data-uid="Mirror.NetworkManager.clientObjectManager">clientObjectManager</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AsyncOperation loadingSceneAsync</code></pre>
+    <pre><code class="lang-csharp hljs">public ClientObjectManager clientObjectManager</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -217,25 +151,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">AsyncOperation</span></td>
+        <td><a class="xref" href="Mirror.ClientObjectManager.html">ClientObjectManager</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_networkSceneName.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.networkSceneName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager_sceneManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.sceneManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L359">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L15">View Source</a>
   </span>
-  <h4 id="Mirror_NetworkManager_networkSceneName" data-uid="Mirror.NetworkManager.networkSceneName">networkSceneName</h4>
-  <div class="markdown level1 summary"><p>The name of the current network scene.</p>
-</div>
+  <h4 id="Mirror_NetworkManager_sceneManager" data-uid="Mirror.NetworkManager.sceneManager">sceneManager</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string networkSceneName</code></pre>
+    <pre><code class="lang-csharp hljs">public NetworkSceneManager sceneManager</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -247,83 +180,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="Mirror_NetworkManager_networkSceneName_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This is populated if the NetworkManager is doing scene management. This should not be changed directly. Calls to ServerChangeScene() cause this to change. New clients that connect to a server will automatically load this scene.</p>
-<p>This is used to make sure that all scene changes are initialized by Mirror.</p>
-<p>Loading a scene manually wont set networkSceneName, so Mirror would still load it again on start.</p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_OnStartHost.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.OnStartHost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L70">View Source</a>
-  </span>
-  <h4 id="Mirror_NetworkManager_OnStartHost" data-uid="Mirror.NetworkManager.OnStartHost">OnStartHost</h4>
-  <div class="markdown level1 summary"><p>This is invoked when a host is started.</p>
-<p>StartHost has multiple signatures, but they all cause this hook to be called.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UnityEvent OnStartHost</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityEvent</span></td>
+        <td><a class="xref" href="Mirror.NetworkSceneManager.html">NetworkSceneManager</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_OnStopHost.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.OnStopHost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager_server.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.server%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L75">View Source</a>
-  </span>
-  <h4 id="Mirror_NetworkManager_OnStopHost" data-uid="Mirror.NetworkManager.OnStopHost">OnStopHost</h4>
-  <div class="markdown level1 summary"><p>This is called when a host is stopped.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UnityEvent OnStopHost</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UnityEvent</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_server.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.server%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L44">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L13">View Source</a>
   </span>
   <h4 id="Mirror_NetworkManager_server" data-uid="Mirror.NetworkManager.server">server</h4>
   <div class="markdown level1 summary"></div>
@@ -349,78 +216,17 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_serverTickRate.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.serverTickRate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager_serverObjectManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.serverObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L42">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L16">View Source</a>
   </span>
-  <h4 id="Mirror_NetworkManager_serverTickRate" data-uid="Mirror.NetworkManager.serverTickRate">serverTickRate</h4>
-  <div class="markdown level1 summary"><p>Server Update frequency, per second. Use around 60Hz for fast paced games like Counter-Strike to minimize latency. Use around 30Hz for games like WoW to minimize computations. Use around 1-10Hz for slow paced games like EVE.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int serverTickRate</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_startOnHeadless.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.startOnHeadless%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L36">View Source</a>
-  </span>
-  <h4 id="Mirror_NetworkManager_startOnHeadless" data-uid="Mirror.NetworkManager.startOnHeadless">startOnHeadless</h4>
-  <div class="markdown level1 summary"><p>Automatically invoke StartServer()</p>
-<p>If the application is a Server Build or run with the -batchMode command line arguement, StartServer is automatically invoked.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool startOnHeadless</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_transport.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.transport%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L51">View Source</a>
-  </span>
-  <h4 id="Mirror_NetworkManager_transport" data-uid="Mirror.NetworkManager.transport">transport</h4>
+  <h4 id="Mirror_NetworkManager_serverObjectManager" data-uid="Mirror.NetworkManager.serverObjectManager">serverObjectManager</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected AsyncTransport transport</code></pre>
+    <pre><code class="lang-csharp hljs">public ServerObjectManager serverObjectManager</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -432,7 +238,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Mirror.AsyncTransport.html">AsyncTransport</a></td>
+        <td><a class="xref" href="Mirror.ServerObjectManager.html">ServerObjectManager</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -441,10 +247,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_IsNetworkActive.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.IsNetworkActive%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager_IsNetworkActive.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.IsNetworkActive%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L57">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L23">View Source</a>
   </span>
   <a id="Mirror_NetworkManager_IsNetworkActive_" data-uid="Mirror.NetworkManager.IsNetworkActive*"></a>
   <h4 id="Mirror_NetworkManager_IsNetworkActive" data-uid="Mirror.NetworkManager.IsNetworkActive">IsNetworkActive</h4>
@@ -471,322 +277,6 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_ConfigureServerFrameRate.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.ConfigureServerFrameRate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L309">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_ConfigureServerFrameRate_" data-uid="Mirror.NetworkManager.ConfigureServerFrameRate*"></a>
-  <h4 id="Mirror_NetworkManager_ConfigureServerFrameRate" data-uid="Mirror.NetworkManager.ConfigureServerFrameRate">ConfigureServerFrameRate()</h4>
-  <div class="markdown level1 summary"><p>Set the frame rate for a headless server.</p>
-<p>Override if you wish to disable the behavior or set your own tick rate.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void ConfigureServerFrameRate()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_LateUpdate.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.LateUpdate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L156">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_LateUpdate_" data-uid="Mirror.NetworkManager.LateUpdate*"></a>
-  <h4 id="Mirror_NetworkManager_LateUpdate" data-uid="Mirror.NetworkManager.LateUpdate">LateUpdate()</h4>
-  <div class="markdown level1 summary"><p>virtual so that inheriting classes' LateUpdate() can call base.LateUpdate() too</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void LateUpdate()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_OnDestroy.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.OnDestroy%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L342">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_OnDestroy_" data-uid="Mirror.NetworkManager.OnDestroy*"></a>
-  <h4 id="Mirror_NetworkManager_OnDestroy" data-uid="Mirror.NetworkManager.OnDestroy">OnDestroy()</h4>
-  <div class="markdown level1 summary"><p>virtual so that inheriting classes' OnDestroy() can call base.OnDestroy() too</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnDestroy()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_OnValidate.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.OnValidate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L82">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_OnValidate_" data-uid="Mirror.NetworkManager.OnValidate*"></a>
-  <h4 id="Mirror_NetworkManager_OnValidate" data-uid="Mirror.NetworkManager.OnValidate">OnValidate()</h4>
-  <div class="markdown level1 summary"><p>virtual so that inheriting classes' Reset() can call base.Reset() too</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void OnValidate()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_ServerChangeScene_System_String_.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.ServerChangeScene(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L368">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_ServerChangeScene_" data-uid="Mirror.NetworkManager.ServerChangeScene*"></a>
-  <h4 id="Mirror_NetworkManager_ServerChangeScene_System_String_" data-uid="Mirror.NetworkManager.ServerChangeScene(System.String)">ServerChangeScene(String)</h4>
-  <div class="markdown level1 summary"><p>This causes the server to switch scenes and sets the networkSceneName.</p>
-<p>Clients that connect to this server will automatically switch to this scene. This is called autmatically if onlineScene or offlineScene are set, but it can be called from user code to switch scenes again while the game is in progress. This automatically sets clients to be not-ready. The clients must call NetworkClient.Ready() again to participate in the new scene.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void ServerChangeScene(string newSceneName)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">newSceneName</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_Start.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L127">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_Start_" data-uid="Mirror.NetworkManager.Start*"></a>
-  <h4 id="Mirror_NetworkManager_Start" data-uid="Mirror.NetworkManager.Start">Start()</h4>
-  <div class="markdown level1 summary"><p>virtual so that inheriting classes' Start() can call base.Start() too</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void Start()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StartClient_System_String_.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StartClient(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L207">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StartClient_" data-uid="Mirror.NetworkManager.StartClient*"></a>
-  <h4 id="Mirror_NetworkManager_StartClient_System_String_" data-uid="Mirror.NetworkManager.StartClient(System.String)">StartClient(String)</h4>
-  <div class="markdown level1 summary"><p>This starts a network client. It uses the networkAddress property as the address to connect to.</p>
-<p>This makes the newly created client connect to the server immediately.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task StartClient(string serverIp)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">serverIp</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StartClient_Uri_.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StartClient(Uri)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L225">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StartClient_" data-uid="Mirror.NetworkManager.StartClient*"></a>
-  <h4 id="Mirror_NetworkManager_StartClient_Uri_" data-uid="Mirror.NetworkManager.StartClient(Uri)">StartClient(Uri)</h4>
-  <div class="markdown level1 summary"><p>This starts a network client. It uses the Uri parameter as the address to connect to.</p>
-<p>This makes the newly created client connect to the server immediately.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StartClient(Uri uri)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Uri</span></td>
-        <td><span class="parametername">uri</span></td>
-        <td><p>location of the server to connect to</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StartHost.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StartHost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L236">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StartHost_" data-uid="Mirror.NetworkManager.StartHost*"></a>
-  <h4 id="Mirror_NetworkManager_StartHost" data-uid="Mirror.NetworkManager.StartHost">StartHost()</h4>
-  <div class="markdown level1 summary"><p>This starts a network &quot;host&quot; - a server and client in the same application.</p>
-<p>The client returned from StartHost() is a special &quot;local&quot; client that communicates to the in-process server using a message queue instead of the real network. But in almost all other cases, it can be treated as a normal client.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task StartHost()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StartServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StartServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L180">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StartServer_" data-uid="Mirror.NetworkManager.StartServer*"></a>
-  <h4 id="Mirror_NetworkManager_StartServer" data-uid="Mirror.NetworkManager.StartServer">StartServer()</h4>
-  <div class="markdown level1 summary"><p>This starts a new server.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task StartServer()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StopClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StopClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L300">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StopClient_" data-uid="Mirror.NetworkManager.StopClient*"></a>
-  <h4 id="Mirror_NetworkManager_StopClient" data-uid="Mirror.NetworkManager.StopClient">StopClient()</h4>
-  <div class="markdown level1 summary"><p>Stops the client that the manager is using.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StopClient()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StopHost.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StopHost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L282">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StopHost_" data-uid="Mirror.NetworkManager.StopHost*"></a>
-  <h4 id="Mirror_NetworkManager_StopHost" data-uid="Mirror.NetworkManager.StopHost">StopHost()</h4>
-  <div class="markdown level1 summary"><p>This stops both the client and the server that the manager is using.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StopHost()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager_StopServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager.StopServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L292">View Source</a>
-  </span>
-  <a id="Mirror_NetworkManager_StopServer_" data-uid="Mirror.NetworkManager.StopServer*"></a>
-  <h4 id="Mirror_NetworkManager_StopServer" data-uid="Mirror.NetworkManager.StopServer">StopServer()</h4>
-  <div class="markdown level1 summary"><p>Stops the server that the manager is using.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void StopServer()</code></pre>
-  </div>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Mirror.INetworkManager.html">INetworkManager</a>
-  </div>
 </article>
           </div>
           
@@ -795,15 +285,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkManager.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkManager.cs/#L6" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

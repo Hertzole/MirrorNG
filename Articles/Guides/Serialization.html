@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Serialization </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Serialization ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="serialization">Serialization</h1>
+
+<p>This page goes into depth about Serialization, for the basics see <a href="DataTypes.html">DataTypes</a>.</p>
+<p>MirrorNG creates Serialize and Deserialize functions for types using Weaver. Weaver edits dll after unity compiles them using Mono.Cecil. This allows mirror to have a lot of complex features like SyncVar, ClientRpc and Message  Serialization without the user needed to manually set everything up.</p>
+<h2 id="rules-and-tips">Rules and tips</h2>
+<p>There are some rules and limits for what Weaver can do. Some features add complexity and are hard to maintain so have not been implemented. These features are not impossible to implement and could be added if there is a high demand for them.</p>
+<ul>
+<li>You should be able to write Custom Read/Write functions for any type, and Weaver will use.
+<ul>
+<li>This means if there is a unsupported type like <code>int[][]</code> creating a custom Read/Write function will allow you to sync <code>int[][]</code> in SyncVar/ClientRpc/etc</li>
+</ul>
+</li>
+<li>If you have a type that has a field that is not able to be Serialize, you can mark that field with <code>[System.NonSerialized]</code> and weaver will ignore it</li>
+</ul>
+<h3 id="unsupported-types">Unsupported Types</h3>
+<p>Some of these types are unsupported due to the complexity they would add, as mentioned above.</p>
+<blockquote>
+<p>NOTE: Types in this list can have custom writers.</p>
+</blockquote>
+<ul>
+<li>Jagged and Multidimensional array</li>
+<li>Types that Inherit from <code>UnityEngine.Component</code></li>
+<li><code>UnityEngine.Object</code></li>
+<li><code>UnityEngine.ScriptableObject</code></li>
+<li>Generic Types, eg <code>MyData&lt;T&gt;</code>
+<ul>
+<li>Custom Read/Write must declare T, eg <code>MyData&lt;int&gt;</code></li>
+</ul>
+</li>
+<li>Interfaces</li>
+<li>Types that references themselves</li>
+</ul>
+<h3 id="built-in-read-write-functions">Built-in Read Write Functions</h3>
+<p>MirrorNG provides some built-in Read/Write Functions. They can be found in <code>NetworkReaderExtensions</code> and <code>NetworkWriterExtensions</code>.</p>
+<p>This is a Non-compete list of types that have built-in functions, check the classes above to see the full list.</p>
+<ul>
+<li>Most <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types">c# primitive types</a></li>
+<li>Common Unity structs
+<ul>
+<li>Vector3</li>
+<li>Quaternion</li>
+<li>Rect</li>
+<li>Ray</li>
+<li>Guid</li>
+</ul>
+</li>
+<li>NetworkIdentity, GameObject, Transform</li>
+</ul>
+<h4 id="networkidentity-gameobject-transform">NetworkIdentity, GameObject, Transform</h4>
+<p>The <code>netId</code> of the Object is sent over the network, and the Object with the same <code>netId</code> is returned on the other side. If the <code>netId</code> is zero or an object is not found then <code>null</code> will be returned.</p>
+<h3 id="generated-read-write-functions">Generated Read Write Functions</h3>
+<p>Weaver will Generate Read Write functions for</p>
+<ul>
+<li>Classes or Structs</li>
+<li>Enums</li>
+<li>Arrays
+<ul>
+<li>eg <code>int[]</code></li>
+</ul>
+</li>
+<li>ArraySegments
+<ul>
+<li>eg <code>ArraySegment&lt;int&gt;</code></li>
+</ul>
+</li>
+<li>Lists
+<ul>
+<li>eg <code>List&lt;int&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="classes-and-structs">Classes and Structs</h4>
+<p>Weaver will Read/Write every public field in the type, unless the field is marked with <code>[System.NonSerialized]</code>. If there is an unsupported type in the class or struct Weaver will fail to make Read/Write functions for it.</p>
+<blockquote>
+<p>NOTE: Weaver does not check properties</p>
+</blockquote>
+<h4 id="enums">Enums</h4>
+<p>Weaver will use the underlying Type of an enum to Read and Write them. By default this is <code>int</code>.</p>
+<p>For example <code>Switch</code> will use the <code>byte</code> Read/Write functions to be Serialized</p>
+<pre><code class="lang-cs">public enum Switch : byte
+{
+    Left,
+    Middle,
+    Right,
+}
+</code></pre>
+<h4 id="collections">Collections</h4>
+<p>Weaver will Generate writes for the collections listed above. Weaver will use the elements Read/Write function. The element must have a Read/Write function so must be a supported type, or have a custom Read/Write function.</p>
+<p>For example:</p>
+<ul>
+<li><code>float[]</code> is a supported type because MirrorNG has a built-in Read/Write function for <code>float</code>.</li>
+<li><code>MyData[]</code> is a supported type as Weaver is able to generate a Read/Write function for <code>MyData</code></li>
+</ul>
+<pre><code class="lang-cs">public struct MyData
+{
+    public int someValue;
+    public float anotherValue;
+}
+</code></pre>
+<h2 id="adding-custom-read-write-functions">Adding Custom Read Write functions</h2>
+<p>Read Write functions are static methods in the form of:</p>
+<pre><code class="lang-cs">public static void WriteMyType(this NetworkWriter writer, MyType value)
+{
+    // write MyType data here
+}
+
+public static MyType ReadMyType(this NetworkReader reader)
+{
+    // read MyType data here
+}
+</code></pre>
+<p>It is best practice to make Read/Write functions <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods">extension methods</a> so they can be called like <code>writer.WriteMyType(value)</code>.</p>
+<p>It is a good idea to call them <code>ReadMyType</code> and <code>WriteMyType</code> so it is obvious what type they are for. However the name of the function doesn't matter, weaver should be able to find it no matter what it is called.</p>
+<h4 id="properties-example">Properties Example</h4>
+<p>Weaver wont write properties, but a custom writer can be used to send them over the network.</p>
+<p>This can be useful if you want to have private set for your properties</p>
+<pre><code class="lang-cs">public struct MyData
+{
+    public int someValue { get; private set; }
+    public float anotherValue { get; private set; }
+
+    public MyData(int someValue, float anotherValue)
+    {
+        this.someValue = someValue;
+        this.anotherValue = anotherValue;
+    }
+}
+
+public static class CustomReadWriteFunctions 
+{
+    public static void WriteMyType(this NetworkWriter writer, MyData value)
+    {
+        writer.WriteInt32(value.someValue);
+        writer.WriteSingle(value.anotherValue);
+    }
+
+    public static MyData ReadMyType(this NetworkReader reader)
+    {
+        return new MyData(reader.ReadInt32(), reader.ReadSingle());
+    }
+}
+</code></pre>
+<h4 id="unsupported-type-example">Unsupported type Example</h4>
+<p>Rigidbody is an unsupported type because it inherits from <code>Component</code>. But a custom writer can be added so that it is synced using a NetworkIdentity if one is attached.</p>
+<pre><code class="lang-cs">public struct MyCollision
+{
+    public Vector3 force;
+    public Rigidbody rigidbody;
+}
+
+public static class CustomReadWriteFunctions
+{
+    public static void WriteMyCollision(this NetworkWriter writer, MyCollision value)
+    {
+        writer.WriteVector3(value.force);
+
+        NetworkIdentity networkIdentity = value.rigidbody.GetComponent&lt;NetworkIdentity&gt;();
+        writer.WriteNetworkIdentity(networkIdentity);
+    }
+
+    public static MyCollision ReadMyCollision(this NetworkReader reader)
+    {
+        Vector3 force = reader.ReadVector3();
+
+        NetworkIdentity networkIdentity = reader.ReadNetworkIdentity();
+        Rigidbody rigidBody = networkIdentity != null
+            ? networkIdentity.GetComponent&lt;Rigidbody&gt;()
+            : null;
+
+        return new MyCollision
+        {
+            force = force,
+            rigidbody = rigidBody,
+        };
+    }
+}
+</code></pre>
+<p>Above are functions for <code>MyCollision</code>, but instead you could add functions for <code>Rigidbody</code> and let weaver would generate a writer for <code>MyCollision</code>.</p>
+<pre><code class="lang-cs">public static class CustomReadWriteFunctions
+{
+    public static void WriteRigidbody(this NetworkWriter writer, Rigidbody rigidbody)
+    {
+        NetworkIdentity networkIdentity = rigidbody.GetComponent&lt;NetworkIdentity&gt;();
+        writer.WriteNetworkIdentity(networkIdentity);
+    }
+
+    public static Rigidbody ReadRigidbody(this NetworkReader reader)
+    {
+        NetworkIdentity networkIdentity = reader.ReadNetworkIdentity();
+        Rigidbody rigidBody = networkIdentity != null
+            ? networkIdentity.GetComponent&lt;Rigidbody&gt;()
+            : null;
+
+        return rigidBody;
+    }
+}
+</code></pre>
+<h2 id="debugging">Debugging</h2>
+<p>You can use tools like <a href="https://github.com/0xd4d/dnSpy">dnSpy</a> to view the complied code after Weaver has altered it. This can help to understand and debug what MirrorNG and Weaver does.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/doc/Articles/Guides/Serialization.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

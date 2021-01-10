@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Attributes Overview </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Attributes Overview ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="attributes-overview">Attributes Overview</h1>
+
+<p>Networking attributes are added to member functions of NetworkBehaviour scripts, to make them run on either the client or server.</p>
+<p>These attributes can be used for Unity game loop methods like Start or Update, as well as other implemented methods.</p>
+<blockquote>
+<p><strong>NOTE</strong>: when using abstract or virtual methods the Attributes need to be applied to the override methods too.</p>
+</blockquote>
+<ul>
+<li><p><strong><a class="xref" href="../../api/Mirror.ServerAttribute.html">ServerAttribute</a></strong><br>
+Only a server can call the method (throws an error when called on a client unless you specify error = false).</p>
+</li>
+<li><p><strong><a class="xref" href="../../api/Mirror.ClientAttribute.html">ClientAttribute</a></strong><br>
+Only a Client can call the method (throws an error when called on the server unless you specify error = false).</p>
+</li>
+<li><p><strong><a class="xref" href="../../api/Mirror.ClientRpcAttribute.html">ClientRpcAttribute</a></strong><br>
+The server uses a Remote Procedure Call (RPC) to run that function on clients. It has a <strong>target</strong> option allowing you to specify in which clients it should be executed, along with a <strong>channel</strong> option. See also: <a href="Communications/RemoteActions.html">Remote Actions</a></p>
+</li>
+<li><p><strong><a class="xref" href="../../api/Mirror.ServerRpcAttribute.html">ServerRpcAttribute</a></strong><br>
+Call this from a client to run this function on the server. Make sure to validate input etc. It's not possible to call this from a server. Use this as a wrapper around another function, if you want to call it from the server too. Note that you can return value from it. See also <a href="Communications/RemoteActions.html">Remote Actions​</a></p>
+<p>The allowed argument types are:</p>
+<ul>
+<li><p>Basic type (byte, int, float, string, UInt64, etc)</p>
+</li>
+<li><p>Built-in Unity math type (Vector3, Quaternion, etc),</p>
+</li>
+<li><p>Arrays of basic types</p>
+</li>
+<li><p>Structs containing allowable types</p>
+</li>
+<li><p>NetworkIdentity</p>
+</li>
+</ul>
+</li>
+<li><p><strong>SyncVar</strong><br>
+<a href="Sync/SyncVars.html">SyncVars</a> are used to synchronize a variable from the server to all clients automatically. Don't assign them from a client, it's pointless. Don't let them be null, you will get errors. You can use int, long, float, string, Vector3 etc. (all simple types) and NetworkIdentity. You can use <a href="Sync/SyncVarHook.html">hooks</a>.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/doc/Articles/Guides/Attributes.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

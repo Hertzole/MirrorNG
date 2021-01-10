@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class MessagePacker
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="http://mirror-networking.com">
-                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -100,10 +100,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker_GetId_Type_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.GetId(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_GetId_Type_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.GetId(Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L28">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L44">View Source</a>
   </span>
   <a id="Mirror_MessagePacker_GetId_" data-uid="Mirror.MessagePacker.GetId*"></a>
   <h4 id="Mirror_MessagePacker_GetId_Type_" data-uid="Mirror.MessagePacker.GetId(Type)">GetId(Type)</h4>
@@ -147,10 +147,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker_GetId__1.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.GetId%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_GetId__1.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.GetId%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L20">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L39">View Source</a>
   </span>
   <a id="Mirror_MessagePacker_GetId_" data-uid="Mirror.MessagePacker.GetId*"></a>
   <h4 id="Mirror_MessagePacker_GetId__1" data-uid="Mirror.MessagePacker.GetId``1">GetId&lt;T&gt;()</h4>
@@ -158,8 +158,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int GetId&lt;T&gt;()
-    where T : IMessageBase</code></pre>
+    <pre><code class="lang-csharp hljs">public static int GetId&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -193,10 +192,57 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker_Pack__1___0_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.Pack%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_GetMessageType_System_Int32_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.GetMessageType(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L52">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L27">View Source</a>
+  </span>
+  <a id="Mirror_MessagePacker_GetMessageType_" data-uid="Mirror.MessagePacker.GetMessageType*"></a>
+  <h4 id="Mirror_MessagePacker_GetMessageType_System_Int32_" data-uid="Mirror.MessagePacker.GetMessageType(System.Int32)">GetMessageType(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Type GetMessageType(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_Pack__1___0_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.Pack%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L72">View Source</a>
   </span>
   <a id="Mirror_MessagePacker_Pack_" data-uid="Mirror.MessagePacker.Pack*"></a>
   <h4 id="Mirror_MessagePacker_Pack__1___0_" data-uid="Mirror.MessagePacker.Pack``1(``0)">Pack&lt;T&gt;(T)</h4>
@@ -204,8 +250,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static byte[] Pack&lt;T&gt;(T message)
-    where T : IMessageBase</code></pre>
+    <pre><code class="lang-csharp hljs">public static byte[] Pack&lt;T&gt;(T message)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -256,10 +301,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker_Pack__1___0_Mirror_NetworkWriter_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.Pack%60%601(%60%600%2CMirror.NetworkWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_Pack__1___0_Mirror_NetworkWriter_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.Pack%60%601(%60%600%2CMirror.NetworkWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L36">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L55">View Source</a>
   </span>
   <a id="Mirror_MessagePacker_Pack_" data-uid="Mirror.MessagePacker.Pack*"></a>
   <h4 id="Mirror_MessagePacker_Pack__1___0_Mirror_NetworkWriter_" data-uid="Mirror.MessagePacker.Pack``1(``0,Mirror.NetworkWriter)">Pack&lt;T&gt;(T, NetworkWriter)</h4>
@@ -267,8 +312,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void Pack&lt;T&gt;(T message, NetworkWriter writer)
-    where T : IMessageBase</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Pack&lt;T&gt;(T message, NetworkWriter writer)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -309,10 +353,40 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker_Unpack__1_System_Byte___.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.Unpack%60%601(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_RegisterMessage__1.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.RegisterMessage%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L65">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L29">View Source</a>
+  </span>
+  <a id="Mirror_MessagePacker_RegisterMessage_" data-uid="Mirror.MessagePacker.RegisterMessage*"></a>
+  <h4 id="Mirror_MessagePacker_RegisterMessage__1" data-uid="Mirror.MessagePacker.RegisterMessage``1">RegisterMessage&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterMessage&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_Unpack__1_System_Byte___.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.Unpack%60%601(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L85">View Source</a>
   </span>
   <a id="Mirror_MessagePacker_Unpack_" data-uid="Mirror.MessagePacker.Unpack*"></a>
   <h4 id="Mirror_MessagePacker_Unpack__1_System_Byte___" data-uid="Mirror.MessagePacker.Unpack``1(System.Byte[])">Unpack&lt;T&gt;(Byte[])</h4>
@@ -320,8 +394,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static T Unpack&lt;T&gt;(byte[] data)
-    where T : IMessageBase, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public static T Unpack&lt;T&gt;(byte[] data)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -372,10 +445,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker_UnpackId_Mirror_NetworkReader_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.UnpackId(Mirror.NetworkReader)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker_UnpackId_Mirror_NetworkReader_.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker.UnpackId(Mirror.NetworkReader)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L85">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L102">View Source</a>
   </span>
   <a id="Mirror_MessagePacker_UnpackId_" data-uid="Mirror.MessagePacker.UnpackId*"></a>
   <h4 id="Mirror_MessagePacker_UnpackId_Mirror_NetworkReader_" data-uid="Mirror.MessagePacker.UnpackId(Mirror.NetworkReader)">UnpackId(NetworkReader)</h4>
@@ -425,15 +498,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_MessagePacker.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_MessagePacker.md&amp;value=---%0Auid%3A%20Mirror.MessagePacker%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/MessagePacker.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/MessagePacker.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

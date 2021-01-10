@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NetworkIdentity
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="http://mirror-networking.com">
-                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -83,7 +83,9 @@
   
   <h1 id="Mirror_NetworkIdentity" data-uid="Mirror.NetworkIdentity" class="text-break">Class NetworkIdentity
   </h1>
-  <div class="markdown level0 summary"><p>The NetworkIdentity identifies objects across the network, between server and clients. Its primary data is a NetworkInstanceId which is allocated by the server and then set on clients. This is used in network communications to be able to lookup game objects on different machines.</p>
+  <div class="markdown level0 summary"><p>The NetworkIdentity identifies objects across the network, between server and clients.
+Its primary data is a NetworkInstanceId which is allocated by the server and then set on clients.
+This is used in network communications to be able to lookup game objects on different machines.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -98,42 +100,71 @@
     <pre><code class="lang-csharp hljs">public sealed class NetworkIdentity : MonoBehaviour</code></pre>
   </div>
   <h5 id="Mirror_NetworkIdentity_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>The NetworkIdentity is used to synchronize information in the object with the network. Only the server should create instances of objects which have NetworkIdentity as otherwise they will not be properly connected to the system.</p>
-<p>For complex objects with a hierarchy of subcomponents, the NetworkIdentity must be on the root of the hierarchy. It is not supported to have multiple NetworkIdentity components on subcomponents of a hierarchy.</p>
-<p>NetworkBehaviour scripts require a NetworkIdentity on the game object to be able to function.</p>
-<p>The NetworkIdentity manages the dirty state of the NetworkBehaviours of the object. When it discovers that NetworkBehaviours are dirty, it causes an update packet to be created and sent to clients.</p>
-<p>The flow for serialization updates managed by the NetworkIdentity is:</p>
-<p>* Each NetworkBehaviour has a dirty mask. This mask is available inside OnSerialize as syncVarDirtyBits</p>
-<p>* Each SyncVar in a NetworkBehaviour script is assigned a bit in the dirty mask.</p>
-<p>* Changing the value of SyncVars causes the bit for that SyncVar to be set in the dirty mask</p>
-<p>* Alternatively, calling SetDirtyBit() writes directly to the dirty mask</p>
-<p>* NetworkIdentity objects are checked on the server as part of it&apos;s update loop</p>
-<p>* If any NetworkBehaviours on a NetworkIdentity are dirty, then an UpdateVars packet is created for that object</p>
-<p>* The UpdateVars packet is populated by calling OnSerialize on each NetworkBehaviour on the object</p>
-<p>* NetworkBehaviours that are NOT dirty write a zero to the packet for their dirty bits</p>
-<p>* NetworkBehaviours that are dirty write their dirty mask, then the values for the SyncVars that have changed</p>
-<p>* If OnSerialize returns true for a NetworkBehaviour, the dirty mask is reset for that NetworkBehaviour, so it will not send again until its value changes.</p>
-<p>* The UpdateVars packet is sent to ready clients that are observing the object</p>
-<p>On the client:</p>
-<p>* an UpdateVars packet is received for an object</p>
-<p>* The OnDeserialize function is called for each NetworkBehaviour script on the object</p>
-<p>* Each NetworkBehaviour script on the object reads a dirty mask.</p>
-<p>* If the dirty mask for a NetworkBehaviour is zero, the OnDeserialize functions returns without reading any more</p>
-<p>* If the dirty mask is non-zero value, then the OnDeserialize function reads the values for the SyncVars that correspond to the dirty bits that are set</p>
-<p>* If there are SyncVar hook functions, those are invoked with the value read from the stream.</p>
+  <div class="markdown level0 remarks"><p>
+    The NetworkIdentity is used to synchronize information in the object with the network.
+    Only the server should create instances of objects which have NetworkIdentity as otherwise
+    they will not be properly connected to the system.
+</p>
+<p>
+    For complex objects with a hierarchy of subcomponents, the NetworkIdentity must be on the root of the hierarchy.
+    It is not supported to have multiple NetworkIdentity components on subcomponents of a hierarchy.
+</p>
+<p>
+    NetworkBehaviour scripts require a NetworkIdentity on the game object to be able to function.
+</p>
+<p>
+    The NetworkIdentity manages the dirty state of the NetworkBehaviours of the object.
+    When it discovers that NetworkBehaviours are dirty, it causes an update packet to be created and sent to clients.
+</p>
+<p>
+    The flow for serialization updates managed by the NetworkIdentity is:
+<ul><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+</p>
+<p>
+    On the client:
+<ul><li></li><li></li><li></li><li></li><li></li><li></li></ul>
+</p>
 </div>
   <h3 id="fields">Fields
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_observers.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.observers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_ClientObjectManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ClientObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L89">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L177">View Source</a>
+  </span>
+  <h4 id="Mirror_NetworkIdentity_ClientObjectManager" data-uid="Mirror.NetworkIdentity.ClientObjectManager">ClientObjectManager</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientObjectManager ClientObjectManager</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.ClientObjectManager.html">ClientObjectManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_observers.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.observers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L144">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_observers" data-uid="Mirror.NetworkIdentity.observers">observers</h4>
   <div class="markdown level1 summary"><p>The set of network connections (players) that can see this object.</p>
-<p>null until OnStartServer was called. this is necessary for SendTo* to work properly in server-only mode.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -157,15 +188,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L261">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L324">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStartAuthority" data-uid="Mirror.NetworkIdentity.OnStartAuthority">OnStartAuthority</h4>
   <div class="markdown level1 summary"><p>This is invoked on behaviours that have authority, based on context and <a class="xref" href="Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_HasAuthority">HasAuthority</a>.</p>
 <p>This is called after <a class="xref" href="Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartServer">OnStartServer</a> and before <a class="xref" href="Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartClient">OnStartClient</a></p>
-<p>When <a class="xref" href="Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_AssignClientAuthority_Mirror_INetworkConnection_">AssignClientAuthority(INetworkConnection)</a> is called on the server, this will be called on the client that owns the object. When an object is spawned with <a class="xref" href="Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_GameObject_">Spawn(GameObject, GameObject)</a> with a NetworkConnection parameter included, this will be called on the client that owns the object.</p>
+<p>When <a class="xref" href="Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_AssignClientAuthority_Mirror_INetworkConnection_">AssignClientAuthority(INetworkConnection)</a> is called on the server, this will be called on the client that owns the object. When an object is spawned with <a class="xref" href="Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Spawn_GameObject_GameObject_">Spawn(GameObject, GameObject)</a> with a NetworkConnection parameter included, this will be called on the client that owns the object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -189,10 +220,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L248">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L311">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStartClient" data-uid="Mirror.NetworkIdentity.OnStartClient">OnStartClient</h4>
   <div class="markdown level1 summary"><p>Called on every NetworkBehaviour when it is activated on a client.</p>
@@ -220,10 +251,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartLocalPlayer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartLocalPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartLocalPlayer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartLocalPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L254">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L317">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStartLocalPlayer" data-uid="Mirror.NetworkIdentity.OnStartLocalPlayer">OnStartLocalPlayer</h4>
   <div class="markdown level1 summary"><p>Called when the local player object has been set up.</p>
@@ -251,10 +282,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStartServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStartServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L242">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L305">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStartServer" data-uid="Mirror.NetworkIdentity.OnStartServer">OnStartServer</h4>
   <div class="markdown level1 summary"><p>This is invoked for NetworkBehaviour objects when they become active on the server.</p>
@@ -283,10 +314,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStopAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStopAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStopAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStopAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L267">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L330">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStopAuthority" data-uid="Mirror.NetworkIdentity.OnStopAuthority">OnStopAuthority</h4>
   <div class="markdown level1 summary"><p>This is invoked on behaviours when authority is removed.</p>
@@ -314,10 +345,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStopClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStopClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStopClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStopClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L274">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L337">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStopClient" data-uid="Mirror.NetworkIdentity.OnStopClient">OnStopClient</h4>
   <div class="markdown level1 summary"><p>This is invoked on clients when the server has caused this object to be destroyed.</p>
@@ -345,10 +376,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_OnStopServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStopServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_OnStopServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.OnStopServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L280">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L343">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_OnStopServer" data-uid="Mirror.NetworkIdentity.OnStopServer">OnStopServer</h4>
   <div class="markdown level1 summary"><p>This is called on the server when the object is unspawned</p>
@@ -378,10 +409,10 @@
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_sceneId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.sceneId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_sceneId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.sceneId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L103">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L158">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_sceneId" data-uid="Mirror.NetworkIdentity.sceneId">sceneId</h4>
   <div class="markdown level1 summary"><p>A unique identifier for NetworkIdentity objects within a scene.</p>
@@ -409,18 +440,17 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_serverOnly.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.serverOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_ServerObjectManager.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ServerObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L109">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L165">View Source</a>
   </span>
-  <h4 id="Mirror_NetworkIdentity_serverOnly" data-uid="Mirror.NetworkIdentity.serverOnly">serverOnly</h4>
-  <div class="markdown level1 summary"><p>Flag to make this object only exist when the game is running as a server (or host).</p>
-</div>
+  <h4 id="Mirror_NetworkIdentity_ServerObjectManager" data-uid="Mirror.NetworkIdentity.ServerObjectManager">ServerObjectManager</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool serverOnly</code></pre>
+    <pre><code class="lang-csharp hljs">public ServerObjectManager ServerObjectManager</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -432,7 +462,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><a class="xref" href="Mirror.ServerObjectManager.html">ServerObjectManager</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -441,15 +471,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_AssetId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.AssetId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_AssetId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.AssetId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L192">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L252">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_AssetId_" data-uid="Mirror.NetworkIdentity.AssetId*"></a>
   <h4 id="Mirror_NetworkIdentity_AssetId" data-uid="Mirror.NetworkIdentity.AssetId">AssetId</h4>
-  <div class="markdown level1 summary"><p>Unique identifier used to find the source assets when server spawns the on clients.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -470,12 +499,18 @@
       </tr>
     </tbody>
   </table>
+  <h5 id="Mirror_NetworkIdentity_AssetId_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The AssetId trick:</p>
+<ul><li></li><li></li><li></li></ul>
+The solution is to serialize the string internally here and then
+use the real &apos;Guid&apos; type for everything else via .assetId
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_Client.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_Client.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L124">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L175">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_Client_" data-uid="Mirror.NetworkIdentity.Client*"></a>
   <h4 id="Mirror_NetworkIdentity_Client" data-uid="Mirror.NetworkIdentity.Client">Client</h4>
@@ -503,10 +538,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_ConnectionToClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ConnectionToClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_ConnectionToClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ConnectionToClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L132">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L185">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_ConnectionToClient_" data-uid="Mirror.NetworkIdentity.ConnectionToClient*"></a>
   <h4 id="Mirror_NetworkIdentity_ConnectionToClient" data-uid="Mirror.NetworkIdentity.ConnectionToClient">ConnectionToClient</h4>
@@ -535,10 +570,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_ConnectionToServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ConnectionToServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_ConnectionToServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ConnectionToServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L119">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L170">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_ConnectionToServer_" data-uid="Mirror.NetworkIdentity.ConnectionToServer*"></a>
   <h4 id="Mirror_NetworkIdentity_ConnectionToServer" data-uid="Mirror.NetworkIdentity.ConnectionToServer">ConnectionToServer</h4>
@@ -566,10 +601,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_HasAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.HasAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_HasAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.HasAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L83">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L139">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_HasAuthority_" data-uid="Mirror.NetworkIdentity.HasAuthority*"></a>
   <h4 id="Mirror_NetworkIdentity_HasAuthority" data-uid="Mirror.NetworkIdentity.HasAuthority">HasAuthority</h4>
@@ -599,10 +634,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_IsClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_IsClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L60">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L116">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_IsClient_" data-uid="Mirror.NetworkIdentity.IsClient*"></a>
   <h4 id="Mirror_NetworkIdentity_IsClient" data-uid="Mirror.NetworkIdentity.IsClient">IsClient</h4>
@@ -630,10 +665,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_IsLocalClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsLocalClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_IsLocalClient.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsLocalClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L70">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L126">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_IsLocalClient_" data-uid="Mirror.NetworkIdentity.IsLocalClient*"></a>
   <h4 id="Mirror_NetworkIdentity_IsLocalClient" data-uid="Mirror.NetworkIdentity.IsLocalClient">IsLocalClient</h4>
@@ -661,10 +696,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_IsLocalPlayer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsLocalPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_IsLocalPlayer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsLocalPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L76">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L132">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_IsLocalPlayer_" data-uid="Mirror.NetworkIdentity.IsLocalPlayer*"></a>
   <h4 id="Mirror_NetworkIdentity_IsLocalPlayer" data-uid="Mirror.NetworkIdentity.IsLocalPlayer">IsLocalPlayer</h4>
@@ -693,10 +728,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_IsServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_IsServer.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.IsServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L65">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L121">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_IsServer_" data-uid="Mirror.NetworkIdentity.IsServer*"></a>
   <h4 id="Mirror_NetworkIdentity_IsServer" data-uid="Mirror.NetworkIdentity.IsServer">IsServer</h4>
@@ -724,10 +759,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_NetId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.NetId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_NetId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.NetId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L95">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L150">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_NetId_" data-uid="Mirror.NetworkIdentity.NetId*"></a>
   <h4 id="Mirror_NetworkIdentity_NetId" data-uid="Mirror.NetworkIdentity.NetId">NetId</h4>
@@ -756,10 +791,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_NetworkBehaviours.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.NetworkBehaviours%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_NetworkBehaviours.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.NetworkBehaviours%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L146">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L199">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_NetworkBehaviours_" data-uid="Mirror.NetworkIdentity.NetworkBehaviours*"></a>
   <h4 id="Mirror_NetworkIdentity_NetworkBehaviours" data-uid="Mirror.NetworkIdentity.NetworkBehaviours">NetworkBehaviours</h4>
@@ -786,10 +821,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_Server.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.Server%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_Server.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.Server%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L114">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L163">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_Server_" data-uid="Mirror.NetworkIdentity.Server*"></a>
   <h4 id="Mirror_NetworkIdentity_Server" data-uid="Mirror.NetworkIdentity.Server">Server</h4>
@@ -817,10 +852,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_SpawnedFromInstantiate.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.SpawnedFromInstantiate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_SpawnedFromInstantiate.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.SpawnedFromInstantiate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L333">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L404">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_SpawnedFromInstantiate_" data-uid="Mirror.NetworkIdentity.SpawnedFromInstantiate*"></a>
   <h4 id="Mirror_NetworkIdentity_SpawnedFromInstantiate" data-uid="Mirror.NetworkIdentity.SpawnedFromInstantiate">SpawnedFromInstantiate</h4>
@@ -847,10 +882,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_Visibility.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.Visibility%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_Visibility.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.Visibility%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L166">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L218">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_Visibility_" data-uid="Mirror.NetworkIdentity.Visibility*"></a>
   <h4 id="Mirror_NetworkIdentity_Visibility" data-uid="Mirror.NetworkIdentity.Visibility">Visibility</h4>
@@ -879,10 +914,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_AssignClientAuthority_Mirror_INetworkConnection_.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.AssignClientAuthority(Mirror.INetworkConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_AssignClientAuthority_Mirror_INetworkConnection_.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.AssignClientAuthority(Mirror.INetworkConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L1096">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L1144">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_AssignClientAuthority_" data-uid="Mirror.NetworkIdentity.AssignClientAuthority*"></a>
   <h4 id="Mirror_NetworkIdentity_AssignClientAuthority_Mirror_INetworkConnection_" data-uid="Mirror.NetworkIdentity.AssignClientAuthority(Mirror.INetworkConnection)">AssignClientAuthority(INetworkConnection)</h4>
@@ -915,10 +950,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_GetSceneIdentity_System_UInt64_.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_GetSceneIdentity_System_UInt64_.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L287">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L350">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_GetSceneIdentity_" data-uid="Mirror.NetworkIdentity.GetSceneIdentity*"></a>
   <h4 id="Mirror_NetworkIdentity_GetSceneIdentity_System_UInt64_" data-uid="Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)">GetSceneIdentity(UInt64)</h4>
@@ -964,14 +999,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_RebuildObservers_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.RebuildObservers(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_RebuildObservers_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.RebuildObservers(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L988">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L1029">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_RebuildObservers_" data-uid="Mirror.NetworkIdentity.RebuildObservers*"></a>
   <h4 id="Mirror_NetworkIdentity_RebuildObservers_System_Boolean_" data-uid="Mirror.NetworkIdentity.RebuildObservers(System.Boolean)">RebuildObservers(Boolean)</h4>
-  <div class="markdown level1 summary"><p>This causes the set of players that can see this object to be rebuild. The OnRebuildObservers callback function will be invoked on each NetworkBehaviour.</p>
+  <div class="markdown level1 summary"><p>This causes the set of players that can see this object to be rebuild.
+The OnRebuildObservers callback function will be invoked on each NetworkBehaviour.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -998,15 +1034,15 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_RemoveClientAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.RemoveClientAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_RemoveClientAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.RemoveClientAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L1127">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L1175">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_RemoveClientAuthority_" data-uid="Mirror.NetworkIdentity.RemoveClientAuthority*"></a>
   <h4 id="Mirror_NetworkIdentity_RemoveClientAuthority" data-uid="Mirror.NetworkIdentity.RemoveClientAuthority">RemoveClientAuthority()</h4>
   <div class="markdown level1 summary"><p>Removes ownership for an object.</p>
-<p>This applies to objects that had authority set by AssignClientAuthority, or <a class="xref" href="Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_GameObject_">Spawn(GameObject, GameObject)</a> with a NetworkConnection parameter included.</p>
+<p>This applies to objects that had authority set by AssignClientAuthority, or <a class="xref" href="Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Spawn_GameObject_GameObject_">Spawn(GameObject, GameObject)</a> with a NetworkConnection parameter included.</p>
 <p>Authority cannot be removed for player objects.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1016,10 +1052,10 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_ResetNextNetworkId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ResetNextNetworkId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_ResetNextNetworkId.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.ResetNextNetworkId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L308">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L374">View Source</a>
   </span>
   <a id="Mirror_NetworkIdentity_ResetNextNetworkId_" data-uid="Mirror.NetworkIdentity.ResetNextNetworkId*"></a>
   <h4 id="Mirror_NetworkIdentity_ResetNextNetworkId" data-uid="Mirror.NetworkIdentity.ResetNextNetworkId">ResetNextNetworkId()</h4>
@@ -1034,10 +1070,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity_clientAuthorityCallback.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.clientAuthorityCallback%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity_clientAuthorityCallback.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity.clientAuthorityCallback%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L323">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L389">View Source</a>
   </span>
   <h4 id="Mirror_NetworkIdentity_clientAuthorityCallback" data-uid="Mirror.NetworkIdentity.clientAuthorityCallback">clientAuthorityCallback</h4>
   <div class="markdown level1 summary"><p>A callback that can be populated to be notified when the client-authority state of objects changes.</p>
@@ -1072,15 +1108,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkIdentity.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkIdentity.md&amp;value=---%0Auid%3A%20Mirror.NetworkIdentity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkIdentity.cs/#L47" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkIdentity.cs/#L103" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

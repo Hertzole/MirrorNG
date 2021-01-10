@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class NetworkTransformBase
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="http://mirror-networking.com">
-                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -129,7 +129,13 @@
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_Server">NetworkBehaviour.Server</a>
     </div>
     <div>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_ServerObjectManager">NetworkBehaviour.ServerObjectManager</a>
+    </div>
+    <div>
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_Client">NetworkBehaviour.Client</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_ClientObjectManager">NetworkBehaviour.ClientObjectManager</a>
     </div>
     <div>
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_ConnectionToServer">NetworkBehaviour.ConnectionToServer</a>
@@ -162,55 +168,31 @@
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_InitSyncObject_Mirror_ISyncObject_">NetworkBehaviour.InitSyncObject(ISyncObject)</a>
     </div>
     <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendCommandInternal_Type_System_String_Mirror_NetworkWriter_System_Int32_System_Boolean_">NetworkBehaviour.SendCommandInternal(Type, String, NetworkWriter, Int32, Boolean)</a>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendServerRpcInternal_Type_System_String_Mirror_NetworkWriter_System_Int32_System_Boolean_">NetworkBehaviour.SendServerRpcInternal(Type, String, NetworkWriter, Int32, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_InvokeCommand_System_Int32_Mirror_NetworkReader_">NetworkBehaviour.InvokeCommand(Int32, NetworkReader)</a>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendServerRpcWithReturn__1_Type_System_String_Mirror_NetworkWriter_System_Int32_System_Boolean_">NetworkBehaviour.SendServerRpcWithReturn&lt;T&gt;(Type, String, NetworkWriter, Int32, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendRPCInternal_Type_System_String_Mirror_NetworkWriter_System_Int32_System_Boolean_">NetworkBehaviour.SendRPCInternal(Type, String, NetworkWriter, Int32, Boolean)</a>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendRpcInternal_Type_System_String_Mirror_NetworkWriter_System_Int32_System_Boolean_">NetworkBehaviour.SendRpcInternal(Type, String, NetworkWriter, Int32, Boolean)</a>
     </div>
     <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendTargetRPCInternal_Mirror_INetworkConnection_Type_System_String_Mirror_NetworkWriter_System_Int32_">NetworkBehaviour.SendTargetRPCInternal(INetworkConnection, Type, String, NetworkWriter, Int32)</a>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendTargetRpcInternal_Mirror_INetworkConnection_Type_System_String_Mirror_NetworkWriter_System_Int32_">NetworkBehaviour.SendTargetRpcInternal(INetworkConnection, Type, String, NetworkWriter, Int32)</a>
     </div>
     <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_InvokeRpc_System_Int32_Mirror_NetworkReader_">NetworkBehaviour.InvokeRpc(Int32, NetworkReader)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SendEventInternal_Type_System_String_Mirror_NetworkWriter_System_Int32_">NetworkBehaviour.SendEventInternal(Type, String, NetworkWriter, Int32)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_InvokeSyncEvent_System_Int32_Mirror_NetworkReader_">NetworkBehaviour.InvokeSyncEvent(Int32, NetworkReader)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarGameObjectEqual_GameObject_System_UInt32_">NetworkBehaviour.SyncVarGameObjectEqual(GameObject, UInt32)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SetSyncVarGameObject_GameObject_GameObject__System_UInt64_System_UInt32__">NetworkBehaviour.SetSyncVarGameObject(GameObject, GameObject, UInt64, UInt32)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_GetSyncVarGameObject_System_UInt32_GameObject__">NetworkBehaviour.GetSyncVarGameObject(UInt32, GameObject)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarNetworkIdentityEqual_Mirror_NetworkIdentity_System_UInt32_">NetworkBehaviour.SyncVarNetworkIdentityEqual(NetworkIdentity, UInt32)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SetSyncVarNetworkIdentity_Mirror_NetworkIdentity_Mirror_NetworkIdentity__System_UInt64_System_UInt32__">NetworkBehaviour.SetSyncVarNetworkIdentity(NetworkIdentity, NetworkIdentity, UInt64, UInt32)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_GetSyncVarNetworkIdentity_System_UInt32_Mirror_NetworkIdentity__">NetworkBehaviour.GetSyncVarNetworkIdentity(UInt32, NetworkIdentity)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarEqual__1___0___0__">NetworkBehaviour.SyncVarEqual&lt;T&gt;(T, T)</a>
-    </div>
-    <div>
-      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SetSyncVar__1___0___0__System_UInt64_">NetworkBehaviour.SetSyncVar&lt;T&gt;(T, T, UInt64)</a>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarEqual__1___0___0_">NetworkBehaviour.SyncVarEqual&lt;T&gt;(T, T)</a>
     </div>
     <div>
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SetDirtyBit_System_UInt64_">NetworkBehaviour.SetDirtyBit(UInt64)</a>
     </div>
     <div>
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_ClearAllDirtyBits">NetworkBehaviour.ClearAllDirtyBits()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_IsDirty">NetworkBehaviour.IsDirty()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_StillDirty">NetworkBehaviour.StillDirty()</a>
     </div>
     <div>
       <a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SerializeSyncVars_Mirror_NetworkWriter_System_Boolean_">NetworkBehaviour.SerializeSyncVars(NetworkWriter, Boolean)</a>
@@ -235,10 +217,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_ClientAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.ClientAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_ClientAuthority.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.ClientAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L28">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L28">View Source</a>
   </span>
   <h4 id="Mirror_NetworkTransformBase_ClientAuthority" data-uid="Mirror.NetworkTransformBase.ClientAuthority">ClientAuthority</h4>
   <div class="markdown level1 summary"></div>
@@ -264,10 +246,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_LocalPositionSensitivity.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.LocalPositionSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_LocalPositionSensitivity.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.LocalPositionSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L38">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L38">View Source</a>
   </span>
   <h4 id="Mirror_NetworkTransformBase_LocalPositionSensitivity" data-uid="Mirror.NetworkTransformBase.LocalPositionSensitivity">LocalPositionSensitivity</h4>
   <div class="markdown level1 summary"></div>
@@ -293,10 +275,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_LocalRotationSensitivity.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.LocalRotationSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_LocalRotationSensitivity.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.LocalRotationSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L40">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L40">View Source</a>
   </span>
   <h4 id="Mirror_NetworkTransformBase_LocalRotationSensitivity" data-uid="Mirror.NetworkTransformBase.LocalRotationSensitivity">LocalRotationSensitivity</h4>
   <div class="markdown level1 summary"></div>
@@ -322,10 +304,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_LocalScaleSensitivity.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.LocalScaleSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_LocalScaleSensitivity.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.LocalScaleSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L42">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L42">View Source</a>
   </span>
   <h4 id="Mirror_NetworkTransformBase_LocalScaleSensitivity" data-uid="Mirror.NetworkTransformBase.LocalScaleSensitivity">LocalScaleSensitivity</h4>
   <div class="markdown level1 summary"></div>
@@ -353,10 +335,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_TargetComponent.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.TargetComponent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_TargetComponent.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.TargetComponent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L45">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L45">View Source</a>
   </span>
   <a id="Mirror_NetworkTransformBase_TargetComponent_" data-uid="Mirror.NetworkTransformBase.TargetComponent*"></a>
   <h4 id="Mirror_NetworkTransformBase_TargetComponent" data-uid="Mirror.NetworkTransformBase.TargetComponent">TargetComponent</h4>
@@ -385,10 +367,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_OnDeserialize_Mirror_NetworkReader_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.OnDeserialize(Mirror.NetworkReader%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_OnDeserialize_Mirror_NetworkReader_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.OnDeserialize(Mirror.NetworkReader%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L191">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L191">View Source</a>
   </span>
   <a id="Mirror_NetworkTransformBase_OnDeserialize_" data-uid="Mirror.NetworkTransformBase.OnDeserialize*"></a>
   <h4 id="Mirror_NetworkTransformBase_OnDeserialize_Mirror_NetworkReader_System_Boolean_" data-uid="Mirror.NetworkTransformBase.OnDeserialize(Mirror.NetworkReader,System.Boolean)">OnDeserialize(NetworkReader, Boolean)</h4>
@@ -424,10 +406,10 @@
   <div><a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_OnDeserialize_Mirror_NetworkReader_System_Boolean_">NetworkBehaviour.OnDeserialize(NetworkReader, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_OnSerialize_Mirror_NetworkWriter_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.OnSerialize(Mirror.NetworkWriter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_OnSerialize_Mirror_NetworkWriter_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.OnSerialize(Mirror.NetworkWriter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L83">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L83">View Source</a>
   </span>
   <a id="Mirror_NetworkTransformBase_OnSerialize_" data-uid="Mirror.NetworkTransformBase.OnSerialize*"></a>
   <h4 id="Mirror_NetworkTransformBase_OnSerialize_Mirror_NetworkWriter_System_Boolean_" data-uid="Mirror.NetworkTransformBase.OnSerialize(Mirror.NetworkWriter,System.Boolean)">OnSerialize(NetworkWriter, Boolean)</h4>
@@ -478,10 +460,10 @@
   <div><a class="xref" href="Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_OnSerialize_Mirror_NetworkWriter_System_Boolean_">NetworkBehaviour.OnSerialize(NetworkWriter, Boolean)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase_SerializeIntoWriter_Mirror_NetworkWriter_Vector3_Quaternion_Vector3_.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.SerializeIntoWriter(Mirror.NetworkWriter%2CVector3%2CQuaternion%2CVector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase_SerializeIntoWriter_Mirror_NetworkWriter_Vector3_Quaternion_Vector3_.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase.SerializeIntoWriter(Mirror.NetworkWriter%2CVector3%2CQuaternion%2CVector3)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L71">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L71">View Source</a>
   </span>
   <a id="Mirror_NetworkTransformBase_SerializeIntoWriter_" data-uid="Mirror.NetworkTransformBase.SerializeIntoWriter*"></a>
   <h4 id="Mirror_NetworkTransformBase_SerializeIntoWriter_Mirror_NetworkWriter_Vector3_Quaternion_Vector3_" data-uid="Mirror.NetworkTransformBase.SerializeIntoWriter(Mirror.NetworkWriter,Vector3,Quaternion,Vector3)">SerializeIntoWriter(NetworkWriter, Vector3, Quaternion, Vector3)</h4>
@@ -531,15 +513,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_NetworkTransformBase.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_NetworkTransformBase.md&amp;value=---%0Auid%3A%20Mirror.NetworkTransformBase%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Components/NetworkTransformBase.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Components/NetworkTransformBase.cs/#L24" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

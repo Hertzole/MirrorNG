@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PooledNetworkReader
    ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="http://mirror-networking.com">
-                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -105,6 +105,12 @@
       <a class="xref" href="Mirror.NetworkReader.html#Mirror_NetworkReader_Length">NetworkReader.Length</a>
     </div>
     <div>
+      <a class="xref" href="Mirror.NetworkReader.html#Mirror_NetworkReader_Client">NetworkReader.Client</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.NetworkReader.html#Mirror_NetworkReader_Server">NetworkReader.Server</a>
+    </div>
+    <div>
       <a class="xref" href="Mirror.NetworkReader.html#Mirror_NetworkReader_ReadByte">NetworkReader.ReadByte()</a>
     </div>
     <div>
@@ -128,21 +134,24 @@
     <div>
       <a class="xref" href="Mirror.NetworkReader.html#Mirror_NetworkReader_ToString">NetworkReader.ToString()</a>
     </div>
+    <div>
+      <a class="xref" href="Mirror.NetworkReader.html#Mirror_NetworkReader_Read__1">NetworkReader.Read&lt;T&gt;()</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
   <h6><strong>Assembly</strong>: doc.dll</h6>
   <h5 id="Mirror_PooledNetworkReader_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class PooledNetworkReader : NetworkReader, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class PooledNetworkReader : NetworkReader, IDisposable</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_PooledNetworkReader_Dispose.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkReader.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_PooledNetworkReader_Dispose.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkReader.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkReaderPool.cs/#L15">View Source</a>
+    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkReaderPool.cs/#L15">View Source</a>
   </span>
   <a id="Mirror_PooledNetworkReader_Dispose_" data-uid="Mirror.PooledNetworkReader.Dispose*"></a>
   <h4 id="Mirror_PooledNetworkReader_Dispose" data-uid="Mirror.PooledNetworkReader.Dispose">Dispose()</h4>
@@ -157,6 +166,15 @@
       <span class="xref">IDisposable</span>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_ReadGameObject_Mirror_NetworkReader_">GameObjectSerializers.ReadGameObject(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_ReadNetworkBehaviour_Mirror_NetworkReader_">NetworkBehaviorSerializers.ReadNetworkBehaviour(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_ReadNetworkIdentity_Mirror_NetworkReader_">NetworkIdentitySerializers.ReadNetworkIdentity(NetworkReader)</a>
+  </div>
   <div>
       <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadByte_Mirror_NetworkReader_">NetworkReaderExtensions.ReadByte(NetworkReader)</a>
   </div>
@@ -260,19 +278,16 @@
       <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGuid_Mirror_NetworkReader_">NetworkReaderExtensions.ReadGuid(NetworkReader)</a>
   </div>
   <div>
-      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadTransform_Mirror_NetworkReader_">NetworkReaderExtensions.ReadTransform(NetworkReader)</a>
-  </div>
-  <div>
-      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGameObject_Mirror_NetworkReader_">NetworkReaderExtensions.ReadGameObject(NetworkReader)</a>
-  </div>
-  <div>
       <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkIdentity_Mirror_NetworkReader_">NetworkReaderExtensions.ReadNetworkIdentity(NetworkReader)</a>
   </div>
   <div>
-      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadUri_Mirror_NetworkReader_">NetworkReaderExtensions.ReadUri(NetworkReader)</a>
+      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadList__1_Mirror_NetworkReader_">NetworkReaderExtensions.ReadList&lt;T&gt;(NetworkReader)</a>
   </div>
   <div>
-      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadMessage__1_Mirror_NetworkReader___0_">NetworkReaderExtensions.ReadMessage&lt;T&gt;(NetworkReader, T)</a>
+      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadArray__1_Mirror_NetworkReader_">NetworkReaderExtensions.ReadArray&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadUri_Mirror_NetworkReader_">NetworkReaderExtensions.ReadUri(NetworkReader)</a>
   </div>
 </article>
           </div>
@@ -282,15 +297,16 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/b786646f1859bb0e1836460c6319a507e1cc31aa/apiSpec/new?filename=Mirror_PooledNetworkReader.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkReader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirror_PooledNetworkReader.md&amp;value=---%0Auid%3A%20Mirror.PooledNetworkReader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b786646f1859bb0e1836460c6319a507e1cc31aa/Assets/Mirror/Runtime/NetworkReaderPool.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/10b892834f333cddf72b96c7eff7c3a265f70d5b/Assets/Mirror/Runtime/NetworkReaderPool.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

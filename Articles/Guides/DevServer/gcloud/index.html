@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Google Cloud Services </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Google Cloud Services ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
+                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="google-cloud-services">Google Cloud Services</h1>
+
+<p>This guide will explain how to set up a Linux server running on <a href="https://cloud.google.com/">Google Cloud</a>.</p>
+<p>Google cloud offers $300 free credits to new users for a limited time, and it also have &quot;Always free products&quot;. See <a href="https://cloud.google.com/free">overview</a> and <a href="https://cloud.google.com/free/docs/gcp-free-tier">docs</a> for more information.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<ol>
+<li>In the Cloud Console, on the project selector page, select or create a Cloud project.</li>
+</ol>
+<blockquote>
+<p>Note: If you don't plan to keep the resources that you create in this procedure, create a project instead of selecting an existing project. After you finish these steps, you can delete the project, removing all resources associated with the project.</p>
+</blockquote>
+<p><strong><a href="https://console.cloud.google.com/projectselector2/home/dashboard">Go to the project selector page</a></strong></p>
+<ol start="2">
+<li>You may need to enable billing for your Google Cloud project. If you have free credits (see above) then these will be used first. <a href="https://cloud.google.com/billing/docs/how-to/modify-project">Learn how to confirm billing is enabled for your project.</a></li>
+</ol>
+<h2 id="setting-up-a-new-server">Setting up a new Server</h2>
+<p>Start by creating and configuring a new Compute Engine instance.</p>
+<ol>
+<li>In the Cloud Console, go to the VM instances page:</li>
+</ol>
+<p><strong><a href="https://console.cloud.google.com/compute/instances">Go to the VM instances page</a></strong></p>
+<p>If this is your first instance you will see a dialog prompting you to create a new virtual machine</p>
+<p><img src="01-vm-instances.jpg" alt="create new"></p>
+<ol start="2">
+<li><p>Click Create to get started.</p>
+</li>
+<li><p>On the Create an instance page, configure your instance as follows:</p>
+<ul>
+<li>Name your instance. This tutorial uses the instance name <code>mirror-instance-demo</code> throughout.</li>
+<li>Select the region and zone in which you want your instance to be hosted. This tutorial uses the region <code>us-central1 (Iowa)</code> and the zone <code>us-central1-a</code> throughout.</li>
+<li>Machine configuration depends on the size of your game. For a simple example we can use a small server.
+<ul>
+<li>select <code>N1</code> for series</li>
+<li>select <code>f1-micro</code> for machine type</li>
+</ul>
+</li>
+<li>In the Boot disk section, click Change. The Boot disk dialog will pop up.</li>
+<li>Change the disk type to SSD Persistent Disk.</li>
+</ul>
+</li>
+</ol>
+<p><img src="02-create-instance-name-region.jpg" alt="create instance with name and region"></p>
+<ol start="4">
+<li>Boot disk can be left as default <code>10gb standard persistent disk</code> with <code>Debian GNU/Linux 9 (stretch)</code> for this tutorial.</li>
+</ol>
+<p>You may want to change it to best fit your needs. You can instead use an ssd or increase its size, however this will increase the monthly cost.</p>
+<p><img src="03-boot-disk.jpg" alt="Boot disk"></p>
+<blockquote>
+<p>Note: The monthly estimate should be shown at the top right next to <code>Name</code></p>
+</blockquote>
+<ol start="5">
+<li>To configure Network settings first example the <code>Management, security, disks, networking, solo tenancy</code> section, then click on the <code>Networking</code> tab.</li>
+</ol>
+<p><img src="04-expand-network-settings.jpg" alt="expand network settings"></p>
+<ol start="6">
+<li>Set a Network tag, this will allow you to set up firewall rules later on.</li>
+</ol>
+<p>This tutorial use <code>mirror-demo</code> as the tag</p>
+<p><img src="05-network-tag.jpg" alt="set network tag"></p>
+<ol start="7">
+<li><p>Set up a static IP address for your instance</p>
+<p>a) Under <strong>Network interfaces</strong> click on <code>default</code> and it will bring up a config menu</p>
+<p>b) Select the <strong>External IP</strong> dropdown and select <code>Create IP address</code></p>
+<p>c) Enter a name for this ip and press <strong>Reserve</strong>. For this tutorial we will use <code>mirror-demo-ip</code></p>
+</li>
+</ol>
+<p><img src="06-ip-address.jpg" alt="reserve ip address"></p>
+<ol start="8">
+<li>Create your instance.</li>
+</ol>
+<p>Press the <strong>Create</strong> button at the bottom of the page to finish set up and create your instance</p>
+<h2 id="configure-firewall">Configure Firewall</h2>
+<p>This will allow other people to connect to your server using its IP and port</p>
+<ol>
+<li>In the Cloud Console, go to the Firewall page.</li>
+</ol>
+<p><strong><a href="https://console.cloud.google.com/networking/firewalls/list">Go to the Firewall page</a></strong></p>
+<ol start="2">
+<li><p>Click Create firewall rule.</p>
+</li>
+<li><p>On the Create a firewall rule page, fill out the form as follows:</p>
+<ul>
+<li>Name: <code>mirror-demo-rule</code></li>
+<li>Target tags: <code>mirror-demo</code></li>
+<li>Source filter: IP ranges</li>
+<li>Source IP ranges: 0.0.0.0/0</li>
+<li>Protocols or ports: Select UDP, and then enter port 7777 into the field provided.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>note UDP and port 7777 is default settings for KCP transport, if you are using a different transport you will need to find out what settings that uses.</p>
+</blockquote>
+<p><img src="07-create-network-rule.jpg" alt="Create network rule"></p>
+<ol start="4">
+<li>Press <strong>Create</strong> to confirm setting and create the rule.</li>
+</ol>
+<h2 id="connect-to-your-new-instance">Connect to your new instance</h2>
+<p>Once your instance has finished being created you can press the <strong>SSH</strong> button to connect to your instance in your web browser</p>
+<p><img src="08-connect-to-instance.jpg" alt="connect to instance"></p>
+<h2 id="setting-up-the-linux-instance">Setting up the linux instance</h2>
+<p>When you first connect you will need to set up a few things</p>
+<ol>
+<li>First update the list of packages</li>
+</ol>
+<pre><code class="lang-sh">sudo apt-get update
+</code></pre>
+<ol start="2">
+<li>Install <code>screen</code> and <code>unzip</code></li>
+</ol>
+<pre><code class="lang-sh">sudo apt-get install -y screen unzip
+</code></pre>
+<p><code>screen</code> allows you to have multiple terminals, allows you do do other stuff while your game is running</p>
+<p><code>unzip</code> unzips can be used to extract files from a ZIP file after you upload it to the instance</p>
+<p><img src="09-update-and-install.jpg" alt="update and install packages"></p>
+<h2 id="build-your-game">Build your game</h2>
+<p>Build your game with Target Platform <code>Linux</code> and <strong>Server Build</strong> ticked</p>
+<p><img src="10-server-build.jpg" alt="Server build"></p>
+<h2 id="upload-and-extract-your-game">Upload and extract your game</h2>
+<p>Once you have built your game zip the folder so that you can upload it to your server.</p>
+<p>In the SSH connection window click on the settings cogwheel and select <strong>Upload File</strong> then find and select your zipped build folder.</p>
+<p><img src="11-upload-a-file.jpg" alt="Upload a file"></p>
+<p>This should upload the game folder to the home directory.</p>
+<p>If you need to go to the home directory you can use:</p>
+<pre><code class="lang-sh">cd ~
+</code></pre>
+<blockquote>
+<p>Note: the destination will be <code>/home/username</code> where username should be the cloud account you are logged into.</p>
+</blockquote>
+<p><img src="12-uploading.jpg" alt="Uploading"></p>
+<p>Once your file has finished upload you can extract the files</p>
+<pre><code class="lang-sh">unzip ./mirror-demo.zip 
+</code></pre>
+<h2 id="run-server">Run server</h2>
+<ol>
+<li>Move into game folder</li>
+</ol>
+<pre><code class="lang-sh">cd mirror-demo
+</code></pre>
+<ol start="2">
+<li>Mark game as executable</li>
+</ol>
+<pre><code class="lang-sh">chmod +x ./mirror-demo.x86_64 
+</code></pre>
+<p>You should now be able to run your game server!</p>
+<p>The following is optional but will most likely be useful</p>
+<ol start="3">
+<li>Start your server in a detached screen</li>
+</ol>
+<pre><code class="lang-sh">screen -d -m -S mirrorServer ./mirror-demo.x86_64 -logfile ~/server.log
+</code></pre>
+<p>The parts of the command above:</p>
+<ul>
+<li><code>screen -d -m</code> will create the new terminal in detached mode</li>
+<li><code>-S mirrorServer</code> name of the screen</li>
+<li><code>./mirror-demo.x86_64</code> your game server file</li>
+<li><code>-logfile ~/server.log</code> unity argument for log file location, this will create a log file in the home directory</li>
+</ul>
+<ol start="4">
+<li><p>Create start file so you can start your server the same way each time</p>
+<p>a) create <code>start.sh</code></p>
+<pre><code>echo &quot;screen -d -m -S mirrorServer ./mirror-demo.x86_64 -logfile ~/server.log&quot; &gt; ./start.sh
+</code></pre>
+<p>b) mark as executable</p>
+<pre><code class="lang-sh">chmod +x ./start.sh 
+</code></pre>
+</li>
+<li><p>Run your server</p>
+</li>
+</ol>
+<pre><code class="lang-sh">./start.sh
+</code></pre>
+<h3 id="using-screen">Using Screen</h3>
+<p>Here are a few useful commands for using <code>screen</code></p>
+<ul>
+<li>List active screens</li>
+</ul>
+<pre><code class="lang-sh">screen -ls
+</code></pre>
+<ul>
+<li>Attach to existing screen,
+<ul>
+<li>process-id is show when calling <code>screen -ls</code></li>
+<li>screen name is given by <code>-S</code> when creating the screen, for this tutorial it was <code>mirrorServer</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-sh">screen -r &lt;process-id | screen name&gt;
+</code></pre>
+<ul>
+<li><p>Detach from screen press <code>CTRL A + D</code></p>
+</li>
+<li><p>Stop your game</p>
+</li>
+</ul>
+<p>Once attached to a screen you can press <code>CTRL + C</code> to stop the process, this will stop your game and close the screen</p>
+<h3 id="view-log-files">View log files</h3>
+<p>You can use the <code>-logfile ~/path/to/log.log</code> argument for Unity when starting your game server. This will cause the logs to be written to a file instead of to the terminal. This will means recent logs wont show up in <code>screen -r</code>.</p>
+<ul>
+<li>you can use the <code>tail</code> command to view the the end of the log file</li>
+</ul>
+<pre><code class="lang-sh">tail -n 50 ./server.log 
+</code></pre>
+<ul>
+<li><p>you can use the <code>-n</code> argument to set how many lines to show</p>
+</li>
+<li><p>you can use the <code>-f</code> argument follow the end of the file stream showing you any new logs that are written to the file in real time. You will need to press <code>CTRL + C</code> to exit follow mode</p>
+</li>
+</ul>
+<h2 id="clean-up-after-tutorial">Clean up after tutorial</h2>
+<p>If you used an existing project you will need to delete the following:</p>
+<ul>
+<li>VM instance</li>
+<li>Firewall rule</li>
+</ul>
+<p>If you have created a new project you should be able to just delete the project.</p>
+<p><strong><a href="https://console.cloud.google.com/iam-admin/projects">Go to the Manage resources page</a></strong></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/doc/Articles/Guides/DevServer/gcloud/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>
