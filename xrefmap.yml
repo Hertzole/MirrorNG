@@ -86,12 +86,12 @@ references:
   isSpec: "True"
   fullName: Mirror.ClientObjectManager.ClearSpawners
   nameWithType: ClientObjectManager.ClearSpawners
-- uid: Mirror.ClientObjectManager.client
-  name: client
-  href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_client
-  commentId: F:Mirror.ClientObjectManager.client
-  fullName: Mirror.ClientObjectManager.client
-  nameWithType: ClientObjectManager.client
+- uid: Mirror.ClientObjectManager.Client
+  name: Client
+  href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_Client
+  commentId: F:Mirror.ClientObjectManager.Client
+  fullName: Mirror.ClientObjectManager.Client
+  nameWithType: ClientObjectManager.Client
 - uid: Mirror.ClientObjectManager.DestroyAllClientObjects
   name: DestroyAllClientObjects()
   href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_DestroyAllClientObjects
@@ -118,12 +118,12 @@ references:
   isSpec: "True"
   fullName: Mirror.ClientObjectManager.GetPrefab
   nameWithType: ClientObjectManager.GetPrefab
-- uid: Mirror.ClientObjectManager.networkSceneManager
-  name: networkSceneManager
-  href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_networkSceneManager
-  commentId: F:Mirror.ClientObjectManager.networkSceneManager
-  fullName: Mirror.ClientObjectManager.networkSceneManager
-  nameWithType: ClientObjectManager.networkSceneManager
+- uid: Mirror.ClientObjectManager.NetworkSceneManager
+  name: NetworkSceneManager
+  href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_NetworkSceneManager
+  commentId: F:Mirror.ClientObjectManager.NetworkSceneManager
+  fullName: Mirror.ClientObjectManager.NetworkSceneManager
+  nameWithType: ClientObjectManager.NetworkSceneManager
 - uid: Mirror.ClientObjectManager.PrepareToSpawnSceneObjects
   name: PrepareToSpawnSceneObjects()
   href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_PrepareToSpawnSceneObjects
@@ -181,6 +181,18 @@ references:
   commentId: F:Mirror.ClientObjectManager.spawnableObjects
   fullName: Mirror.ClientObjectManager.spawnableObjects
   nameWithType: ClientObjectManager.spawnableObjects
+- uid: Mirror.ClientObjectManager.Spawned
+  name: Spawned
+  href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_Spawned
+  commentId: F:Mirror.ClientObjectManager.Spawned
+  fullName: Mirror.ClientObjectManager.Spawned
+  nameWithType: ClientObjectManager.Spawned
+- uid: Mirror.ClientObjectManager.SpawnEvent
+  name: ClientObjectManager.SpawnEvent
+  href: api/Mirror.ClientObjectManager.SpawnEvent.html
+  commentId: T:Mirror.ClientObjectManager.SpawnEvent
+  fullName: Mirror.ClientObjectManager.SpawnEvent
+  nameWithType: ClientObjectManager.SpawnEvent
 - uid: Mirror.ClientObjectManager.spawnPrefabs
   name: spawnPrefabs
   href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_spawnPrefabs
@@ -226,6 +238,12 @@ references:
   isSpec: "True"
   fullName: Mirror.ClientObjectManager.UnregisterSpawnHandler
   nameWithType: ClientObjectManager.UnregisterSpawnHandler
+- uid: Mirror.ClientObjectManager.UnSpawned
+  name: UnSpawned
+  href: api/Mirror.ClientObjectManager.html#Mirror_ClientObjectManager_UnSpawned
+  commentId: F:Mirror.ClientObjectManager.UnSpawned
+  fullName: Mirror.ClientObjectManager.UnSpawned
+  nameWithType: ClientObjectManager.UnSpawned
 - uid: Mirror.ClientRpcAttribute
   name: ClientRpcAttribute
   href: api/Mirror.ClientRpcAttribute.html
@@ -1786,32 +1804,32 @@ references:
   commentId: T:Mirror.GameObjectSerializers
   fullName: Mirror.GameObjectSerializers
   nameWithType: GameObjectSerializers
-- uid: Mirror.GameObjectSerializers.ReadGameObject(Mirror.NetworkReader)
-  name: ReadGameObject(NetworkReader)
-  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_ReadGameObject_Mirror_NetworkReader_
-  commentId: M:Mirror.GameObjectSerializers.ReadGameObject(Mirror.NetworkReader)
-  fullName: Mirror.GameObjectSerializers.ReadGameObject(Mirror.NetworkReader)
-  nameWithType: GameObjectSerializers.ReadGameObject(NetworkReader)
-- uid: Mirror.GameObjectSerializers.ReadGameObject*
-  name: ReadGameObject
-  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_ReadGameObject_
-  commentId: Overload:Mirror.GameObjectSerializers.ReadGameObject
+- uid: Mirror.GameObjectSerializers.ReadGameObjectSyncVar(Mirror.NetworkReader)
+  name: ReadGameObjectSyncVar(NetworkReader)
+  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_ReadGameObjectSyncVar_Mirror_NetworkReader_
+  commentId: M:Mirror.GameObjectSerializers.ReadGameObjectSyncVar(Mirror.NetworkReader)
+  fullName: Mirror.GameObjectSerializers.ReadGameObjectSyncVar(Mirror.NetworkReader)
+  nameWithType: GameObjectSerializers.ReadGameObjectSyncVar(NetworkReader)
+- uid: Mirror.GameObjectSerializers.ReadGameObjectSyncVar*
+  name: ReadGameObjectSyncVar
+  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_ReadGameObjectSyncVar_
+  commentId: Overload:Mirror.GameObjectSerializers.ReadGameObjectSyncVar
   isSpec: "True"
-  fullName: Mirror.GameObjectSerializers.ReadGameObject
-  nameWithType: GameObjectSerializers.ReadGameObject
-- uid: Mirror.GameObjectSerializers.WriteGameObject(Mirror.NetworkWriter,Mirror.GameObjectSyncvar)
-  name: WriteGameObject(NetworkWriter, GameObjectSyncvar)
-  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_WriteGameObject_Mirror_NetworkWriter_Mirror_GameObjectSyncvar_
-  commentId: M:Mirror.GameObjectSerializers.WriteGameObject(Mirror.NetworkWriter,Mirror.GameObjectSyncvar)
-  fullName: Mirror.GameObjectSerializers.WriteGameObject(Mirror.NetworkWriter, Mirror.GameObjectSyncvar)
-  nameWithType: GameObjectSerializers.WriteGameObject(NetworkWriter, GameObjectSyncvar)
-- uid: Mirror.GameObjectSerializers.WriteGameObject*
-  name: WriteGameObject
-  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_WriteGameObject_
-  commentId: Overload:Mirror.GameObjectSerializers.WriteGameObject
+  fullName: Mirror.GameObjectSerializers.ReadGameObjectSyncVar
+  nameWithType: GameObjectSerializers.ReadGameObjectSyncVar
+- uid: Mirror.GameObjectSerializers.WriteGameObjectSyncVar(Mirror.NetworkWriter,Mirror.GameObjectSyncvar)
+  name: WriteGameObjectSyncVar(NetworkWriter, GameObjectSyncvar)
+  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_WriteGameObjectSyncVar_Mirror_NetworkWriter_Mirror_GameObjectSyncvar_
+  commentId: M:Mirror.GameObjectSerializers.WriteGameObjectSyncVar(Mirror.NetworkWriter,Mirror.GameObjectSyncvar)
+  fullName: Mirror.GameObjectSerializers.WriteGameObjectSyncVar(Mirror.NetworkWriter, Mirror.GameObjectSyncvar)
+  nameWithType: GameObjectSerializers.WriteGameObjectSyncVar(NetworkWriter, GameObjectSyncvar)
+- uid: Mirror.GameObjectSerializers.WriteGameObjectSyncVar*
+  name: WriteGameObjectSyncVar
+  href: api/Mirror.GameObjectSerializers.html#Mirror_GameObjectSerializers_WriteGameObjectSyncVar_
+  commentId: Overload:Mirror.GameObjectSerializers.WriteGameObjectSyncVar
   isSpec: "True"
-  fullName: Mirror.GameObjectSerializers.WriteGameObject
-  nameWithType: GameObjectSerializers.WriteGameObject
+  fullName: Mirror.GameObjectSerializers.WriteGameObjectSyncVar
+  nameWithType: GameObjectSerializers.WriteGameObjectSyncVar
 - uid: Mirror.GameObjectSyncvar
   name: GameObjectSyncvar
   href: api/Mirror.GameObjectSyncvar.html
@@ -1849,12 +1867,12 @@ references:
   commentId: T:Mirror.HeadlessAutoStart
   fullName: Mirror.HeadlessAutoStart
   nameWithType: HeadlessAutoStart
-- uid: Mirror.HeadlessAutoStart.server
-  name: server
-  href: api/Mirror.HeadlessAutoStart.html#Mirror_HeadlessAutoStart_server
-  commentId: F:Mirror.HeadlessAutoStart.server
-  fullName: Mirror.HeadlessAutoStart.server
-  nameWithType: HeadlessAutoStart.server
+- uid: Mirror.HeadlessAutoStart.Server
+  name: Server
+  href: api/Mirror.HeadlessAutoStart.html#Mirror_HeadlessAutoStart_Server
+  commentId: F:Mirror.HeadlessAutoStart.Server
+  fullName: Mirror.HeadlessAutoStart.Server
+  nameWithType: HeadlessAutoStart.Server
 - uid: Mirror.HeadlessAutoStart.startOnHeadless
   name: startOnHeadless
   href: api/Mirror.HeadlessAutoStart.html#Mirror_HeadlessAutoStart_startOnHeadless
@@ -2159,6 +2177,18 @@ references:
   isSpec: "True"
   fullName: Mirror.IMessageHandler.ClearHandlers
   nameWithType: IMessageHandler.ClearHandlers
+- uid: Mirror.IMessageHandler.NotifyDelivered
+  name: NotifyDelivered
+  href: api/Mirror.IMessageHandler.html#Mirror_IMessageHandler_NotifyDelivered
+  commentId: E:Mirror.IMessageHandler.NotifyDelivered
+  fullName: Mirror.IMessageHandler.NotifyDelivered
+  nameWithType: IMessageHandler.NotifyDelivered
+- uid: Mirror.IMessageHandler.NotifyLost
+  name: NotifyLost
+  href: api/Mirror.IMessageHandler.html#Mirror_IMessageHandler_NotifyLost
+  commentId: E:Mirror.IMessageHandler.NotifyLost
+  fullName: Mirror.IMessageHandler.NotifyLost
+  nameWithType: IMessageHandler.NotifyLost
 - uid: Mirror.IMessageHandler.ProcessMessagesAsync
   name: ProcessMessagesAsync()
   href: api/Mirror.IMessageHandler.html#Mirror_IMessageHandler_ProcessMessagesAsync
@@ -2238,6 +2268,22 @@ references:
   fullName.vb: Mirror.IMessageHandler.SendAsync(Of T)(T, System.Int32)
   nameWithType: IMessageHandler.SendAsync<T>(T, Int32)
   nameWithType.vb: IMessageHandler.SendAsync(Of T)(T, Int32)
+- uid: Mirror.IMessageHandler.SendNotify*
+  name: SendNotify
+  href: api/Mirror.IMessageHandler.html#Mirror_IMessageHandler_SendNotify_
+  commentId: Overload:Mirror.IMessageHandler.SendNotify
+  isSpec: "True"
+  fullName: Mirror.IMessageHandler.SendNotify
+  nameWithType: IMessageHandler.SendNotify
+- uid: Mirror.IMessageHandler.SendNotify``1(``0,System.Object,System.Int32)
+  name: SendNotify<T>(T, Object, Int32)
+  href: api/Mirror.IMessageHandler.html#Mirror_IMessageHandler_SendNotify__1___0_System_Object_System_Int32_
+  commentId: M:Mirror.IMessageHandler.SendNotify``1(``0,System.Object,System.Int32)
+  name.vb: SendNotify(Of T)(T, Object, Int32)
+  fullName: Mirror.IMessageHandler.SendNotify<T>(T, System.Object, System.Int32)
+  fullName.vb: Mirror.IMessageHandler.SendNotify(Of T)(T, System.Object, System.Int32)
+  nameWithType: IMessageHandler.SendNotify<T>(T, Object, Int32)
+  nameWithType.vb: IMessageHandler.SendNotify(Of T)(T, Object, Int32)
 - uid: Mirror.IMessageHandler.UnregisterHandler*
   name: UnregisterHandler
   href: api/Mirror.IMessageHandler.html#Mirror_IMessageHandler_UnregisterHandler_
@@ -3709,6 +3755,19 @@ references:
   commentId: F:Mirror.KCP.KcpTransport.Port
   fullName: Mirror.KCP.KcpTransport.Port
   nameWithType: KcpTransport.Port
+- uid: Mirror.KCP.KcpTransport.ReceivedBytes
+  name: ReceivedBytes
+  href: api/Mirror.KCP.KcpTransport.html#Mirror_KCP_KcpTransport_ReceivedBytes
+  commentId: P:Mirror.KCP.KcpTransport.ReceivedBytes
+  fullName: Mirror.KCP.KcpTransport.ReceivedBytes
+  nameWithType: KcpTransport.ReceivedBytes
+- uid: Mirror.KCP.KcpTransport.ReceivedBytes*
+  name: ReceivedBytes
+  href: api/Mirror.KCP.KcpTransport.html#Mirror_KCP_KcpTransport_ReceivedBytes_
+  commentId: Overload:Mirror.KCP.KcpTransport.ReceivedBytes
+  isSpec: "True"
+  fullName: Mirror.KCP.KcpTransport.ReceivedBytes
+  nameWithType: KcpTransport.ReceivedBytes
 - uid: Mirror.KCP.KcpTransport.ReceivedMessageCount
   name: ReceivedMessageCount
   href: api/Mirror.KCP.KcpTransport.html#Mirror_KCP_KcpTransport_ReceivedMessageCount
@@ -3747,6 +3806,19 @@ references:
   commentId: F:Mirror.KCP.KcpTransport.SendWindowSize
   fullName: Mirror.KCP.KcpTransport.SendWindowSize
   nameWithType: KcpTransport.SendWindowSize
+- uid: Mirror.KCP.KcpTransport.SentBytes
+  name: SentBytes
+  href: api/Mirror.KCP.KcpTransport.html#Mirror_KCP_KcpTransport_SentBytes
+  commentId: P:Mirror.KCP.KcpTransport.SentBytes
+  fullName: Mirror.KCP.KcpTransport.SentBytes
+  nameWithType: KcpTransport.SentBytes
+- uid: Mirror.KCP.KcpTransport.SentBytes*
+  name: SentBytes
+  href: api/Mirror.KCP.KcpTransport.html#Mirror_KCP_KcpTransport_SentBytes_
+  commentId: Overload:Mirror.KCP.KcpTransport.SentBytes
+  isSpec: "True"
+  fullName: Mirror.KCP.KcpTransport.SentBytes
+  nameWithType: KcpTransport.SentBytes
 - uid: Mirror.KCP.KcpTransport.ServerUri
   name: ServerUri()
   href: api/Mirror.KCP.KcpTransport.html#Mirror_KCP_KcpTransport_ServerUri
@@ -4448,32 +4520,32 @@ references:
   commentId: T:Mirror.NetworkBehaviorSerializers
   fullName: Mirror.NetworkBehaviorSerializers
   nameWithType: NetworkBehaviorSerializers
-- uid: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviour(Mirror.NetworkReader)
-  name: ReadNetworkBehaviour(NetworkReader)
-  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_ReadNetworkBehaviour_Mirror_NetworkReader_
-  commentId: M:Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviour(Mirror.NetworkReader)
-  fullName: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviour(Mirror.NetworkReader)
-  nameWithType: NetworkBehaviorSerializers.ReadNetworkBehaviour(NetworkReader)
-- uid: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviour*
-  name: ReadNetworkBehaviour
-  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_ReadNetworkBehaviour_
-  commentId: Overload:Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviour
+- uid: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar(Mirror.NetworkReader)
+  name: ReadNetworkBehaviourSyncVar(NetworkReader)
+  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_ReadNetworkBehaviourSyncVar_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar(Mirror.NetworkReader)
+  fullName: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar(Mirror.NetworkReader)
+  nameWithType: NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar(NetworkReader)
+- uid: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar*
+  name: ReadNetworkBehaviourSyncVar
+  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_ReadNetworkBehaviourSyncVar_
+  commentId: Overload:Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar
   isSpec: "True"
-  fullName: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviour
-  nameWithType: NetworkBehaviorSerializers.ReadNetworkBehaviour
-- uid: Mirror.NetworkBehaviorSerializers.WriteNetworkBehavior(Mirror.NetworkWriter,Mirror.NetworkBehaviorSyncvar)
-  name: WriteNetworkBehavior(NetworkWriter, NetworkBehaviorSyncvar)
-  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_WriteNetworkBehavior_Mirror_NetworkWriter_Mirror_NetworkBehaviorSyncvar_
-  commentId: M:Mirror.NetworkBehaviorSerializers.WriteNetworkBehavior(Mirror.NetworkWriter,Mirror.NetworkBehaviorSyncvar)
-  fullName: Mirror.NetworkBehaviorSerializers.WriteNetworkBehavior(Mirror.NetworkWriter, Mirror.NetworkBehaviorSyncvar)
-  nameWithType: NetworkBehaviorSerializers.WriteNetworkBehavior(NetworkWriter, NetworkBehaviorSyncvar)
-- uid: Mirror.NetworkBehaviorSerializers.WriteNetworkBehavior*
-  name: WriteNetworkBehavior
-  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_WriteNetworkBehavior_
-  commentId: Overload:Mirror.NetworkBehaviorSerializers.WriteNetworkBehavior
+  fullName: Mirror.NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar
+  nameWithType: NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar
+- uid: Mirror.NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar(Mirror.NetworkWriter,Mirror.NetworkBehaviorSyncvar)
+  name: WriteNetworkBehaviorSyncVar(NetworkWriter, NetworkBehaviorSyncvar)
+  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_WriteNetworkBehaviorSyncVar_Mirror_NetworkWriter_Mirror_NetworkBehaviorSyncvar_
+  commentId: M:Mirror.NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar(Mirror.NetworkWriter,Mirror.NetworkBehaviorSyncvar)
+  fullName: Mirror.NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar(Mirror.NetworkWriter, Mirror.NetworkBehaviorSyncvar)
+  nameWithType: NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar(NetworkWriter, NetworkBehaviorSyncvar)
+- uid: Mirror.NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar*
+  name: WriteNetworkBehaviorSyncVar
+  href: api/Mirror.NetworkBehaviorSerializers.html#Mirror_NetworkBehaviorSerializers_WriteNetworkBehaviorSyncVar_
+  commentId: Overload:Mirror.NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar
   isSpec: "True"
-  fullName: Mirror.NetworkBehaviorSerializers.WriteNetworkBehavior
-  nameWithType: NetworkBehaviorSerializers.WriteNetworkBehavior
+  fullName: Mirror.NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar
+  nameWithType: NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar
 - uid: Mirror.NetworkBehaviorSyncvar
   name: NetworkBehaviorSyncvar
   href: api/Mirror.NetworkBehaviorSyncvar.html
@@ -5028,6 +5100,12 @@ references:
   commentId: M:Mirror.NetworkClient.ConnectAsync(System.String)
   fullName: Mirror.NetworkClient.ConnectAsync(System.String)
   nameWithType: NetworkClient.ConnectAsync(String)
+- uid: Mirror.NetworkClient.ConnectAsync(System.String,System.UInt16)
+  name: ConnectAsync(String, UInt16)
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_ConnectAsync_System_String_System_UInt16_
+  commentId: M:Mirror.NetworkClient.ConnectAsync(System.String,System.UInt16)
+  fullName: Mirror.NetworkClient.ConnectAsync(System.String, System.UInt16)
+  nameWithType: NetworkClient.ConnectAsync(String, UInt16)
 - uid: Mirror.NetworkClient.ConnectAsync(Uri)
   name: ConnectAsync(Uri)
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_ConnectAsync_Uri_
@@ -5324,6 +5402,24 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkConnection.IsReady
   nameWithType: NetworkConnection.IsReady
+- uid: Mirror.NetworkConnection.NOTIFY_ACK_TIMEOUT
+  name: NOTIFY_ACK_TIMEOUT
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_NOTIFY_ACK_TIMEOUT
+  commentId: F:Mirror.NetworkConnection.NOTIFY_ACK_TIMEOUT
+  fullName: Mirror.NetworkConnection.NOTIFY_ACK_TIMEOUT
+  nameWithType: NetworkConnection.NOTIFY_ACK_TIMEOUT
+- uid: Mirror.NetworkConnection.NotifyDelivered
+  name: NotifyDelivered
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_NotifyDelivered
+  commentId: E:Mirror.NetworkConnection.NotifyDelivered
+  fullName: Mirror.NetworkConnection.NotifyDelivered
+  nameWithType: NetworkConnection.NotifyDelivered
+- uid: Mirror.NetworkConnection.NotifyLost
+  name: NotifyLost
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_NotifyLost
+  commentId: E:Mirror.NetworkConnection.NotifyLost
+  fullName: Mirror.NetworkConnection.NotifyLost
+  nameWithType: NetworkConnection.NotifyLost
 - uid: Mirror.NetworkConnection.ProcessMessagesAsync
   name: ProcessMessagesAsync()
   href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_ProcessMessagesAsync
@@ -5451,6 +5547,22 @@ references:
   fullName.vb: Mirror.NetworkConnection.SendAsync(Of T)(T, System.Int32)
   nameWithType: NetworkConnection.SendAsync<T>(T, Int32)
   nameWithType.vb: NetworkConnection.SendAsync(Of T)(T, Int32)
+- uid: Mirror.NetworkConnection.SendNotify*
+  name: SendNotify
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_SendNotify_
+  commentId: Overload:Mirror.NetworkConnection.SendNotify
+  isSpec: "True"
+  fullName: Mirror.NetworkConnection.SendNotify
+  nameWithType: NetworkConnection.SendNotify
+- uid: Mirror.NetworkConnection.SendNotify``1(``0,System.Object,System.Int32)
+  name: SendNotify<T>(T, Object, Int32)
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_SendNotify__1___0_System_Object_System_Int32_
+  commentId: M:Mirror.NetworkConnection.SendNotify``1(``0,System.Object,System.Int32)
+  name.vb: SendNotify(Of T)(T, Object, Int32)
+  fullName: Mirror.NetworkConnection.SendNotify<T>(T, System.Object, System.Int32)
+  fullName.vb: Mirror.NetworkConnection.SendNotify(Of T)(T, System.Object, System.Int32)
+  nameWithType: NetworkConnection.SendNotify<T>(T, Object, Int32)
+  nameWithType.vb: NetworkConnection.SendNotify(Of T)(T, Object, Int32)
 - uid: Mirror.NetworkConnection.ToString
   name: ToString()
   href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_ToString
@@ -5801,19 +5913,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkIdentity.RemoveClientAuthority
   nameWithType: NetworkIdentity.RemoveClientAuthority
-- uid: Mirror.NetworkIdentity.ResetNextNetworkId
-  name: ResetNextNetworkId()
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_ResetNextNetworkId
-  commentId: M:Mirror.NetworkIdentity.ResetNextNetworkId
-  fullName: Mirror.NetworkIdentity.ResetNextNetworkId()
-  nameWithType: NetworkIdentity.ResetNextNetworkId()
-- uid: Mirror.NetworkIdentity.ResetNextNetworkId*
-  name: ResetNextNetworkId
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_ResetNextNetworkId_
-  commentId: Overload:Mirror.NetworkIdentity.ResetNextNetworkId
-  isSpec: "True"
-  fullName: Mirror.NetworkIdentity.ResetNextNetworkId
-  nameWithType: NetworkIdentity.ResetNextNetworkId
 - uid: Mirror.NetworkIdentity.sceneId
   name: sceneId
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_sceneId
@@ -5871,32 +5970,32 @@ references:
   commentId: T:Mirror.NetworkIdentitySerializers
   fullName: Mirror.NetworkIdentitySerializers
   nameWithType: NetworkIdentitySerializers
-- uid: Mirror.NetworkIdentitySerializers.ReadNetworkIdentity(Mirror.NetworkReader)
-  name: ReadNetworkIdentity(NetworkReader)
-  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_ReadNetworkIdentity_Mirror_NetworkReader_
-  commentId: M:Mirror.NetworkIdentitySerializers.ReadNetworkIdentity(Mirror.NetworkReader)
-  fullName: Mirror.NetworkIdentitySerializers.ReadNetworkIdentity(Mirror.NetworkReader)
-  nameWithType: NetworkIdentitySerializers.ReadNetworkIdentity(NetworkReader)
-- uid: Mirror.NetworkIdentitySerializers.ReadNetworkIdentity*
-  name: ReadNetworkIdentity
-  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_ReadNetworkIdentity_
-  commentId: Overload:Mirror.NetworkIdentitySerializers.ReadNetworkIdentity
+- uid: Mirror.NetworkIdentitySerializers.ReadNetworkIdentitySyncVar(Mirror.NetworkReader)
+  name: ReadNetworkIdentitySyncVar(NetworkReader)
+  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_ReadNetworkIdentitySyncVar_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkIdentitySerializers.ReadNetworkIdentitySyncVar(Mirror.NetworkReader)
+  fullName: Mirror.NetworkIdentitySerializers.ReadNetworkIdentitySyncVar(Mirror.NetworkReader)
+  nameWithType: NetworkIdentitySerializers.ReadNetworkIdentitySyncVar(NetworkReader)
+- uid: Mirror.NetworkIdentitySerializers.ReadNetworkIdentitySyncVar*
+  name: ReadNetworkIdentitySyncVar
+  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_ReadNetworkIdentitySyncVar_
+  commentId: Overload:Mirror.NetworkIdentitySerializers.ReadNetworkIdentitySyncVar
   isSpec: "True"
-  fullName: Mirror.NetworkIdentitySerializers.ReadNetworkIdentity
-  nameWithType: NetworkIdentitySerializers.ReadNetworkIdentity
-- uid: Mirror.NetworkIdentitySerializers.WriteNetworkIdentity(Mirror.NetworkWriter,Mirror.NetworkIdentitySyncvar)
-  name: WriteNetworkIdentity(NetworkWriter, NetworkIdentitySyncvar)
-  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_WriteNetworkIdentity_Mirror_NetworkWriter_Mirror_NetworkIdentitySyncvar_
-  commentId: M:Mirror.NetworkIdentitySerializers.WriteNetworkIdentity(Mirror.NetworkWriter,Mirror.NetworkIdentitySyncvar)
-  fullName: Mirror.NetworkIdentitySerializers.WriteNetworkIdentity(Mirror.NetworkWriter, Mirror.NetworkIdentitySyncvar)
-  nameWithType: NetworkIdentitySerializers.WriteNetworkIdentity(NetworkWriter, NetworkIdentitySyncvar)
-- uid: Mirror.NetworkIdentitySerializers.WriteNetworkIdentity*
-  name: WriteNetworkIdentity
-  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_WriteNetworkIdentity_
-  commentId: Overload:Mirror.NetworkIdentitySerializers.WriteNetworkIdentity
+  fullName: Mirror.NetworkIdentitySerializers.ReadNetworkIdentitySyncVar
+  nameWithType: NetworkIdentitySerializers.ReadNetworkIdentitySyncVar
+- uid: Mirror.NetworkIdentitySerializers.WriteNetworkIdentitySyncVar(Mirror.NetworkWriter,Mirror.NetworkIdentitySyncvar)
+  name: WriteNetworkIdentitySyncVar(NetworkWriter, NetworkIdentitySyncvar)
+  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_WriteNetworkIdentitySyncVar_Mirror_NetworkWriter_Mirror_NetworkIdentitySyncvar_
+  commentId: M:Mirror.NetworkIdentitySerializers.WriteNetworkIdentitySyncVar(Mirror.NetworkWriter,Mirror.NetworkIdentitySyncvar)
+  fullName: Mirror.NetworkIdentitySerializers.WriteNetworkIdentitySyncVar(Mirror.NetworkWriter, Mirror.NetworkIdentitySyncvar)
+  nameWithType: NetworkIdentitySerializers.WriteNetworkIdentitySyncVar(NetworkWriter, NetworkIdentitySyncvar)
+- uid: Mirror.NetworkIdentitySerializers.WriteNetworkIdentitySyncVar*
+  name: WriteNetworkIdentitySyncVar
+  href: api/Mirror.NetworkIdentitySerializers.html#Mirror_NetworkIdentitySerializers_WriteNetworkIdentitySyncVar_
+  commentId: Overload:Mirror.NetworkIdentitySerializers.WriteNetworkIdentitySyncVar
   isSpec: "True"
-  fullName: Mirror.NetworkIdentitySerializers.WriteNetworkIdentity
-  nameWithType: NetworkIdentitySerializers.WriteNetworkIdentity
+  fullName: Mirror.NetworkIdentitySerializers.WriteNetworkIdentitySyncVar
+  nameWithType: NetworkIdentitySerializers.WriteNetworkIdentitySyncVar
 - uid: Mirror.NetworkIdentitySyncvar
   name: NetworkIdentitySyncvar
   href: api/Mirror.NetworkIdentitySyncvar.html
@@ -5922,18 +6021,18 @@ references:
   commentId: T:Mirror.NetworkManager
   fullName: Mirror.NetworkManager
   nameWithType: NetworkManager
-- uid: Mirror.NetworkManager.client
-  name: client
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_client
-  commentId: F:Mirror.NetworkManager.client
-  fullName: Mirror.NetworkManager.client
-  nameWithType: NetworkManager.client
-- uid: Mirror.NetworkManager.clientObjectManager
-  name: clientObjectManager
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_clientObjectManager
-  commentId: F:Mirror.NetworkManager.clientObjectManager
-  fullName: Mirror.NetworkManager.clientObjectManager
-  nameWithType: NetworkManager.clientObjectManager
+- uid: Mirror.NetworkManager.Client
+  name: Client
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_Client
+  commentId: F:Mirror.NetworkManager.Client
+  fullName: Mirror.NetworkManager.Client
+  nameWithType: NetworkManager.Client
+- uid: Mirror.NetworkManager.ClientObjectManager
+  name: ClientObjectManager
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_ClientObjectManager
+  commentId: F:Mirror.NetworkManager.ClientObjectManager
+  fullName: Mirror.NetworkManager.ClientObjectManager
+  nameWithType: NetworkManager.ClientObjectManager
 - uid: Mirror.NetworkManager.IsNetworkActive
   name: IsNetworkActive
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_IsNetworkActive
@@ -5947,24 +6046,24 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkManager.IsNetworkActive
   nameWithType: NetworkManager.IsNetworkActive
-- uid: Mirror.NetworkManager.sceneManager
-  name: sceneManager
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_sceneManager
-  commentId: F:Mirror.NetworkManager.sceneManager
-  fullName: Mirror.NetworkManager.sceneManager
-  nameWithType: NetworkManager.sceneManager
-- uid: Mirror.NetworkManager.server
-  name: server
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_server
-  commentId: F:Mirror.NetworkManager.server
-  fullName: Mirror.NetworkManager.server
-  nameWithType: NetworkManager.server
-- uid: Mirror.NetworkManager.serverObjectManager
-  name: serverObjectManager
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_serverObjectManager
-  commentId: F:Mirror.NetworkManager.serverObjectManager
-  fullName: Mirror.NetworkManager.serverObjectManager
-  nameWithType: NetworkManager.serverObjectManager
+- uid: Mirror.NetworkManager.SceneManager
+  name: SceneManager
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_SceneManager
+  commentId: F:Mirror.NetworkManager.SceneManager
+  fullName: Mirror.NetworkManager.SceneManager
+  nameWithType: NetworkManager.SceneManager
+- uid: Mirror.NetworkManager.Server
+  name: Server
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_Server
+  commentId: F:Mirror.NetworkManager.Server
+  fullName: Mirror.NetworkManager.Server
+  nameWithType: NetworkManager.Server
+- uid: Mirror.NetworkManager.ServerObjectManager
+  name: ServerObjectManager
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_ServerObjectManager
+  commentId: F:Mirror.NetworkManager.ServerObjectManager
+  fullName: Mirror.NetworkManager.ServerObjectManager
+  nameWithType: NetworkManager.ServerObjectManager
 - uid: Mirror.NetworkManagerHud
   name: NetworkManagerHud
   href: api/Mirror.NetworkManagerHud.html
@@ -6165,6 +6264,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkMatchChecker.OnStartServer
   nameWithType: NetworkMatchChecker.OnStartServer
+- uid: Mirror.NetworkMessageAttribute
+  name: NetworkMessageAttribute
+  href: api/Mirror.NetworkMessageAttribute.html
+  commentId: T:Mirror.NetworkMessageAttribute
+  fullName: Mirror.NetworkMessageAttribute
+  nameWithType: NetworkMessageAttribute
 - uid: Mirror.NetworkPingDisplay
   name: NetworkPingDisplay
   href: api/Mirror.NetworkPingDisplay.html
@@ -6630,6 +6735,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadDouble
   nameWithType: NetworkReaderExtensions.ReadDouble
+- uid: Mirror.NetworkReaderExtensions.ReadGameObject(Mirror.NetworkReader)
+  name: ReadGameObject(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGameObject_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadGameObject(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadGameObject(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadGameObject(NetworkReader)
+- uid: Mirror.NetworkReaderExtensions.ReadGameObject*
+  name: ReadGameObject
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGameObject_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadGameObject
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadGameObject
+  nameWithType: NetworkReaderExtensions.ReadGameObject
 - uid: Mirror.NetworkReaderExtensions.ReadGuid(Mirror.NetworkReader)
   name: ReadGuid(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGuid_Mirror_NetworkReader_
@@ -6711,6 +6829,28 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadMatrix4x4
   nameWithType: NetworkReaderExtensions.ReadMatrix4x4
+- uid: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour(Mirror.NetworkReader)
+  name: ReadNetworkBehaviour(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkBehaviour_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadNetworkBehaviour(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadNetworkBehaviour(NetworkReader)
+- uid: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour*
+  name: ReadNetworkBehaviour
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkBehaviour_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadNetworkBehaviour
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour
+  nameWithType: NetworkReaderExtensions.ReadNetworkBehaviour
+- uid: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour``1(Mirror.NetworkReader)
+  name: ReadNetworkBehaviour<T>(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkBehaviour__1_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadNetworkBehaviour``1(Mirror.NetworkReader)
+  name.vb: ReadNetworkBehaviour(Of T)(NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour<T>(Mirror.NetworkReader)
+  fullName.vb: Mirror.NetworkReaderExtensions.ReadNetworkBehaviour(Of T)(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadNetworkBehaviour<T>(NetworkReader)
+  nameWithType.vb: NetworkReaderExtensions.ReadNetworkBehaviour(Of T)(NetworkReader)
 - uid: Mirror.NetworkReaderExtensions.ReadNetworkIdentity(Mirror.NetworkReader)
   name: ReadNetworkIdentity(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkIdentity_Mirror_NetworkReader_
@@ -7114,12 +7254,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkSceneManager.ChangeServerScene
   nameWithType: NetworkSceneManager.ChangeServerScene
-- uid: Mirror.NetworkSceneManager.client
-  name: client
-  href: api/Mirror.NetworkSceneManager.html#Mirror_NetworkSceneManager_client
-  commentId: F:Mirror.NetworkSceneManager.client
-  fullName: Mirror.NetworkSceneManager.client
-  nameWithType: NetworkSceneManager.client
+- uid: Mirror.NetworkSceneManager.Client
+  name: Client
+  href: api/Mirror.NetworkSceneManager.html#Mirror_NetworkSceneManager_Client
+  commentId: F:Mirror.NetworkSceneManager.Client
+  fullName: Mirror.NetworkSceneManager.Client
+  nameWithType: NetworkSceneManager.Client
 - uid: Mirror.NetworkSceneManager.ClientChangeScene
   name: ClientChangeScene
   href: api/Mirror.NetworkSceneManager.html#Mirror_NetworkSceneManager_ClientChangeScene
@@ -7151,12 +7291,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkSceneManager.NetworkScenePath
   nameWithType: NetworkSceneManager.NetworkScenePath
-- uid: Mirror.NetworkSceneManager.server
-  name: server
-  href: api/Mirror.NetworkSceneManager.html#Mirror_NetworkSceneManager_server
-  commentId: F:Mirror.NetworkSceneManager.server
-  fullName: Mirror.NetworkSceneManager.server
-  nameWithType: NetworkSceneManager.server
+- uid: Mirror.NetworkSceneManager.Server
+  name: Server
+  href: api/Mirror.NetworkSceneManager.html#Mirror_NetworkSceneManager_Server
+  commentId: F:Mirror.NetworkSceneManager.Server
+  fullName: Mirror.NetworkSceneManager.Server
+  nameWithType: NetworkSceneManager.Server
 - uid: Mirror.NetworkSceneManager.ServerChangeScene
   name: ServerChangeScene
   href: api/Mirror.NetworkSceneManager.html#Mirror_NetworkSceneManager_ServerChangeScene
@@ -7467,12 +7607,12 @@ references:
   commentId: F:Mirror.NetworkServer.Time
   fullName: Mirror.NetworkServer.Time
   nameWithType: NetworkServer.Time
-- uid: Mirror.NetworkServer.transport
-  name: transport
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_transport
-  commentId: F:Mirror.NetworkServer.transport
-  fullName: Mirror.NetworkServer.transport
-  nameWithType: NetworkServer.transport
+- uid: Mirror.NetworkServer.Transport
+  name: Transport
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Transport
+  commentId: F:Mirror.NetworkServer.Transport
+  fullName: Mirror.NetworkServer.Transport
+  nameWithType: NetworkServer.Transport
 - uid: Mirror.NetworkTime
   name: NetworkTime
   href: api/Mirror.NetworkTime.html
@@ -8175,6 +8315,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkWriterExtensions.WriteDouble
   nameWithType: NetworkWriterExtensions.WriteDouble
+- uid: Mirror.NetworkWriterExtensions.WriteGameObject(Mirror.NetworkWriter,GameObject)
+  name: WriteGameObject(NetworkWriter, GameObject)
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteGameObject_Mirror_NetworkWriter_GameObject_
+  commentId: M:Mirror.NetworkWriterExtensions.WriteGameObject(Mirror.NetworkWriter,GameObject)
+  fullName: Mirror.NetworkWriterExtensions.WriteGameObject(Mirror.NetworkWriter, GameObject)
+  nameWithType: NetworkWriterExtensions.WriteGameObject(NetworkWriter, GameObject)
+- uid: Mirror.NetworkWriterExtensions.WriteGameObject*
+  name: WriteGameObject
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteGameObject_
+  commentId: Overload:Mirror.NetworkWriterExtensions.WriteGameObject
+  isSpec: "True"
+  fullName: Mirror.NetworkWriterExtensions.WriteGameObject
+  nameWithType: NetworkWriterExtensions.WriteGameObject
 - uid: Mirror.NetworkWriterExtensions.WriteGuid(Mirror.NetworkWriter,Guid)
   name: WriteGuid(NetworkWriter, Guid)
   href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteGuid_Mirror_NetworkWriter_Guid_
@@ -8230,6 +8383,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkWriterExtensions.WriteMatrix4X4
   nameWithType: NetworkWriterExtensions.WriteMatrix4X4
+- uid: Mirror.NetworkWriterExtensions.WriteNetworkBehaviour(Mirror.NetworkWriter,Mirror.NetworkBehaviour)
+  name: WriteNetworkBehaviour(NetworkWriter, NetworkBehaviour)
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteNetworkBehaviour_Mirror_NetworkWriter_Mirror_NetworkBehaviour_
+  commentId: M:Mirror.NetworkWriterExtensions.WriteNetworkBehaviour(Mirror.NetworkWriter,Mirror.NetworkBehaviour)
+  fullName: Mirror.NetworkWriterExtensions.WriteNetworkBehaviour(Mirror.NetworkWriter, Mirror.NetworkBehaviour)
+  nameWithType: NetworkWriterExtensions.WriteNetworkBehaviour(NetworkWriter, NetworkBehaviour)
+- uid: Mirror.NetworkWriterExtensions.WriteNetworkBehaviour*
+  name: WriteNetworkBehaviour
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteNetworkBehaviour_
+  commentId: Overload:Mirror.NetworkWriterExtensions.WriteNetworkBehaviour
+  isSpec: "True"
+  fullName: Mirror.NetworkWriterExtensions.WriteNetworkBehaviour
+  nameWithType: NetworkWriterExtensions.WriteNetworkBehaviour
 - uid: Mirror.NetworkWriterExtensions.WriteNetworkIdentity(Mirror.NetworkWriter,Mirror.NetworkIdentity)
   name: WriteNetworkIdentity(NetworkWriter, NetworkIdentity)
   href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteNetworkIdentity_Mirror_NetworkWriter_Mirror_NetworkIdentity_
@@ -8522,6 +8688,68 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkWriterPool.Recycle
   nameWithType: NetworkWriterPool.Recycle
+- uid: Mirror.NotifyAck
+  name: NotifyAck
+  href: api/Mirror.NotifyAck.html
+  commentId: T:Mirror.NotifyAck
+  fullName: Mirror.NotifyAck
+  nameWithType: NotifyAck
+- uid: Mirror.NotifyPacket
+  name: NotifyPacket
+  href: api/Mirror.NotifyPacket.html
+  commentId: T:Mirror.NotifyPacket
+  fullName: Mirror.NotifyPacket
+  nameWithType: NotifyPacket
+- uid: Mirror.NotifyPacket.AckMask
+  name: AckMask
+  href: api/Mirror.NotifyPacket.html#Mirror_NotifyPacket_AckMask
+  commentId: F:Mirror.NotifyPacket.AckMask
+  fullName: Mirror.NotifyPacket.AckMask
+  nameWithType: NotifyPacket.AckMask
+- uid: Mirror.NotifyPacket.ReceiveSequence
+  name: ReceiveSequence
+  href: api/Mirror.NotifyPacket.html#Mirror_NotifyPacket_ReceiveSequence
+  commentId: F:Mirror.NotifyPacket.ReceiveSequence
+  fullName: Mirror.NotifyPacket.ReceiveSequence
+  nameWithType: NotifyPacket.ReceiveSequence
+- uid: Mirror.NotifyPacket.Sequence
+  name: Sequence
+  href: api/Mirror.NotifyPacket.html#Mirror_NotifyPacket_Sequence
+  commentId: F:Mirror.NotifyPacket.Sequence
+  fullName: Mirror.NotifyPacket.Sequence
+  nameWithType: NotifyPacket.Sequence
+- uid: Mirror.NotifyPacketSerializer
+  name: NotifyPacketSerializer
+  href: api/Mirror.NotifyPacketSerializer.html
+  commentId: T:Mirror.NotifyPacketSerializer
+  fullName: Mirror.NotifyPacketSerializer
+  nameWithType: NotifyPacketSerializer
+- uid: Mirror.NotifyPacketSerializer.ReadNotifyPacket(Mirror.NetworkReader)
+  name: ReadNotifyPacket(NetworkReader)
+  href: api/Mirror.NotifyPacketSerializer.html#Mirror_NotifyPacketSerializer_ReadNotifyPacket_Mirror_NetworkReader_
+  commentId: M:Mirror.NotifyPacketSerializer.ReadNotifyPacket(Mirror.NetworkReader)
+  fullName: Mirror.NotifyPacketSerializer.ReadNotifyPacket(Mirror.NetworkReader)
+  nameWithType: NotifyPacketSerializer.ReadNotifyPacket(NetworkReader)
+- uid: Mirror.NotifyPacketSerializer.ReadNotifyPacket*
+  name: ReadNotifyPacket
+  href: api/Mirror.NotifyPacketSerializer.html#Mirror_NotifyPacketSerializer_ReadNotifyPacket_
+  commentId: Overload:Mirror.NotifyPacketSerializer.ReadNotifyPacket
+  isSpec: "True"
+  fullName: Mirror.NotifyPacketSerializer.ReadNotifyPacket
+  nameWithType: NotifyPacketSerializer.ReadNotifyPacket
+- uid: Mirror.NotifyPacketSerializer.WriteNotifyPacket(Mirror.NetworkWriter,Mirror.NotifyPacket)
+  name: WriteNotifyPacket(NetworkWriter, NotifyPacket)
+  href: api/Mirror.NotifyPacketSerializer.html#Mirror_NotifyPacketSerializer_WriteNotifyPacket_Mirror_NetworkWriter_Mirror_NotifyPacket_
+  commentId: M:Mirror.NotifyPacketSerializer.WriteNotifyPacket(Mirror.NetworkWriter,Mirror.NotifyPacket)
+  fullName: Mirror.NotifyPacketSerializer.WriteNotifyPacket(Mirror.NetworkWriter, Mirror.NotifyPacket)
+  nameWithType: NotifyPacketSerializer.WriteNotifyPacket(NetworkWriter, NotifyPacket)
+- uid: Mirror.NotifyPacketSerializer.WriteNotifyPacket*
+  name: WriteNotifyPacket
+  href: api/Mirror.NotifyPacketSerializer.html#Mirror_NotifyPacketSerializer_WriteNotifyPacket_
+  commentId: Overload:Mirror.NotifyPacketSerializer.WriteNotifyPacket
+  isSpec: "True"
+  fullName: Mirror.NotifyPacketSerializer.WriteNotifyPacket
+  nameWithType: NotifyPacketSerializer.WriteNotifyPacket
 - uid: Mirror.NotReadyMessage
   name: NotReadyMessage
   href: api/Mirror.NotReadyMessage.html
@@ -8603,6 +8831,36 @@ references:
   isSpec: "True"
   fullName: Mirror.ObjectReady.SetClientReady
   nameWithType: ObjectReady.SetClientReady
+- uid: Mirror.OnlineOfflineScene
+  name: OnlineOfflineScene
+  href: api/Mirror.OnlineOfflineScene.html
+  commentId: T:Mirror.OnlineOfflineScene
+  fullName: Mirror.OnlineOfflineScene
+  nameWithType: OnlineOfflineScene
+- uid: Mirror.OnlineOfflineScene.Client
+  name: Client
+  href: api/Mirror.OnlineOfflineScene.html#Mirror_OnlineOfflineScene_Client
+  commentId: F:Mirror.OnlineOfflineScene.Client
+  fullName: Mirror.OnlineOfflineScene.Client
+  nameWithType: OnlineOfflineScene.Client
+- uid: Mirror.OnlineOfflineScene.OfflineScene
+  name: OfflineScene
+  href: api/Mirror.OnlineOfflineScene.html#Mirror_OnlineOfflineScene_OfflineScene
+  commentId: F:Mirror.OnlineOfflineScene.OfflineScene
+  fullName: Mirror.OnlineOfflineScene.OfflineScene
+  nameWithType: OnlineOfflineScene.OfflineScene
+- uid: Mirror.OnlineOfflineScene.OnlineScene
+  name: OnlineScene
+  href: api/Mirror.OnlineOfflineScene.html#Mirror_OnlineOfflineScene_OnlineScene
+  commentId: F:Mirror.OnlineOfflineScene.OnlineScene
+  fullName: Mirror.OnlineOfflineScene.OnlineScene
+  nameWithType: OnlineOfflineScene.OnlineScene
+- uid: Mirror.OnlineOfflineScene.Server
+  name: Server
+  href: api/Mirror.OnlineOfflineScene.html#Mirror_OnlineOfflineScene_Server
+  commentId: F:Mirror.OnlineOfflineScene.Server
+  fullName: Mirror.OnlineOfflineScene.Server
+  nameWithType: OnlineOfflineScene.Server
 - uid: Mirror.PipeConnection
   name: PipeConnection
   href: api/Mirror.PipeConnection.html
@@ -8683,18 +8941,18 @@ references:
   commentId: T:Mirror.PlayerSpawner
   fullName: Mirror.PlayerSpawner
   nameWithType: PlayerSpawner
-- uid: Mirror.PlayerSpawner.client
-  name: client
-  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_client
-  commentId: F:Mirror.PlayerSpawner.client
-  fullName: Mirror.PlayerSpawner.client
-  nameWithType: PlayerSpawner.client
-- uid: Mirror.PlayerSpawner.clientObjectManager
-  name: clientObjectManager
-  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_clientObjectManager
-  commentId: F:Mirror.PlayerSpawner.clientObjectManager
-  fullName: Mirror.PlayerSpawner.clientObjectManager
-  nameWithType: PlayerSpawner.clientObjectManager
+- uid: Mirror.PlayerSpawner.Client
+  name: Client
+  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_Client
+  commentId: F:Mirror.PlayerSpawner.Client
+  fullName: Mirror.PlayerSpawner.Client
+  nameWithType: PlayerSpawner.Client
+- uid: Mirror.PlayerSpawner.ClientObjectManager
+  name: ClientObjectManager
+  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_ClientObjectManager
+  commentId: F:Mirror.PlayerSpawner.ClientObjectManager
+  fullName: Mirror.PlayerSpawner.ClientObjectManager
+  nameWithType: PlayerSpawner.ClientObjectManager
 - uid: Mirror.PlayerSpawner.GetStartPosition
   name: GetStartPosition()
   href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_GetStartPosition
@@ -8721,12 +8979,12 @@ references:
   isSpec: "True"
   fullName: Mirror.PlayerSpawner.OnServerAddPlayer
   nameWithType: PlayerSpawner.OnServerAddPlayer
-- uid: Mirror.PlayerSpawner.playerPrefab
-  name: playerPrefab
-  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_playerPrefab
-  commentId: F:Mirror.PlayerSpawner.playerPrefab
-  fullName: Mirror.PlayerSpawner.playerPrefab
-  nameWithType: PlayerSpawner.playerPrefab
+- uid: Mirror.PlayerSpawner.PlayerPrefab
+  name: PlayerPrefab
+  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_PlayerPrefab
+  commentId: F:Mirror.PlayerSpawner.PlayerPrefab
+  fullName: Mirror.PlayerSpawner.PlayerPrefab
+  nameWithType: PlayerSpawner.PlayerPrefab
 - uid: Mirror.PlayerSpawner.playerSpawnMethod
   name: playerSpawnMethod
   href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_playerSpawnMethod
@@ -8751,24 +9009,24 @@ references:
   commentId: F:Mirror.PlayerSpawner.PlayerSpawnMethod.RoundRobin
   fullName: Mirror.PlayerSpawner.PlayerSpawnMethod.RoundRobin
   nameWithType: PlayerSpawner.PlayerSpawnMethod.RoundRobin
-- uid: Mirror.PlayerSpawner.sceneManager
-  name: sceneManager
-  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_sceneManager
-  commentId: F:Mirror.PlayerSpawner.sceneManager
-  fullName: Mirror.PlayerSpawner.sceneManager
-  nameWithType: PlayerSpawner.sceneManager
-- uid: Mirror.PlayerSpawner.server
-  name: server
-  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_server
-  commentId: F:Mirror.PlayerSpawner.server
-  fullName: Mirror.PlayerSpawner.server
-  nameWithType: PlayerSpawner.server
-- uid: Mirror.PlayerSpawner.serverObjectManager
-  name: serverObjectManager
-  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_serverObjectManager
-  commentId: F:Mirror.PlayerSpawner.serverObjectManager
-  fullName: Mirror.PlayerSpawner.serverObjectManager
-  nameWithType: PlayerSpawner.serverObjectManager
+- uid: Mirror.PlayerSpawner.SceneManager
+  name: SceneManager
+  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_SceneManager
+  commentId: F:Mirror.PlayerSpawner.SceneManager
+  fullName: Mirror.PlayerSpawner.SceneManager
+  nameWithType: PlayerSpawner.SceneManager
+- uid: Mirror.PlayerSpawner.Server
+  name: Server
+  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_Server
+  commentId: F:Mirror.PlayerSpawner.Server
+  fullName: Mirror.PlayerSpawner.Server
+  nameWithType: PlayerSpawner.Server
+- uid: Mirror.PlayerSpawner.ServerObjectManager
+  name: ServerObjectManager
+  href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_ServerObjectManager
+  commentId: F:Mirror.PlayerSpawner.ServerObjectManager
+  fullName: Mirror.PlayerSpawner.ServerObjectManager
+  nameWithType: PlayerSpawner.ServerObjectManager
 - uid: Mirror.PlayerSpawner.Start
   name: Start()
   href: api/Mirror.PlayerSpawner.html#Mirror_PlayerSpawner_Start
@@ -9049,6 +9307,77 @@ references:
   commentId: T:Mirror.SceneReadyMessage
   fullName: Mirror.SceneReadyMessage
   nameWithType: SceneReadyMessage
+- uid: Mirror.Sequencer
+  name: Sequencer
+  href: api/Mirror.Sequencer.html
+  commentId: T:Mirror.Sequencer
+  fullName: Mirror.Sequencer
+  nameWithType: Sequencer
+- uid: Mirror.Sequencer.#ctor(System.Int32)
+  name: Sequencer(Int32)
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer__ctor_System_Int32_
+  commentId: M:Mirror.Sequencer.#ctor(System.Int32)
+  fullName: Mirror.Sequencer.Sequencer(System.Int32)
+  nameWithType: Sequencer.Sequencer(Int32)
+- uid: Mirror.Sequencer.#ctor*
+  name: Sequencer
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer__ctor_
+  commentId: Overload:Mirror.Sequencer.#ctor
+  isSpec: "True"
+  fullName: Mirror.Sequencer.Sequencer
+  nameWithType: Sequencer.Sequencer
+- uid: Mirror.Sequencer.Bits
+  name: Bits
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_Bits
+  commentId: P:Mirror.Sequencer.Bits
+  fullName: Mirror.Sequencer.Bits
+  nameWithType: Sequencer.Bits
+- uid: Mirror.Sequencer.Bits*
+  name: Bits
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_Bits_
+  commentId: Overload:Mirror.Sequencer.Bits
+  isSpec: "True"
+  fullName: Mirror.Sequencer.Bits
+  nameWithType: Sequencer.Bits
+- uid: Mirror.Sequencer.Distance(System.UInt64,System.UInt64)
+  name: Distance(UInt64, UInt64)
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_Distance_System_UInt64_System_UInt64_
+  commentId: M:Mirror.Sequencer.Distance(System.UInt64,System.UInt64)
+  fullName: Mirror.Sequencer.Distance(System.UInt64, System.UInt64)
+  nameWithType: Sequencer.Distance(UInt64, UInt64)
+- uid: Mirror.Sequencer.Distance*
+  name: Distance
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_Distance_
+  commentId: Overload:Mirror.Sequencer.Distance
+  isSpec: "True"
+  fullName: Mirror.Sequencer.Distance
+  nameWithType: Sequencer.Distance
+- uid: Mirror.Sequencer.Next
+  name: Next()
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_Next
+  commentId: M:Mirror.Sequencer.Next
+  fullName: Mirror.Sequencer.Next()
+  nameWithType: Sequencer.Next()
+- uid: Mirror.Sequencer.Next*
+  name: Next
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_Next_
+  commentId: Overload:Mirror.Sequencer.Next
+  isSpec: "True"
+  fullName: Mirror.Sequencer.Next
+  nameWithType: Sequencer.Next
+- uid: Mirror.Sequencer.NextAfter(System.UInt64)
+  name: NextAfter(UInt64)
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_NextAfter_System_UInt64_
+  commentId: M:Mirror.Sequencer.NextAfter(System.UInt64)
+  fullName: Mirror.Sequencer.NextAfter(System.UInt64)
+  nameWithType: Sequencer.NextAfter(UInt64)
+- uid: Mirror.Sequencer.NextAfter*
+  name: NextAfter
+  href: api/Mirror.Sequencer.html#Mirror_Sequencer_NextAfter_
+  commentId: Overload:Mirror.Sequencer.NextAfter
+  isSpec: "True"
+  fullName: Mirror.Sequencer.NextAfter
+  nameWithType: Sequencer.NextAfter
 - uid: Mirror.ServerAttribute
   name: ServerAttribute
   href: api/Mirror.ServerAttribute.html
@@ -9105,12 +9434,12 @@ references:
   commentId: F:Mirror.ServerObjectManager.DirtyObjects
   fullName: Mirror.ServerObjectManager.DirtyObjects
   nameWithType: ServerObjectManager.DirtyObjects
-- uid: Mirror.ServerObjectManager.networkSceneManager
-  name: networkSceneManager
-  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_networkSceneManager
-  commentId: F:Mirror.ServerObjectManager.networkSceneManager
-  fullName: Mirror.ServerObjectManager.networkSceneManager
-  nameWithType: ServerObjectManager.networkSceneManager
+- uid: Mirror.ServerObjectManager.NetworkSceneManager
+  name: NetworkSceneManager
+  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_NetworkSceneManager
+  commentId: F:Mirror.ServerObjectManager.NetworkSceneManager
+  fullName: Mirror.ServerObjectManager.NetworkSceneManager
+  nameWithType: ServerObjectManager.NetworkSceneManager
 - uid: Mirror.ServerObjectManager.RemovePlayerForConnection(Mirror.INetworkConnection,System.Boolean)
   name: RemovePlayerForConnection(INetworkConnection, Boolean)
   href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_RemovePlayerForConnection_Mirror_INetworkConnection_System_Boolean_
@@ -9143,12 +9472,12 @@ references:
   isSpec: "True"
   fullName: Mirror.ServerObjectManager.ReplacePlayerForConnection
   nameWithType: ServerObjectManager.ReplacePlayerForConnection
-- uid: Mirror.ServerObjectManager.server
-  name: server
-  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_server
-  commentId: F:Mirror.ServerObjectManager.server
-  fullName: Mirror.ServerObjectManager.server
-  nameWithType: ServerObjectManager.server
+- uid: Mirror.ServerObjectManager.Server
+  name: Server
+  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Server
+  commentId: F:Mirror.ServerObjectManager.Server
+  fullName: Mirror.ServerObjectManager.Server
+  nameWithType: ServerObjectManager.Server
 - uid: Mirror.ServerObjectManager.SetAllClientsNotReady
   name: SetAllClientsNotReady()
   href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_SetAllClientsNotReady
@@ -9206,6 +9535,12 @@ references:
   commentId: M:Mirror.ServerObjectManager.Spawn(GameObject,Mirror.INetworkConnection)
   fullName: Mirror.ServerObjectManager.Spawn(GameObject, Mirror.INetworkConnection)
   nameWithType: ServerObjectManager.Spawn(GameObject, INetworkConnection)
+- uid: Mirror.ServerObjectManager.Spawn(Mirror.NetworkIdentity)
+  name: Spawn(NetworkIdentity)
+  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Spawn_Mirror_NetworkIdentity_
+  commentId: M:Mirror.ServerObjectManager.Spawn(Mirror.NetworkIdentity)
+  fullName: Mirror.ServerObjectManager.Spawn(Mirror.NetworkIdentity)
+  nameWithType: ServerObjectManager.Spawn(NetworkIdentity)
 - uid: Mirror.ServerObjectManager.Spawn*
   name: Spawn
   href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Spawn_
@@ -9213,6 +9548,18 @@ references:
   isSpec: "True"
   fullName: Mirror.ServerObjectManager.Spawn
   nameWithType: ServerObjectManager.Spawn
+- uid: Mirror.ServerObjectManager.Spawned
+  name: Spawned
+  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Spawned
+  commentId: F:Mirror.ServerObjectManager.Spawned
+  fullName: Mirror.ServerObjectManager.Spawned
+  nameWithType: ServerObjectManager.Spawned
+- uid: Mirror.ServerObjectManager.SpawnEvent
+  name: ServerObjectManager.SpawnEvent
+  href: api/Mirror.ServerObjectManager.SpawnEvent.html
+  commentId: T:Mirror.ServerObjectManager.SpawnEvent
+  fullName: Mirror.ServerObjectManager.SpawnEvent
+  nameWithType: ServerObjectManager.SpawnEvent
 - uid: Mirror.ServerObjectManager.SpawnObjects
   name: SpawnObjects()
   href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_SpawnObjects
@@ -9252,6 +9599,12 @@ references:
   isSpec: "True"
   fullName: Mirror.ServerObjectManager.UnSpawn
   nameWithType: ServerObjectManager.UnSpawn
+- uid: Mirror.ServerObjectManager.UnSpawned
+  name: UnSpawned
+  href: api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_UnSpawned
+  commentId: F:Mirror.ServerObjectManager.UnSpawned
+  fullName: Mirror.ServerObjectManager.UnSpawned
+  nameWithType: ServerObjectManager.UnSpawned
 - uid: Mirror.ServerRpcAttribute
   name: ServerRpcAttribute
   href: api/Mirror.ServerRpcAttribute.html
@@ -11244,6 +11597,19 @@ references:
   isSpec: "True"
   fullName: Mirror.Transport.ListenAsync
   nameWithType: Transport.ListenAsync
+- uid: Mirror.Transport.ReceivedBytes
+  name: ReceivedBytes
+  href: api/Mirror.Transport.html#Mirror_Transport_ReceivedBytes
+  commentId: P:Mirror.Transport.ReceivedBytes
+  fullName: Mirror.Transport.ReceivedBytes
+  nameWithType: Transport.ReceivedBytes
+- uid: Mirror.Transport.ReceivedBytes*
+  name: ReceivedBytes
+  href: api/Mirror.Transport.html#Mirror_Transport_ReceivedBytes_
+  commentId: Overload:Mirror.Transport.ReceivedBytes
+  isSpec: "True"
+  fullName: Mirror.Transport.ReceivedBytes
+  nameWithType: Transport.ReceivedBytes
 - uid: Mirror.Transport.Scheme
   name: Scheme
   href: api/Mirror.Transport.html#Mirror_Transport_Scheme
@@ -11257,6 +11623,19 @@ references:
   isSpec: "True"
   fullName: Mirror.Transport.Scheme
   nameWithType: Transport.Scheme
+- uid: Mirror.Transport.SentBytes
+  name: SentBytes
+  href: api/Mirror.Transport.html#Mirror_Transport_SentBytes
+  commentId: P:Mirror.Transport.SentBytes
+  fullName: Mirror.Transport.SentBytes
+  nameWithType: Transport.SentBytes
+- uid: Mirror.Transport.SentBytes*
+  name: SentBytes
+  href: api/Mirror.Transport.html#Mirror_Transport_SentBytes_
+  commentId: Overload:Mirror.Transport.SentBytes
+  isSpec: "True"
+  fullName: Mirror.Transport.SentBytes
+  nameWithType: Transport.SentBytes
 - uid: Mirror.Transport.ServerUri
   name: ServerUri()
   href: api/Mirror.Transport.html#Mirror_Transport_ServerUri
