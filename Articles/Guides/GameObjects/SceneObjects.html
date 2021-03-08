@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="scene-game-objects">Scene Game Objects</h1>
 
-<p>There are two types of networked game objects in MirrorNG’s multiplayer system:</p>
+<p>There are two types of networked game objects in Mirage’s multiplayer system:</p>
 <ul>
 <li>Those that are created dynamically at runtime</li>
 <li>Those that are saved as part of a Scene</li>
@@ -93,7 +95,7 @@
 <li>They can have specific modifications that differ from prefabs</li>
 <li>Other game object instances in the Scene can reference them, which can avoid you having to use code to finding the game objects and make references to them up at runtime.</li>
 </ul>
-<p>When the Network Manager spawns the networked Scene game objects, those game objects behave like dynamically spawned game objects. MirrorNG sends them updates and ClientRPC calls.</p>
+<p>When the Network Manager spawns the networked Scene game objects, those game objects behave like dynamically spawned game objects. Mirage sends them updates and ClientRPC calls.</p>
 <p>If a Scene game object is destroyed on the server before a client joins the game, then it is never enabled on new clients that join.</p>
 <p>When a client connects, the client is sent an ObjectSpawnScene spawn message for each of the Scene game objects that exist on the server, that are visible to that client. This message causes the game object on the client to be enabled, and has the latest state of that game object from the server in it. This means that only game objects that are visible to the client, and not destroyed on the server, are activated on the client. Like regular non-Scene game objects, these Scene game objects are started with the latest state when the client joins the game.</p>
 </article>

@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,7 +82,7 @@
 <h1 id="clock-synchronization">Clock Synchronization</h1>
 
 <p>For many algorithms you need the clock to be synchronized between the client and
-the server. MirrorNG does that automatically for you.</p>
+the server. Mirage does that automatically for you.</p>
 <p>To get the current time use this code:</p>
 <pre><code class="lang-cs">double now = NetworkTime.time;
 </code></pre>
@@ -94,7 +96,7 @@ some time:</p>
 <li>after 30 days , accuracy is 250 ms</li>
 <li>after 60 days, accuracy is 500 ms</li>
 </ul>
-<p>MirrorNG will also calculate the RTT time as seen by the application:</p>
+<p>Mirage will also calculate the RTT time as seen by the application:</p>
 <pre><code class="lang-cs">double rtt = NetworkTime.rtt;
 </code></pre>
 <p>You can measure accuracy.</p>

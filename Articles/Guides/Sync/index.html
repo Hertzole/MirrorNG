@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -84,7 +86,7 @@
 <p>Data is not synchronized in the opposite direction - from remote clients to the server. To do this, you need to use Server RPC calls.</p>
 <ul>
 <li><a href="SyncVars.html">SyncVars</a><br>
-SyncVars are variables of scripts that inherit from <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a>, which are synchronized from the server to clients.</li>
+SyncVars are variables of scripts that inherit from <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a>, which are synchronized from the server to clients.</li>
 <li><a href="SyncLists.html">SyncLists</a><br>
 SyncLists contain lists of values and synchronize data from servers to clients.</li>
 <li><a href="SyncDictionary.html">SyncDictionary</a><br>
@@ -95,7 +97,7 @@ An unordered set of values that do not repeat.</li>
 A sorted set of values that do not repeat.</li>
 </ul>
 <h2 id="sync-to-owner">Sync To Owner</h2>
-<p>It is often the case when you don't want some player data visible to other players. In the inspector change the &quot;Network Sync Mode&quot; from &quot;Observers&quot; (default) to &quot;Owner&quot; to let MirrorNG know to synchronize the data only with the owning client.</p>
+<p>It is often the case when you don't want some player data visible to other players. In the inspector change the &quot;Network Sync Mode&quot; from &quot;Observers&quot; (default) to &quot;Owner&quot; to let Mirage know to synchronize the data only with the owning client.</p>
 <p>For example, suppose you are making an inventory system. Suppose player A,B and C are in the same area. There will be a total of 12 objects in the entire network:</p>
 <ul>
 <li>Client A has Player A (himself),  Player B and Player C</li>
@@ -105,44 +107,44 @@ A sorted set of values that do not repeat.</li>
 </ul>
 <p>each one of them would have an Inventory component</p>
 <p>Suppose Player A picks up some loot.  The server adds the loot to Player's A inventory,  which would have a <a href="SyncLists.html">SyncLists</a> of Items.</p>
-<p>By default,  MirrorNG now has to synchronize player A's inventory everywhere,  that means sending an update message to client A,  client B and client C,  because they all have a copy of Player A. This is wasteful,  Client B and Client C do not need to know about Player's A inventory,  they never see it on screen.  It is also a security problem,  someone could hack the client and display other people's inventory and use it to their advantage.</p>
+<p>By default,  Mirage now has to synchronize player A's inventory everywhere,  that means sending an update message to client A,  client B and client C,  because they all have a copy of Player A. This is wasteful,  Client B and Client C do not need to know about Player's A inventory,  they never see it on screen.  It is also a security problem,  someone could hack the client and display other people's inventory and use it to their advantage.</p>
 <p>If you set the &quot;Network Sync Mode&quot;  in the Inventory component to &quot;Owner&quot;,  then Player A's inventory will only be synchronized with Client A.</p>
 <p>Now,  suppose instead of 3 people you have 50 people in an area and one of them picks up loot.  It means that instead of sending 50 messages to 50 different clients,  you would only send 1.  This can have a big impact in bandwith in your game.</p>
 <p>Other typical use cases include quests,  player's hand in a card game, skills, experience, or any other data you don't need to share with other players.</p>
 <h2 id="advanced-state-synchronization">Advanced State Synchronization</h2>
-<p>In most cases, the use of SyncVars is enough for your game scripts to serialize their state to clients. However in some cases you might require more complex serialization code. This page is only relevant for advanced developers who need customized synchronization solutions that go beyond MirrorNG’s normal SyncVar feature.</p>
+<p>In most cases, the use of SyncVars is enough for your game scripts to serialize their state to clients. However in some cases you might require more complex serialization code. This page is only relevant for advanced developers who need customized synchronization solutions that go beyond Mirage’s normal SyncVar feature.</p>
 <h2 id="custom-serialization-functions">Custom Serialization Functions</h2>
-<p>To perform your own custom serialization, you can implement virtual functions on <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> to be used for SyncVar serialization. These functions are:</p>
+<p>To perform your own custom serialization, you can implement virtual functions on <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> to be used for SyncVar serialization. These functions are:</p>
 <pre><code class="lang-cs">public virtual bool OnSerialize(NetworkWriter writer, bool initialState);
 </code></pre>
 <pre><code class="lang-cs">public virtual void OnDeserialize(NetworkReader reader, bool initialState);
 </code></pre>
 <p>Use the <code>initialState</code> flag to differentiate between the first time a game object is serialized and when incremental updates can be sent. The first time a game object is sent to a client, it must include a full state snapshot, but subsequent updates can save on bandwidth by including only incremental changes.</p>
 <p>The <code>OnSerialize</code> function should return true to indicate that an update should be sent. If it returns true, the dirty bits for that script are set to zero. If it returns false, the dirty bits are not changed. This allows multiple changes to a script to be accumulated over time and sent when the system is ready, instead of every frame.</p>
-<p>The <code>OnSerialize</code> function is only called for <code>initialState</code> or when the <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> is dirty. A <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> will only be dirty if a <code>SyncVar</code> or <code>SyncObject</code> (e.g. <code>SyncList</code>) has changed since the last OnSerialize call. After data has been sent the <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> will not be dirty again until the next <code>syncInterval</code> (set in the inspector). A <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> can also be marked as dirty by manually calling <code>SetDirtyBit</code> (this does not bypass the syncInterval limit).</p>
-<p>Although this works,  it is usually better to let MirrorNG generate these methods and provide <a href="../DataTypes.html">custom serializers</a> for your specific field.</p>
+<p>The <code>OnSerialize</code> function is only called for <code>initialState</code> or when the <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> is dirty. A <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> will only be dirty if a <code>SyncVar</code> or <code>SyncObject</code> (e.g. <code>SyncList</code>) has changed since the last OnSerialize call. After data has been sent the <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> will not be dirty again until the next <code>syncInterval</code> (set in the inspector). A <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> can also be marked as dirty by manually calling <code>SetDirtyBit</code> (this does not bypass the syncInterval limit).</p>
+<p>Although this works,  it is usually better to let Mirage generate these methods and provide <a href="../DataTypes.html">custom serializers</a> for your specific field.</p>
 <h2 id="serialization-flow">Serialization Flow</h2>
-<p>Game objects with the Network Identity component attached can have multiple scripts derived from <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a>. The flow for serializing these game objects is:</p>
+<p>Game objects with the Network Identity component attached can have multiple scripts derived from <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a>. The flow for serializing these game objects is:</p>
 <p>On the server:</p>
 <ul>
-<li>Each <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> has a dirty mask. This mask is available inside <code>OnSerialize</code> as <code>syncVarDirtyBits</code></li>
-<li>Each SyncVar in a <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> script is assigned a bit in the dirty mask.</li>
+<li>Each <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> has a dirty mask. This mask is available inside <code>OnSerialize</code> as <code>syncVarDirtyBits</code></li>
+<li>Each SyncVar in a <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> script is assigned a bit in the dirty mask.</li>
 <li>Changing the value of SyncVars causes the bit for that SyncVar to be set in the dirty mask</li>
 <li>Alternatively, calling <code>SetDirtyBit</code> writes directly to the dirty mask</li>
-<li><a class="xref" href="../../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a> game objects are checked on the server as part of it’s update loop</li>
-<li>If any <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a>s on a <a class="xref" href="../../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a> are dirty, then an <code>UpdateVars</code> packet is created for that game object</li>
-<li>The <code>UpdateVars</code> packet is populated by calling <code>OnSerialize</code> on each <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> on the game object</li>
-<li><a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a>s that are not dirty write a zero to the packet for their dirty bits</li>
-<li><a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a>s that are dirty write their dirty mask, then the values for the SyncVars that have changed</li>
-<li>If <code>OnSerialize</code> returns true for a <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a>, the dirty mask is reset for that <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> so it does not send again until its value changes.</li>
+<li><a class="xref" href="../../../api/Mirage.NetworkIdentity.html">NetworkIdentity</a> game objects are checked on the server as part of it’s update loop</li>
+<li>If any <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a>s on a <a class="xref" href="../../../api/Mirage.NetworkIdentity.html">NetworkIdentity</a> are dirty, then an <code>UpdateVars</code> packet is created for that game object</li>
+<li>The <code>UpdateVars</code> packet is populated by calling <code>OnSerialize</code> on each <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> on the game object</li>
+<li><a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a>s that are not dirty write a zero to the packet for their dirty bits</li>
+<li><a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a>s that are dirty write their dirty mask, then the values for the SyncVars that have changed</li>
+<li>If <code>OnSerialize</code> returns true for a <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a>, the dirty mask is reset for that <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> so it does not send again until its value changes.</li>
 <li>The <code>UpdateVars</code> packet is sent to ready clients that are observing the game object</li>
 </ul>
 <p>On the client:</p>
 <ul>
 <li>an <code>UpdateVars packet</code> is received for a game object</li>
-<li>The <code>OnDeserialize</code> function is called for each <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> script on the game object</li>
-<li>Each <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> script on the game object reads a dirty mask.</li>
-<li>If the dirty mask for a <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> is zero, the <code>OnDeserialize</code> function returns without reading any more</li>
+<li>The <code>OnDeserialize</code> function is called for each <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> script on the game object</li>
+<li>Each <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> script on the game object reads a dirty mask.</li>
+<li>If the dirty mask for a <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> is zero, the <code>OnDeserialize</code> function returns without reading any more</li>
 <li>If the dirty mask is non-zero value, then the <code>OnDeserialize</code> function reads the values for the SyncVars that correspond to the dirty bits that are set</li>
 <li>If there are SyncVar hook functions, those are invoked with the value read from the stream.</li>
 </ul>
@@ -166,7 +168,7 @@ public class Data : NetworkBehaviour
     }
 }
 </code></pre>
-<p>The following sample shows the code that is generated by MirrorNG for the <code>SerializeSyncVars</code> function which is called inside <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a><code>.OnSerialize</code>:</p>
+<p>The following sample shows the code that is generated by Mirage for the <code>SerializeSyncVars</code> function which is called inside <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a><code>.OnSerialize</code>:</p>
 <pre><code class="lang-cs">public override bool SerializeSyncVars(NetworkWriter writer, bool initialState)
 {
     // Write any SyncVars in base class
@@ -207,7 +209,7 @@ public class Data : NetworkBehaviour
     }
 }
 </code></pre>
-<p>The following sample shows the code that is generated by MirrorNG for the <code>DeserializeSyncVars</code> function which is called inside <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a><code>.OnDeserialize</code>:</p>
+<p>The following sample shows the code that is generated by Mirage for the <code>DeserializeSyncVars</code> function which is called inside <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a><code>.OnDeserialize</code>:</p>
 <pre><code class="lang-cs">public override void DeserializeSyncVars(NetworkReader reader, bool initialState)
 {
     // Read any SyncVars in base class
@@ -255,7 +257,7 @@ public class Data : NetworkBehaviour
     }
 }
 </code></pre>
-<p>If a <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> has a base class that also has serialization functions, the base class functions should also be called.</p>
+<p>If a <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> has a base class that also has serialization functions, the base class functions should also be called.</p>
 <p>Note that the <code>UpdateVar</code> packets created for game object state updates may be aggregated in buffers before being sent to the client, so a single transport layer packet may contain updates for multiple game objects.</p>
 </article>
           </div>

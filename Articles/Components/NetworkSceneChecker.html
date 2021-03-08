@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -87,10 +89,10 @@ Tick this checkbox to hide this object from all players.</li>
 </ul>
 <p>With the Network Scene Checker, a game running on a client doesn’t have information about game objects that are not visible. This has two main benefits: it reduces the amount of data sent across the network, and it makes your game more secure against hacking.</p>
 <p>This component would typically be used when the server has several subscenes loaded and needs to isolate networked objects to the subscene they're in.</p>
-<p>A game object with a Network Scene Checker component must also have a Network Identity component. When you create a Network Scene Checker component on a game object, MirrorNG also creates a Network Identity component on that game object if it does not already have one.</p>
+<p>A game object with a Network Scene Checker component must also have a Network Identity component. When you create a Network Scene Checker component on a game object, Mirage also creates a Network Identity component on that game object if it does not already have one.</p>
 <p>Scene objects with a Network Scene Checker component are disabled when they're not in the same scene, and spawned objects are destroyed when they're not in the same scene.</p>
 <h2 id="use-with-additive-scenes">Use with Additive Scenes</h2>
-<p>In MirrorNG, the Server and connected Clients are always on the same main scene, however the server and clients can have various combinations of smaller subscenes loaded additively. The server may load all subscenes at start, or it may dynamically load and unload subscenes where players or other activity is going on as needed.</p>
+<p>In Mirage, the Server and connected Clients are always on the same main scene, however the server and clients can have various combinations of smaller subscenes loaded additively. The server may load all subscenes at start, or it may dynamically load and unload subscenes where players or other activity is going on as needed.</p>
 <p>All player objects are always first spawned in the main scene, which may or may not have visual content, networked objects, etc. With this component attached to all networked objects, whenever the player object is moved to a subscene (from the main or from another subscene), the observers lists for objects in both the new scene and the prior scene are updated accordingly.</p>
 <p>Loading the subscene(s) on the server is through the normal process with <code>SceneManager</code>:</p>
 <pre><code class="lang-cs">SceneManager.LoadSceneAsync(subScene, LoadSceneMode.Additive);

@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -115,7 +117,7 @@
 <p>Be careful of sending ServerRpcs from the client every frame! This can cause a lot of network traffic.</p>
 <h3 id="returning-values">Returning values</h3>
 <p>ServerRpcs can return values.  It can take a long time for the server to reply, so they must return a UniTask which the client can await.
-To return a value,  add a return value using <code>UniTask&lt;MyReturnType&gt;</code> where <code>MyReturnType</code> is any <a href="../DataTypes.html">supported MirrorNG type</a>.  In the server you can make your method async,  or you can use <code>UniTask.FromResult(myresult);</code>.  For example:</p>
+To return a value,  add a return value using <code>UniTask&lt;MyReturnType&gt;</code> where <code>MyReturnType</code> is any <a href="../DataTypes.html">supported Mirage type</a>.  In the server you can make your method async,  or you can use <code>UniTask.FromResult(myresult);</code>.  For example:</p>
 <pre><code class="lang-cs">public class Shop: NetworkBehavior {
 
     [ServerRpc]
@@ -148,7 +150,7 @@ To return a value,  add a return value using <code>UniTask&lt;MyReturnType&gt;</
 <li>The object has client authority set with <code>NetworkIdentity.AssignClientAuthority</code></li>
 <li>the Server RPC Call has the <code>requireAuthority</code> option set false.
 <ul>
-<li>You can include an optional <code>NetworkConnectionToClient sender = null</code> parameter in the Server RPC Call method signature and MirrorNG will fill in the sending client for you.</li>
+<li>You can include an optional <code>NetworkConnectionToClient sender = null</code> parameter in the Server RPC Call method signature and Mirage will fill in the sending client for you.</li>
 <li>Do not try to set a value for this optional parameter...it will be ignored.</li>
 </ul>
 </li>
@@ -225,7 +227,7 @@ public class Door : NetworkBehaviour
         Healed(10);
     }
 
-    [ClientRpc(target = client.Owner)]
+    [ClientRpc(target = Client.Owner)]
     public void Healed(int amount)
     {
         // No NetworkConnection parameter, so it goes to owner
@@ -234,7 +236,7 @@ public class Door : NetworkBehaviour
 }
 </code></pre>
 <h2 id="arguments-to-remote-actions">Arguments to Remote Actions</h2>
-<p>The arguments passed to ServerRpc and ClientRpc calls are serialized and sent over the network. You can use any <a href="../DataTypes.html">supported MirrorNG type</a>.</p>
+<p>The arguments passed to ServerRpc and ClientRpc calls are serialized and sent over the network. You can use any <a href="../DataTypes.html">supported Mirage type</a>.</p>
 <p>Arguments to remote actions cannot be sub-components of game objects, such as script instances or Transforms.</p>
 </article>
           </div>

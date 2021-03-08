@@ -1,0 +1,479 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Mirage
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Mirage
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage">
+  
+  <h1 id="Mirage" data-uid="Mirage" class="text-break">Namespace Mirage
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Mirage.Channel.html">Channel</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ClientAttribute.html">ClientAttribute</a></h4>
+      <section><p>Prevents this method from running if client is not active.</p>
+<p>Can only be used inside a NetworkBehaviour</p>
+</section>
+      <h4><a class="xref" href="Mirage.ClientObjectManager.html">ClientObjectManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ClientRpcAttribute.html">ClientRpcAttribute</a></h4>
+      <section><p>The server uses a Remote Procedure Call (RPC) to run this function on specific clients.</p>
+<p>Note that if you set the target as Connection, you need to pass a specific connection as a parameter of your method</p>
+</section>
+      <h4><a class="xref" href="Mirage.ClientSceneChangeEvent.html">ClientSceneChangeEvent</a></h4>
+      <section><p>Event fires from <a class="xref" href="Mirage.INetworkSceneManager.html">INetworkSceneManager</a> when a scene change happens on either Server or Client.</p>
+<p>string - New ScenePath</p>
+<p>SceneOperation - Scene change type (Normal, Additive Load, Additive Unload).</p>
+</section>
+      <h4><a class="xref" href="Mirage.Compression.html">Compression</a></h4>
+      <section><p>Credit to this man for converting gaffer games c code to c#
+<a href="https://gist.github.com/fversnel/0497ad7ab3b81e0dc1dd">https://gist.github.com/fversnel/0497ad7ab3b81e0dc1dd</a></p>
+</section>
+      <h4><a class="xref" href="Mirage.ExponentialMovingAverage.html">ExponentialMovingAverage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.GameObjectSerializers.html">GameObjectSerializers</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.HasAuthorityAttribute.html">HasAuthorityAttribute</a></h4>
+      <section><p>Prevents players without authority from running this method.</p>
+<p>Can only be used inside a NetworkBehaviour</p>
+</section>
+      <h4><a class="xref" href="Mirage.HeadlessAutoStart.html">HeadlessAutoStart</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.HeadlessFrameLimiter.html">HeadlessFrameLimiter</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ILoggerExtensions.html">ILoggerExtensions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.InvalidMessageException.html">InvalidMessageException</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.LobbyReady.html">LobbyReady</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.LocalPlayerAttribute.html">LocalPlayerAttribute</a></h4>
+      <section><p>Prevents nonlocal players from running this method.</p>
+<p>Can only be used inside a NetworkBehaviour</p>
+</section>
+      <h4><a class="xref" href="Mirage.LogFactory.html">LogFactory</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.LogSettings.html">LogSettings</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.MessagePacker.html">MessagePacker</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.MethodInvocationException.html">MethodInvocationException</a></h4>
+      <section><p>Exception thrown if a guarded method is invoked incorrectly</p>
+</section>
+      <h4><a class="xref" href="Mirage.MultiplexTransport.html">MultiplexTransport</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkAnimator.html">NetworkAnimator</a></h4>
+      <section><p>A component to synchronize Mecanim animation states for networked objects.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkAuthenticator.html">NetworkAuthenticator</a></h4>
+      <section><p>Base class for implementing component-based authentication during the Connect phase</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkBehaviorSerializers.html">NetworkBehaviorSerializers</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkBehaviour.html">NetworkBehaviour</a></h4>
+      <section><p>Base class which should be inherited by scripts which contain networking functionality.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a></h4>
+      <section><p>This is a network client class used by the networking system. It contains a NetworkConnection that is used to connect to a network server.</p>
+<p>The <a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a> handle connection state, messages handlers, and connection configuration. There can be many <a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a> instances in a process at a time, but only one that is connected to a game server (<a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a>) that uses spawned objects.</p>
+<p><a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a> has an internal update function where it handles events from the transport layer. This includes asynchronous connect events, disconnect events and incoming data from a server.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkConnection.html">NetworkConnection</a></h4>
+      <section><p>A High level network connection. This is used for connections from client-to-server and for connection from server-to-client.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkConnectionEvent.html">NetworkConnectionEvent</a></h4>
+      <section><p>Event fires from a <a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a> or <a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a> during a new connection, a new authentication, or a disconnection.</p>
+<p>INetworkConnection - connection creating the event</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkDiagnostics.html">NetworkDiagnostics</a></h4>
+      <section><p>Provides profiling information from mirror
+A profiler can subscribe to these events and
+present the data in a friendly way to the user</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></h4>
+      <section><p>The NetworkIdentity identifies objects across the network, between server and clients.
+Its primary data is a NetworkInstanceId which is allocated by the server and then set on clients.
+This is used in network communications to be able to lookup game objects on different machines.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkIdentitySerializers.html">NetworkIdentitySerializers</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkManager.html">NetworkManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkManagerHud.html">NetworkManagerHud</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkMatchChecker.html">NetworkMatchChecker</a></h4>
+      <section><p>Component that controls visibility of networked objects based on match id.</p>
+<p>Any object with this component on it will only be visible to other objects in the same match.</p>
+<p>This would be used to isolate players to their respective matches within a single game server instance. </p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkMessageAttribute.html">NetworkMessageAttribute</a></h4>
+      <section><p>Tell the weaver to generate  reader and writer for a class</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkPingDisplay.html">NetworkPingDisplay</a></h4>
+      <section><p>Component that will display the clients ping in milliseconds</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkProximityChecker.html">NetworkProximityChecker</a></h4>
+      <section><p>Component that controls visibility of networked objects for players.</p>
+<p>Any object with this component on it will not be visible to players more than a (configurable) distance away.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkReader.html">NetworkReader</a></h4>
+      <section><p>Binary stream Reader. Supports simple types, buffers, arrays, structs, and nested types</p>
+<p>Use <a class="xref" href="Mirage.NetworkReaderPool.html#Mirage_NetworkReaderPool_GetReader_System_Byte___">GetReader(Byte[])</a> to reduce memory allocation</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkReaderExtensions.html">NetworkReaderExtensions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkReaderPool.html">NetworkReaderPool</a></h4>
+      <section><p>Pool of NetworkReaders</p>
+<p>Use this pool instead of <a class="xref" href="Mirage.NetworkReader.html">NetworkReader</a> to reduce memory allocation</p>
+<p>Use <a class="xref" href="Mirage.NetworkReaderPool.html#Mirage_NetworkReaderPool_Capacity">Capacity</a> to change size of pool</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkSceneChecker.html">NetworkSceneChecker</a></h4>
+      <section><p>Component that controls visibility of networked objects between scenes.</p>
+<p>Any object with this component on it will only be visible to other objects in the same scene</p>
+<p>This would be used when the server has multiple additive subscenes loaded to isolate players to their respective subscenes</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkSceneManager.html">NetworkSceneManager</a></h4>
+      <section><p>Provides Scene Management to a NetworkServer and or NetworkClient.</p>
+<p>The <a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a> loads scenes as instructed by the <a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a>.</p>
+<p>The <a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a> controls the currently active Scene and any additive Load/Unload.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a></h4>
+      <section><p>The NetworkServer.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkTime.html">NetworkTime</a></h4>
+      <section><p>Synchronize time between the server and the clients</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkTransform.html">NetworkTransform</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkTransformBase.html">NetworkTransformBase</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkTransformBase.DataPoint.html">NetworkTransformBase.DataPoint</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkTransformChild.html">NetworkTransformChild</a></h4>
+      <section><p>A component to synchronize the position of child transforms of networked objects.</p>
+<p>There must be a NetworkTransform on the root object of the hierarchy. There can be multiple NetworkTransformChild components on an object. This does not use physics for synchronization, it simply synchronizes the localPosition and localRotation of the child transform and lerps towards the recieved values.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkVisibility.html">NetworkVisibility</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></h4>
+      <section><p>Binary stream Writer. Supports simple types, buffers, arrays, structs, and nested types</p>
+<p>Use <a class="xref" href="Mirage.NetworkWriterPool.html#Mirage_NetworkWriterPool_GetWriter">GetWriter()</a> to reduce memory allocation</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkWriterExtensions.html">NetworkWriterExtensions</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkWriterPool.html">NetworkWriterPool</a></h4>
+      <section><p>Pool of NetworkWriters</p>
+<p>Use this pool instead of <a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a> to reduce memory allocation</p>
+<p>Use <a class="xref" href="Mirage.NetworkWriterPool.html#Mirage_NetworkWriterPool_Capacity">Capacity</a> to change size of pool</p>
+</section>
+      <h4><a class="xref" href="Mirage.NotifyPacketSerializer.html">NotifyPacketSerializer</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ObjectReady.html">ObjectReady</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.OnlineOfflineScene.html">OnlineOfflineScene</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.PipeConnection.html">PipeConnection</a></h4>
+      <section><p>A connection that is directly connected to another connection
+If you send data in one of them,  you receive it on the other one</p>
+</section>
+      <h4><a class="xref" href="Mirage.PlayerSpawner.html">PlayerSpawner</a></h4>
+      <section><p>Spawns a player as soon as the connection is authenticated</p>
+</section>
+      <h4><a class="xref" href="Mirage.PooledNetworkReader.html">PooledNetworkReader</a></h4>
+      <section><p>NetworkReader to be used with <a class="xref" href="Mirage.NetworkReaderPool.html">NetworkReaderPool</a></p>
+</section>
+      <h4><a class="xref" href="Mirage.PooledNetworkWriter.html">PooledNetworkWriter</a></h4>
+      <section><p>NetworkWriter to be used with <a class="xref" href="Mirage.NetworkWriterPool.html">NetworkWriterPool</a></p>
+</section>
+      <h4><a class="xref" href="Mirage.Reader-1.html">Reader&lt;T&gt;</a></h4>
+      <section><p>a class that holds readers for the different types
+Note that c# creates a different static variable for each
+type
+This will be populated by the weaver</p>
+</section>
+      <h4><a class="xref" href="Mirage.SceneAttribute.html">SceneAttribute</a></h4>
+      <section><p>Converts a string property into a Scene property in the inspector</p>
+</section>
+      <h4><a class="xref" href="Mirage.ServerAttribute.html">ServerAttribute</a></h4>
+      <section><p>Prevents a method from running if server is not active.</p>
+<p>Can only be used inside a NetworkBehaviour</p>
+</section>
+      <h4><a class="xref" href="Mirage.ServerObjectManager.html">ServerObjectManager</a></h4>
+      <section><p>The ServerObjectManager.</p>
+</section>
+      <h4><a class="xref" href="Mirage.ServerRpcAttribute.html">ServerRpcAttribute</a></h4>
+      <section><p>Call this from a client to run this function on the server.</p>
+<p>Make sure to validate input etc. It&apos;s not possible to call this from a server.</p>
+</section>
+      <h4><a class="xref" href="Mirage.ShowInInspectorAttribute.html">ShowInInspectorAttribute</a></h4>
+      <section><p>Used to show private SyncList in the inspector,</p>
+<p> Use instead of SerializeField for non Serializable types </p>
+</section>
+      <h4><a class="xref" href="Mirage.SpawnEvent.html">SpawnEvent</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.StringHash.html">StringHash</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncDictionary-2.html">SyncDictionary&lt;TKey, TValue&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncHashSet-1.html">SyncHashSet&lt;T&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncIDictionary-2.html">SyncIDictionary&lt;TKey, TValue&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncList-1.html">SyncList&lt;T&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncSet-1.html">SyncSet&lt;T&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncSortedSet-1.html">SyncSortedSet&lt;T&gt;</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncVarAttribute.html">SyncVarAttribute</a></h4>
+      <section><p>SyncVars are used to synchronize a variable from the server to all clients automatically.</p>
+<p>Value must be changed on server, not directly by clients.  Hook parameter allows you to define a client-side method to be invoked when the client gets an update from the server.</p>
+</section>
+      <h4><a class="xref" href="Mirage.Transport.html">Transport</a></h4>
+      <section><p>Base transport class,  any transport should implement this class
+and it's abstract methods</p>
+</section>
+      <h4><a class="xref" href="Mirage.Transport.ConnectEvent.html">Transport.ConnectEvent</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.Version.html">Version</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.Writer-1.html">Writer&lt;T&gt;</a></h4>
+      <section><p>a class that holds writers for the different types
+Note that c# creates a different static variable for each
+type
+This will be populated by the weaver</p>
+</section>
+    <h3 id="structs">Structs
+  </h3>
+      <h4><a class="xref" href="Mirage.AddPlayerMessage.html">AddPlayerMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.GameObjectSyncvar.html">GameObjectSyncvar</a></h4>
+      <section><p>backing struct for a NetworkIdentity when used as a syncvar
+the weaver will replace the syncvar with this struct.</p>
+</section>
+      <h4><a class="xref" href="Mirage.LogSettings.Level.html">LogSettings.Level</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkBehaviorSyncvar.html">NetworkBehaviorSyncvar</a></h4>
+      <section><p>backing struct for a NetworkIdentity when used as a syncvar
+the weaver will replace the syncvar with this struct.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkDiagnostics.MessageInfo.html">NetworkDiagnostics.MessageInfo</a></h4>
+      <section><p>Describes an outgoing message</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkIdentitySyncvar.html">NetworkIdentitySyncvar</a></h4>
+      <section><p>backing struct for a NetworkIdentity when used as a syncvar
+the weaver will replace the syncvar with this struct.</p>
+</section>
+      <h4><a class="xref" href="Mirage.NetworkPingMessage.html">NetworkPingMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NetworkPongMessage.html">NetworkPongMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NotifyAck.html">NotifyAck</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NotifyPacket.html">NotifyPacket</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.NotReadyMessage.html">NotReadyMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ObjectDestroyMessage.html">ObjectDestroyMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ObjectHideMessage.html">ObjectHideMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ReadyMessage.html">ReadyMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.RpcMessage.html">RpcMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SceneMessage.html">SceneMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SceneReadyMessage.html">SceneReadyMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.Sequencer.html">Sequencer</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ServerRpcMessage.html">ServerRpcMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ServerRpcReply.html">ServerRpcReply</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SpawnMessage.html">SpawnMessage</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncList-1.Enumerator.html">SyncList&lt;T&gt;.Enumerator</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.UpdateVarsMessage.html">UpdateVarsMessage</a></h4>
+      <section></section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="Mirage.IClientObjectManager.html">IClientObjectManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.IConnection.html">IConnection</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.IMessageHandler.html">IMessageHandler</a></h4>
+      <section><p>An object that can send and receive messages</p>
+</section>
+      <h4><a class="xref" href="Mirage.INetworkClient.html">INetworkClient</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></h4>
+      <section><p>A connection to a remote endpoint.
+May be from the server to client or from client to server</p>
+</section>
+      <h4><a class="xref" href="Mirage.INetworkSceneManager.html">INetworkSceneManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.INetworkServer.html">INetworkServer</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.IObjectLocator.html">IObjectLocator</a></h4>
+      <section><p>An object that implements this interface can find objects by their net id
+This is used by readers when trying to deserialize gameobjects</p>
+</section>
+      <h4><a class="xref" href="Mirage.IObjectOwner.html">IObjectOwner</a></h4>
+      <section><p>An object that can own networked objects</p>
+</section>
+      <h4><a class="xref" href="Mirage.IServerObjectManager.html">IServerObjectManager</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ISyncObject.html">ISyncObject</a></h4>
+      <section><p>A sync object is an object that can synchronize it's state
+between server and client, such as a SyncList</p>
+</section>
+      <h4><a class="xref" href="Mirage.IVisibilityTracker.html">IVisibilityTracker</a></h4>
+      <section><p>An object that can observe NetworkIdentities.
+this is useful for interest management</p>
+</section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Mirage.Client.html">Client</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.ConnectState.html">ConnectState</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.MirageInvokeType.html">MirageInvokeType</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.PlayerSpawner.PlayerSpawnMethod.html">PlayerSpawner.PlayerSpawnMethod</a></h4>
+      <section><p>Enumeration of methods of where to spawn player objects in multiplayer games.</p>
+</section>
+      <h4><a class="xref" href="Mirage.SceneOperation.html">SceneOperation</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.SyncMode.html">SyncMode</a></h4>
+      <section><p>Sync to everyone, or only to owner.</p>
+</section>
+    <h3 id="delegates">Delegates
+  </h3>
+      <h4><a class="xref" href="Mirage.NetworkIdentity.ClientAuthorityCallback.html">NetworkIdentity.ClientAuthorityCallback</a></h4>
+      <section><p>The delegate type for the clientAuthorityCallback.</p>
+</section>
+      <h4><a class="xref" href="Mirage.SpawnHandlerDelegate.html">SpawnHandlerDelegate</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Mirage.UnSpawnDelegate.html">UnSpawnDelegate</a></h4>
+      <section></section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

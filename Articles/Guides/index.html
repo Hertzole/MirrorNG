@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,7 +82,7 @@
 <h1 id="networking-concepts-overview">Networking Concepts Overview</h1>
 
 <h2 id="high-level-scripting-api">High level scripting API</h2>
-<p>MirrorNG’s networking has a “high-level” scripting API (which we’ll refer to as the HLAPI). Using this means you get access to commands which cover most of the common requirements for multiuser games without needing to worry about the “lower level” implementation details. The HLAPI allows you to:</p>
+<p>Mirage’s networking has a “high-level” scripting API (which we’ll refer to as the HLAPI). Using this means you get access to commands which cover most of the common requirements for multiuser games without needing to worry about the “lower level” implementation details. The HLAPI allows you to:</p>
 <ul>
 <li>Control the networked state of the game using a “Network Manager”.</li>
 <li>Operate “client hosted” games, where the host is also a player client.</li>
@@ -91,7 +93,7 @@
 <li>Send networked events from servers to clients.</li>
 </ul>
 <h2 id="engine-and-editor-integration">Engine and Editor integration</h2>
-<p>MirrorNG’s networking is integrated into the engine and the editor, allowing you to work with components and visual aids to build your multiplayer game. It provides:</p>
+<p>Mirage’s networking is integrated into the engine and the editor, allowing you to work with components and visual aids to build your multiplayer game. It provides:</p>
 <ul>
 <li>A NetworkIdentity component for networked objects.</li>
 <li>A NetworkBehaviour for networked scripts.</li>

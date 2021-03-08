@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -81,7 +83,7 @@
 
 <p>Frequently the question comes up about how to handle objects that are attached as children of the player prefab that all clients need to know about and synchronize, such as which weapon is equipped, picking up networked scene objects, and players dropping objects into the scene.</p>
 <blockquote>
-<p>MirrorNG cannot support multiple Network Identity components within an object hierarchy. Since the Player object must have a Network Identity, none of its descendant objects can have one.</p>
+<p>Mirage cannot support multiple Network Identity components within an object hierarchy. Since the Player object must have a Network Identity, none of its descendant objects can have one.</p>
 </blockquote>
 <h2 id="child-objects">Child Objects</h2>
 <p>Let's start with the simple case of a single attachment point that is somewhere down the hierarchy of our Player, such as a hand at the end of an arm. In a script that inherits from NetworkBehaviour on the Player Prefab, we'd have a <code>GameObject</code> reference where the attachment point can be assigned in the inspector, a SyncVar enum with various choices of what the player is holding, and and a Hook for the SyncVar to swap out the art of the held item based on the new value.</p>
@@ -98,7 +100,7 @@
 </ul>
 <pre><code class="lang-cs">using UnityEngine;
 using System.Collections;
-using MirrorNG;
+using Mirage;
 
 public enum EquippedItem : byte
 {
@@ -220,7 +222,7 @@ public class PlayerEquip : NetworkBehaviour
 <p>In the image above, there's a <code>sceneObjectPrefab</code> field that is assigned to a prefab that will act as a container for our item prefabs. The SceneObject prefab has a SceneObject script with a SyncVar like the Player Equip script, and a SetEquippedItem method that takes the shared enum value as a parameter.</p>
 <pre><code class="lang-cs">using UnityEngine;
 using System.Collections;
-using MirrorNG;
+using Mirage;
 
 public class SceneObject : NetworkBehaviour
 {

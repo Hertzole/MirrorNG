@@ -1,0 +1,1061 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ServerObjectManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ServerObjectManager
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage.ServerObjectManager">
+  
+  
+  <h1 id="Mirage_ServerObjectManager" data-uid="Mirage.ServerObjectManager" class="text-break">Class ServerObjectManager
+  </h1>
+  <div class="markdown level0 summary"><p>The ServerObjectManager.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">ServerObjectManager</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Mirage.IServerObjectManager.html">IServerObjectManager</a></div>
+    <div><a class="xref" href="Mirage.IObjectLocator.html">IObjectLocator</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirage.html">Mirage</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirage_ServerObjectManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ServerObjectManager : MonoBehaviour, IServerObjectManager, IObjectLocator</code></pre>
+  </div>
+  <h5 id="Mirage_ServerObjectManager_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The set of networked objects that have been spawned is managed by ServerObjectManager.
+Objects are spawned with ServerObjectManager.Spawn() which adds them to this set, and makes them be created on clients.
+Spawned objects are removed automatically when they are destroyed, or than they can be removed from the spawned set by calling ServerObjectManager.UnSpawn() - this does not destroy the object.</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_DirtyObjects.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.DirtyObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L50">View Source</a>
+  </span>
+  <h4 id="Mirage_ServerObjectManager_DirtyObjects" data-uid="Mirage.ServerObjectManager.DirtyObjects">DirtyObjects</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly HashSet&lt;NetworkIdentity&gt; DirtyObjects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">HashSet</span>&lt;<a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_NetworkSceneManager.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.NetworkSceneManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L28">View Source</a>
+  </span>
+  <h4 id="Mirage_ServerObjectManager_NetworkSceneManager" data-uid="Mirage.ServerObjectManager.NetworkSceneManager">NetworkSceneManager</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkSceneManager NetworkSceneManager</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkSceneManager.html">NetworkSceneManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Server.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Server%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L26">View Source</a>
+  </span>
+  <h4 id="Mirage_ServerObjectManager_Server" data-uid="Mirage.ServerObjectManager.Server">Server</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkServer Server</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_SpawnedObjects.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.SpawnedObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L48">View Source</a>
+  </span>
+  <h4 id="Mirage_ServerObjectManager_SpawnedObjects" data-uid="Mirage.ServerObjectManager.SpawnedObjects">SpawnedObjects</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly Dictionary&lt;uint, NetworkIdentity&gt; SpawnedObjects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a>, <a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Item_System_UInt32_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Item(System.UInt32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L53">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Item_" data-uid="Mirage.ServerObjectManager.Item*"></a>
+  <h4 id="Mirage_ServerObjectManager_Item_System_UInt32_" data-uid="Mirage.ServerObjectManager.Item(System.UInt32)">Item[UInt32]</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkIdentity this[uint netId] { get; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td><span class="parametername">netId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Spawned.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Spawned%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L36">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Spawned_" data-uid="Mirage.ServerObjectManager.Spawned*"></a>
+  <h4 id="Mirage_ServerObjectManager_Spawned" data-uid="Mirage.ServerObjectManager.Spawned">Spawned</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpawnEvent Spawned { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.SpawnEvent.html">SpawnEvent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_UnSpawned.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.UnSpawned%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L43">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_UnSpawned_" data-uid="Mirage.ServerObjectManager.UnSpawned*"></a>
+  <h4 id="Mirage_ServerObjectManager_UnSpawned" data-uid="Mirage.ServerObjectManager.UnSpawned">UnSpawned</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpawnEvent UnSpawned { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.SpawnEvent.html">SpawnEvent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_AddPlayerForConnection_Mirage_INetworkConnection_GameObject_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.AddPlayerForConnection(Mirage.INetworkConnection%2CGameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L257">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_AddPlayerForConnection_" data-uid="Mirage.ServerObjectManager.AddPlayerForConnection*"></a>
+  <h4 id="Mirage_ServerObjectManager_AddPlayerForConnection_Mirage_INetworkConnection_GameObject_" data-uid="Mirage.ServerObjectManager.AddPlayerForConnection(Mirage.INetworkConnection,GameObject)">AddPlayerForConnection(INetworkConnection, GameObject)</h4>
+  <div class="markdown level1 summary"><p>When an AddPlayer message handler has received a request from a player, the server calls this to associate the player object with the connection.</p>
+<p>When a player is added for a connection, the client for that connection is made ready automatically. The player object is automatically spawned, so you do not need to call NetworkServer.Spawn for that object. This function is used for &quot;adding&quot; a player, not for &quot;replacing&quot; the player on a connection. If there is already a player on this playerControllerId for this connection, this will fail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddPlayerForConnection(INetworkConnection conn, GameObject player)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_AddPlayerForConnection_Mirage_INetworkConnection_GameObject_Guid_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.AddPlayerForConnection(Mirage.INetworkConnection%2CGameObject%2CGuid)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L242">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_AddPlayerForConnection_" data-uid="Mirage.ServerObjectManager.AddPlayerForConnection*"></a>
+  <h4 id="Mirage_ServerObjectManager_AddPlayerForConnection_Mirage_INetworkConnection_GameObject_Guid_" data-uid="Mirage.ServerObjectManager.AddPlayerForConnection(Mirage.INetworkConnection,GameObject,Guid)">AddPlayerForConnection(INetworkConnection, GameObject, Guid)</h4>
+  <div class="markdown level1 summary"><p>When an AddPlayer message handler has received a request from a player, the server calls this to associate the player object with the connection.</p>
+<p>When a player is added for a connection, the client for that connection is made ready automatically. The player object is automatically spawned, so you do not need to call NetworkServer.Spawn for that object. This function is used for &quot;adding&quot; a player, not for &quot;replacing&quot; the player on a connection. If there is already a player on this playerControllerId for this connection, this will fail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AddPlayerForConnection(INetworkConnection conn, GameObject player, Guid assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Destroy_GameObject_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Destroy(GameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L647">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Destroy_" data-uid="Mirage.ServerObjectManager.Destroy*"></a>
+  <h4 id="Mirage_ServerObjectManager_Destroy_GameObject_" data-uid="Mirage.ServerObjectManager.Destroy(GameObject)">Destroy(GameObject)</h4>
+  <div class="markdown level1 summary"><p>Destroys this object and corresponding objects on all clients.</p>
+<p>In some cases it is useful to remove an object but not delete it on the server. For that, use NetworkServer.UnSpawn() instead of NetworkServer.Destroy().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Destroy(GameObject obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Game object to destroy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_RemovePlayerForConnection_Mirage_INetworkConnection_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.RemovePlayerForConnection(Mirage.INetworkConnection%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L391">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_RemovePlayerForConnection_" data-uid="Mirage.ServerObjectManager.RemovePlayerForConnection*"></a>
+  <h4 id="Mirage_ServerObjectManager_RemovePlayerForConnection_Mirage_INetworkConnection_System_Boolean_" data-uid="Mirage.ServerObjectManager.RemovePlayerForConnection(Mirage.INetworkConnection,System.Boolean)">RemovePlayerForConnection(INetworkConnection, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Removes the player object from the connection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemovePlayerForConnection(INetworkConnection conn, bool destroyServerObject = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection of the client to remove from</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">destroyServerObject</span></td>
+        <td><p>Indicates whether the server object should be destroyed</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_ReplacePlayerForConnection_Mirage_INetworkConnection_Mirage_NetworkClient_GameObject_Guid_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.ReplacePlayerForConnection(Mirage.INetworkConnection%2CMirage.NetworkClient%2CGameObject%2CGuid%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L184">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_ReplacePlayerForConnection_" data-uid="Mirage.ServerObjectManager.ReplacePlayerForConnection*"></a>
+  <h4 id="Mirage_ServerObjectManager_ReplacePlayerForConnection_Mirage_INetworkConnection_Mirage_NetworkClient_GameObject_Guid_System_Boolean_" data-uid="Mirage.ServerObjectManager.ReplacePlayerForConnection(Mirage.INetworkConnection,Mirage.NetworkClient,GameObject,Guid,System.Boolean)">ReplacePlayerForConnection(INetworkConnection, NetworkClient, GameObject, Guid, Boolean)</h4>
+  <div class="markdown level1 summary"><p>This replaces the player object for a connection with a different player object. The old player object is not destroyed.</p>
+<p>If a connection already has a player object, this can be used to replace that object with a different player object. This does NOT change the ready state of the connection, so it can safely be used while changing scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReplacePlayerForConnection(INetworkConnection conn, NetworkClient client, GameObject player, Guid assetId, bool keepAuthority = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>Client associated to the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">keepAuthority</span></td>
+        <td><p>Does the previous player remain attached to this connection?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_ReplacePlayerForConnection_Mirage_INetworkConnection_Mirage_NetworkClient_GameObject_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.ReplacePlayerForConnection(Mirage.INetworkConnection%2CMirage.NetworkClient%2CGameObject%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L200">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_ReplacePlayerForConnection_" data-uid="Mirage.ServerObjectManager.ReplacePlayerForConnection*"></a>
+  <h4 id="Mirage_ServerObjectManager_ReplacePlayerForConnection_Mirage_INetworkConnection_Mirage_NetworkClient_GameObject_System_Boolean_" data-uid="Mirage.ServerObjectManager.ReplacePlayerForConnection(Mirage.INetworkConnection,Mirage.NetworkClient,GameObject,System.Boolean)">ReplacePlayerForConnection(INetworkConnection, NetworkClient, GameObject, Boolean)</h4>
+  <div class="markdown level1 summary"><p>This replaces the player object for a connection with a different player object. The old player object is not destroyed.</p>
+<p>If a connection already has a player object, this can be used to replace that object with a different player object. This does NOT change the ready state of the connection, so it can safely be used while changing scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ReplacePlayerForConnection(INetworkConnection conn, NetworkClient client, GameObject player, bool keepAuthority = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a></td>
+        <td><span class="parametername">client</span></td>
+        <td><p>Client associated to the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">keepAuthority</span></td>
+        <td><p>Does the previous player remain attached to this connection?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_SetAllClientsNotReady.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.SetAllClientsNotReady%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L751">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_SetAllClientsNotReady_" data-uid="Mirage.ServerObjectManager.SetAllClientsNotReady*"></a>
+  <h4 id="Mirage_ServerObjectManager_SetAllClientsNotReady" data-uid="Mirage.ServerObjectManager.SetAllClientsNotReady">SetAllClientsNotReady()</h4>
+  <div class="markdown level1 summary"><p>Marks all connected clients as no longer ready.</p>
+<p>All clients will no longer be sent state synchronization updates. The player&apos;s clients can call ClientManager.Ready() again to re-enter the ready state. This is useful when switching scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetAllClientsNotReady()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_SetClientNotReady_Mirage_INetworkConnection_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.SetClientNotReady(Mirage.INetworkConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L764">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_SetClientNotReady_" data-uid="Mirage.ServerObjectManager.SetClientNotReady*"></a>
+  <h4 id="Mirage_ServerObjectManager_SetClientNotReady_Mirage_INetworkConnection_" data-uid="Mirage.ServerObjectManager.SetClientNotReady(Mirage.INetworkConnection)">SetClientNotReady(INetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Sets the client of the connection to be not-ready.</p>
+<p>Clients that are not ready do not receive spawned objects or state synchronization updates. They client can be made ready again by calling SetClientReady().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetClientNotReady(INetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection of the client to make not ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_SetClientReady_Mirage_INetworkConnection_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.SetClientReady(Mirage.INetworkConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L735">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_SetClientReady_" data-uid="Mirage.ServerObjectManager.SetClientReady*"></a>
+  <h4 id="Mirage_ServerObjectManager_SetClientReady_Mirage_INetworkConnection_" data-uid="Mirage.ServerObjectManager.SetClientReady(Mirage.INetworkConnection)">SetClientReady(INetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Sets the client to be ready.</p>
+<p>When a client has signaled that it is ready, this method tells the server that the client is ready to receive spawned objects and state synchronization updates. This is usually called in a handler for the SYSTEM_READY message. If there is not specific action a game needs to take for this message, relying on the default ready handler function is probably fine, so this call wont be needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetClientReady(INetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection of the client to make ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Spawn_GameObject_GameObject_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Spawn(GameObject%2CGameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L558">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Spawn_" data-uid="Mirage.ServerObjectManager.Spawn*"></a>
+  <h4 id="Mirage_ServerObjectManager_Spawn_GameObject_GameObject_" data-uid="Mirage.ServerObjectManager.Spawn(GameObject,GameObject)">Spawn(GameObject, GameObject)</h4>
+  <div class="markdown level1 summary"><p>This spawns an object like NetworkServer.Spawn() but also assigns Client Authority to the specified client.</p>
+<p>This is the same as calling NetworkIdentity.AssignClientAuthority on the spawned object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Spawn(GameObject obj, GameObject ownerPlayer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to spawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">ownerPlayer</span></td>
+        <td><p>The player object to set Client Authority to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Spawn_GameObject_Guid_Mirage_INetworkConnection_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Spawn(GameObject%2CGuid%2CMirage.INetworkConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L591">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Spawn_" data-uid="Mirage.ServerObjectManager.Spawn*"></a>
+  <h4 id="Mirage_ServerObjectManager_Spawn_GameObject_Guid_Mirage_INetworkConnection_" data-uid="Mirage.ServerObjectManager.Spawn(GameObject,Guid,Mirage.INetworkConnection)">Spawn(GameObject, Guid, INetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>This spawns an object like NetworkServer.Spawn() but also assigns Client Authority to the specified client.</p>
+<p>This is the same as calling NetworkIdentity.AssignClientAuthority on the spawned object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Spawn(GameObject obj, Guid assetId, INetworkConnection ownerConnection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to spawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>The assetId of the object to spawn. Used for custom spawn handlers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">ownerConnection</span></td>
+        <td><p>The connection that has authority over the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Spawn_GameObject_Mirage_INetworkConnection_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Spawn(GameObject%2CMirage.INetworkConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L608">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Spawn_" data-uid="Mirage.ServerObjectManager.Spawn*"></a>
+  <h4 id="Mirage_ServerObjectManager_Spawn_GameObject_Mirage_INetworkConnection_" data-uid="Mirage.ServerObjectManager.Spawn(GameObject,Mirage.INetworkConnection)">Spawn(GameObject, INetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Spawn the given game object on all clients which are ready.</p>
+<p>This will cause a new object to be instantiated from the registered prefab, or from a custom spawn function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Spawn(GameObject obj, INetworkConnection ownerConnection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Game object with NetworkIdentity to spawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">ownerConnection</span></td>
+        <td><p>The connection that has authority over the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Spawn_Mirage_NetworkIdentity_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Spawn(Mirage.NetworkIdentity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L578">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Spawn_" data-uid="Mirage.ServerObjectManager.Spawn*"></a>
+  <h4 id="Mirage_ServerObjectManager_Spawn_Mirage_NetworkIdentity_" data-uid="Mirage.ServerObjectManager.Spawn(Mirage.NetworkIdentity)">Spawn(NetworkIdentity)</h4>
+  <div class="markdown level1 summary"><p>This spawns an object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Spawn(NetworkIdentity identity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">identity</span></td>
+        <td><p>The identity to spawn.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_SpawnObjects.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.SpawnObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L709">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_SpawnObjects_" data-uid="Mirage.ServerObjectManager.SpawnObjects*"></a>
+  <h4 id="Mirage_ServerObjectManager_SpawnObjects" data-uid="Mirage.ServerObjectManager.SpawnObjects">SpawnObjects()</h4>
+  <div class="markdown level1 summary"><p>This causes NetworkIdentity objects in a scene to be spawned on a server.</p>
+<p>
+    NetworkIdentity objects in a scene are disabled by default.
+    Calling SpawnObjects() causes these scene objects to be enabled and spawned.
+    It is like calling NetworkServer.Spawn() for each of them.
+</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SpawnObjects()</code></pre>
+  </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">InvalidOperationException</span></td>
+        <td><p>Thrown when server is not active</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_Start.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L62">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_Start_" data-uid="Mirage.ServerObjectManager.Start*"></a>
+  <h4 id="Mirage_ServerObjectManager_Start" data-uid="Mirage.ServerObjectManager.Start">Start()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager_UnSpawn_GameObject_.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager.UnSpawn(GameObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L665">View Source</a>
+  </span>
+  <a id="Mirage_ServerObjectManager_UnSpawn_" data-uid="Mirage.ServerObjectManager.UnSpawn*"></a>
+  <h4 id="Mirage_ServerObjectManager_UnSpawn_GameObject_" data-uid="Mirage.ServerObjectManager.UnSpawn(GameObject)">UnSpawn(GameObject)</h4>
+  <div class="markdown level1 summary"><p>This takes an object that has been spawned and un-spawns it.</p>
+<p>The object will be removed from clients that it was spawned on, or the custom spawn handler function on the client will be called for the object.</p>
+<p>Unlike when calling NetworkServer.Destroy(), on the server the object will NOT be destroyed. This allows the server to re-use the object, even spawn it again later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnSpawn(GameObject obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The spawned object to be unspawned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Mirage.IServerObjectManager.html">IServerObjectManager</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.IObjectLocator.html">IObjectLocator</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_ServerObjectManager.md&amp;value=---%0Auid%3A%20Mirage.ServerObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/ServerObjectManager.cs/#L19" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

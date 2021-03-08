@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,7 +82,7 @@
 <h2 id="lifecycle-of-a-gameobject">Lifecycle of a GameObject</h2>
 
 <p>Networked GameObjects go through several lifecycle states.
-You can add custom logic to the object lifecycle events by subscribing to the corresponding event in <a class="xref" href="../../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a></p>
+You can add custom logic to the object lifecycle events by subscribing to the corresponding event in <a class="xref" href="../../../api/Mirage.NetworkIdentity.html">NetworkIdentity</a></p>
 <table>
 <thead>
 <tr>
@@ -137,18 +139,18 @@ You can add custom logic to the object lifecycle events by subscribing to the co
 </table>
 <blockquote>
 <p><strong>Note:</strong> In Mirror and UNet, you can add logic to lifecycle events by overriding methods in NetworkBehaviour
-In MirrorNG you do it by subscribing to events in <a class="xref" href="../../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a></p>
+In Mirage you do it by subscribing to events in <a class="xref" href="../../../api/Mirage.NetworkIdentity.html">NetworkIdentity</a></p>
 </blockquote>
 <h1 id="server-instantiate">Server Instantiate</h1>
 <p>This is done usual by you using Unity's <code>GameObject.Instantiate</code>
 This goes through the regular GameObject Lifecycle events such as Awake, Start, Enabled, etc..
-Basically this is outside MirrorNG's control.</p>
+Basically this is outside Mirage's control.</p>
 <p><a href="SceneObjects.html">Scene Objects</a> are normally instantiated as part of the scene.</p>
 <h1 id="server-start">Server Start</h1>
 <p>To start a server object,  <a href="SpawnObject.html">spawn it</a>.
 If you wish to perform some logic when the object starts in the server, add a
 component in your gameobject with your own method and subscribe to
-<a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartServer">OnStartServer</a></p>
+<a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartServer">OnStartServer</a></p>
 <p>For example:</p>
 <pre><code class="lang-cs">class MyComponent : MonoBehaviour {
 
@@ -161,38 +163,38 @@ component in your gameobject with your own method and subscribe to
     }
 }
 </code></pre>
-<p>You can also simply drag your <code>OnStartServer</code> method in the <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartServer">OnStartServer</a> event in the inspector.</p>
+<p>You can also simply drag your <code>OnStartServer</code> method in the <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartServer">OnStartServer</a> event in the inspector.</p>
 <p>During the spawn a message will be sent to all the clients telling them to spawn the object. The message
 will include all the data in <a href="../Sync/SyncVars.html">SyncVars</a>, <a href="../Sync/SyncLists.html">SyncLists</a>, <a href="../Sync/SyncHashSet.html">SyncSet</a>, <a href="../Sync/SyncDictionary.html">SyncDictionary</a></p>
 <h1 id="client-instantiate">Client Instantiate</h1>
 <p>When an object is spawned,  the server will send a message to the clients telling it to spawn a GameObject and provide
 an asset id.</p>
-<p>By default, MirrorNG will look up all the known prefabs looking for that asset id.<br>
+<p>By default, Mirage will look up all the known prefabs looking for that asset id.<br>
 Make sure to add your prefabs in the NetworkClient list of prefabs.
-Then MirrorNG will instantiate the prefab,  and it will go through the regular Unity Lifecycle events.
+Then Mirage will instantiate the prefab,  and it will go through the regular Unity Lifecycle events.
 You can customize how objects are instantiated using Spawn Handlers.</p>
 <p>Do not add Network logic to these events.  Instead,  use these events to subscribe to network events in NetworkIdentity.</p>
 <p>Immediatelly after the object is instantiated, all the data is updated to match the data in the server.</p>
 <h1 id="client-start-authority">Client Start Authority</h1>
-<p>If the object is owned by this client, then NetworkIdentity will invoke the <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartAuthority">OnStartAuthority</a>
+<p>If the object is owned by this client, then NetworkIdentity will invoke the <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartAuthority">OnStartAuthority</a>
 Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.
 Note the Authority can be revoked, and granted again.  Every time the client gains authority, this event will be invoked again.</p>
 <h1 id="start-client">Start Client</h1>
-<p>The event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartClient">OnStartClient</a> will be invoked.
+<p>The event <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartClient">OnStartClient</a> will be invoked.
 Subscribe to this event by using <code>AddListener</code> or adding your method in the event in the inspector</p>
 <h1 id="start-local-player">Start Local Player</h1>
-<p>If the object spawned is the <a href="SpawnPlayer.html">player object</a>,  the event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStartLocalPlayer">OnStartLocalPlayer</a>
+<p>If the object spawned is the <a href="SpawnPlayer.html">player object</a>,  the event <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartLocalPlayer">OnStartLocalPlayer</a>
 is invoked.
 Subscribe to this event by using <code>AddListener</code> or adding your method in the event in the inspector</p>
 <h1 id="stop-authority">Stop Authority</h1>
-<p>If the object loses authority over the object, then NetworkIdentity will invoke the <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStopAuthority">OnStopAuthority</a>
+<p>If the object loses authority over the object, then NetworkIdentity will invoke the <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStopAuthority">OnStopAuthority</a>
 Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.
 Note the Authority can be revoked, and granted again.  Every time the client loses authority, this event will be invoked again.</p>
 <h1 id="server-stop">Server Stop</h1>
 <p>Either because the client disconnected, the server stopped,
-you called <a class="xref" href="../../../api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_UnSpawn_GameObject_">UnSpawn(GameObject)</a>,  or you called <a class="xref" href="../../../api/Mirror.ServerObjectManager.html#Mirror_ServerObjectManager_Destroy_GameObject_">Destroy(GameObject)</a> the object may stop in the server.
+you called <a class="xref" href="../../../api/Mirage.ServerObjectManager.html#Mirage_ServerObjectManager_UnSpawn_GameObject_">UnSpawn(GameObject)</a>,  or you called <a class="xref" href="../../../api/Mirage.ServerObjectManager.html#Mirage_ServerObjectManager_Destroy_GameObject_">Destroy(GameObject)</a> the object may stop in the server.
 During this state, a message is sent to all the clients to unspawn the object.
-The event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStopServer">OnStopServer</a> will be invoked.</p>
+The event <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStopServer">OnStopServer</a> will be invoked.</p>
 <p>Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.</p>
 <h1 id="server-destroy">Server Destroy</h1>
 <p>By default, the server will call <code>GameObject.Destroy</code> to destroy the object.<br>
@@ -201,7 +203,7 @@ Note that if it is a <a href="SceneObjects.html">Scene Object</a> the server wil
 <p>Note that the server will destroy the object, and will not wait for the clients to unspawn their objects.</p>
 <h1 id="stop-client">Stop Client</h1>
 <p>This can be triggered either because the client received an Unspawn message or the client was disconnected
-The event <a class="xref" href="../../../api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_OnStopClient">OnStopClient</a> will be invoke.<br>
+The event <a class="xref" href="../../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStopClient">OnStopClient</a> will be invoke.<br>
 Subscribe to this event either by using <code>AddListener</code>,  or adding your method to the event in the inspector.</p>
 <p>Use it to cleanup any network related resource used by this object.</p>
 <h1 id="client-destroy">Client Destroy</h1>

@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,14 +81,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<p>This document describes steps to creating a multiplayer game with MirrorNG. The process described here is a simplified, higher level version of the actual process for a real game; it doesn’t always work exactly like this, but it provides a basic recipe for the process.</p>
+<p>This document describes steps to creating a multiplayer game with Mirage. The process described here is a simplified, higher level version of the actual process for a real game; it doesn’t always work exactly like this, but it provides a basic recipe for the process.</p>
 <h2 id="video-tutorials">Video tutorials</h2>
 <p>Check out these <a href="https://www.youtube.com/playlist?list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP">awesome videos</a> showing you how to get started with mirror. Courtesy of <a href="https://www.youtube.com/channel/UCGIF1XekJqHYIafvE7l0c2A">First Gear Games</a> also known as Punfish in discord.</p>
-<h2 id="script-templates">Script Templates</h2>
-<ul>
-<li>Create new Network Behaviours and other common scripts faster</li>
-</ul>
-<p>See <a href="ScriptTemplates.html">Script Templates</a>.</p>
 <h2 id="networking-set-up">Networking set-up</h2>
 <ul>
 <li>Right click in the Scene, select <em>Network</em> &gt; <em>NetworkManager</em>. This will create a new GameObject with all the neccessary networking components set up for you.</li>

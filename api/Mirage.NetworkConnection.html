@@ -1,0 +1,1112 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkConnection
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkConnection
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage.NetworkConnection">
+  
+  
+  <h1 id="Mirage_NetworkConnection" data-uid="Mirage.NetworkConnection" class="text-break">Class NetworkConnection
+  </h1>
+  <div class="markdown level0 summary"><p>A High level network connection. This is used for connections from client-to-server and for connection from server-to-client.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">NetworkConnection</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></div>
+    <div><a class="xref" href="Mirage.IMessageHandler.html">IMessageHandler</a></div>
+    <div><a class="xref" href="Mirage.IVisibilityTracker.html">IVisibilityTracker</a></div>
+    <div><a class="xref" href="Mirage.IObjectOwner.html">IObjectOwner</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirage.html">Mirage</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirage_NetworkConnection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NetworkConnection : object, INetworkConnection, IMessageHandler, IVisibilityTracker, IObjectOwner</code></pre>
+  </div>
+  <h5 id="Mirage_NetworkConnection_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>A NetworkConnection corresponds to a specific connection for a host in the transport layer. It has a connectionId that is assigned by the transport layer and passed to the Initialize function.</p>
+<p>A NetworkClient has one NetworkConnection. A NetworkServerSimple manages multiple NetworkConnections. The NetworkServer has multiple &quot;remote&quot; connections and a &quot;local&quot; connection for the local client.</p>
+<p>The NetworkConnection class provides message sending and handling facilities. For sending data over a network, there are methods to send message objects, byte arrays, and NetworkWriter objects. To handle data arriving from the network, handler functions can be registered for message Ids, byte arrays can be processed by HandleBytes(), and NetworkReader object can be processed by HandleReader().</p>
+<p>NetworkConnection objects also act as observers for networked objects. When a connection is an observer of a networked object with a NetworkIdentity, then the object will be visible to corresponding client for the connection, and incremental state changes will be sent to the client.</p>
+<p>There are many virtual functions on NetworkConnection that allow its behaviour to be customized. NetworkClient and NetworkServer can both be made to instantiate custom classes derived from NetworkConnection by setting their networkConnectionClass member variable.</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection__ctor_Mirage_IConnection_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.%23ctor(Mirage.IConnection)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L86">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection__ctor_" data-uid="Mirage.NetworkConnection.#ctor*"></a>
+  <h4 id="Mirage_NetworkConnection__ctor_Mirage_IConnection_" data-uid="Mirage.NetworkConnection.#ctor(Mirage.IConnection)">NetworkConnection(IConnection)</h4>
+  <div class="markdown level1 summary"><p>Creates a new NetworkConnection with the specified address and connectionId</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkConnection(IConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.IConnection.html">IConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_NOTIFY_ACK_TIMEOUT.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.NOTIFY_ACK_TIMEOUT%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L389">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkConnection_NOTIFY_ACK_TIMEOUT" data-uid="Mirage.NetworkConnection.NOTIFY_ACK_TIMEOUT">NOTIFY_ACK_TIMEOUT</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float NOTIFY_ACK_TIMEOUT</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_Address.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.Address%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L66">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_Address_" data-uid="Mirage.NetworkConnection.Address*"></a>
+  <h4 id="Mirage_NetworkConnection_Address" data-uid="Mirage.NetworkConnection.Address">Address</h4>
+  <div class="markdown level1 summary"><p>The IP address / URL / FQDN associated with the connection.
+Can be useful for a game master to do IP Bans etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual EndPoint Address { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">EndPoint</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_AuthenticationData.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.AuthenticationData%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L53">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_AuthenticationData_" data-uid="Mirage.NetworkConnection.AuthenticationData*"></a>
+  <h4 id="Mirage_NetworkConnection_AuthenticationData" data-uid="Mirage.NetworkConnection.AuthenticationData">AuthenticationData</h4>
+  <div class="markdown level1 summary"><p>General purpose object to hold authentication data, character selection, tokens, etc.
+associated with the connection for reference after Authentication completes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object AuthenticationData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_Identity.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.Identity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L71">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_Identity_" data-uid="Mirage.NetworkConnection.Identity*"></a>
+  <h4 id="Mirage_NetworkConnection_Identity" data-uid="Mirage.NetworkConnection.Identity">Identity</h4>
+  <div class="markdown level1 summary"><p>The NetworkIdentity for this connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkIdentity Identity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_IsReady.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.IsReady%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L60">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_IsReady_" data-uid="Mirage.NetworkConnection.IsReady*"></a>
+  <h4 id="Mirage_NetworkConnection_IsReady" data-uid="Mirage.NetworkConnection.IsReady">IsReady</h4>
+  <div class="markdown level1 summary"><p>Flag that tells if the connection has been marked as &quot;ready&quot; by a client calling ClientScene.Ready().</p>
+<p>This property is read-only. It is set by the system on the client when ClientScene.Ready() is called, and set by the system on the server when a ready message is received from a client.</p>
+<p>A client that is ready is sent spawned objects by the server and updates to the state of spawned objects. A client that is not ready is not sent spawned objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReady { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_AddOwnedObject_Mirage_NetworkIdentity_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.AddOwnedObject(Mirage.NetworkIdentity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L327">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_AddOwnedObject_" data-uid="Mirage.NetworkConnection.AddOwnedObject*"></a>
+  <h4 id="Mirage_NetworkConnection_AddOwnedObject_Mirage_NetworkIdentity_" data-uid="Mirage.NetworkConnection.AddOwnedObject(Mirage.NetworkIdentity)">AddOwnedObject(NetworkIdentity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddOwnedObject(NetworkIdentity networkIdentity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">networkIdentity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_AddToVisList_Mirage_NetworkIdentity_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.AddToVisList(Mirage.NetworkIdentity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L245">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_AddToVisList_" data-uid="Mirage.NetworkConnection.AddToVisList*"></a>
+  <h4 id="Mirage_NetworkConnection_AddToVisList_Mirage_NetworkIdentity_" data-uid="Mirage.NetworkConnection.AddToVisList(Mirage.NetworkIdentity)">AddToVisList(NetworkIdentity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddToVisList(NetworkIdentity identity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">identity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_ClearHandlers.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.ClearHandlers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L177">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_ClearHandlers_" data-uid="Mirage.NetworkConnection.ClearHandlers*"></a>
+  <h4 id="Mirage_NetworkConnection_ClearHandlers" data-uid="Mirage.NetworkConnection.ClearHandlers">ClearHandlers()</h4>
+  <div class="markdown level1 summary"><p>Clear all registered callback handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearHandlers()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_DestroyOwnedObjects.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.DestroyOwnedObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L337">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_DestroyOwnedObjects_" data-uid="Mirage.NetworkConnection.DestroyOwnedObjects*"></a>
+  <h4 id="Mirage_NetworkConnection_DestroyOwnedObjects" data-uid="Mirage.NetworkConnection.DestroyOwnedObjects">DestroyOwnedObjects()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DestroyOwnedObjects()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_Disconnect.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.Disconnect%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L99">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_Disconnect_" data-uid="Mirage.NetworkConnection.Disconnect*"></a>
+  <h4 id="Mirage_NetworkConnection_Disconnect" data-uid="Mirage.NetworkConnection.Disconnect">Disconnect()</h4>
+  <div class="markdown level1 summary"><p>Disconnects this connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Disconnect()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_ProcessMessagesAsync.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.ProcessMessagesAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L358">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_ProcessMessagesAsync_" data-uid="Mirage.NetworkConnection.ProcessMessagesAsync*"></a>
+  <h4 id="Mirage_NetworkConnection_ProcessMessagesAsync" data-uid="Mirage.NetworkConnection.ProcessMessagesAsync">ProcessMessagesAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniTask ProcessMessagesAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_RegisterHandler__1_Action___0__.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.RegisterHandler%60%601(Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L159">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_RegisterHandler_" data-uid="Mirage.NetworkConnection.RegisterHandler*"></a>
+  <h4 id="Mirage_NetworkConnection_RegisterHandler__1_Action___0__" data-uid="Mirage.NetworkConnection.RegisterHandler``1(Action{``0})">RegisterHandler&lt;T&gt;(Action&lt;T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Register a handler for a particular message type.</p>
+<p>There are several system message types which you can add handlers for. You can also add your own message types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterHandler&lt;T&gt;(Action&lt;T&gt; handler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>Function handler which will be invoked for when this message type is received.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_RegisterHandler__1_Action_Mirage_INetworkConnection___0__.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.RegisterHandler%60%601(Action%7BMirage.INetworkConnection%2C%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L142">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_RegisterHandler_" data-uid="Mirage.NetworkConnection.RegisterHandler*"></a>
+  <h4 id="Mirage_NetworkConnection_RegisterHandler__1_Action_Mirage_INetworkConnection___0__" data-uid="Mirage.NetworkConnection.RegisterHandler``1(Action{Mirage.INetworkConnection,``0})">RegisterHandler&lt;T&gt;(Action&lt;INetworkConnection, T&gt;)</h4>
+  <div class="markdown level1 summary"><p>Register a handler for a particular message type.</p>
+<p>There are several system message types which you can add handlers for. You can also add your own message types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterHandler&lt;T&gt;(Action&lt;INetworkConnection, T&gt; handler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a>, T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>Function handler which will be invoked for when this message type is received.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_RemoveFromVisList_Mirage_NetworkIdentity_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.RemoveFromVisList(Mirage.NetworkIdentity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L250">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_RemoveFromVisList_" data-uid="Mirage.NetworkConnection.RemoveFromVisList*"></a>
+  <h4 id="Mirage_NetworkConnection_RemoveFromVisList_Mirage_NetworkIdentity_" data-uid="Mirage.NetworkConnection.RemoveFromVisList(Mirage.NetworkIdentity)">RemoveFromVisList(NetworkIdentity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveFromVisList(NetworkIdentity identity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">identity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_RemoveObservers.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.RemoveObservers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L255">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_RemoveObservers_" data-uid="Mirage.NetworkConnection.RemoveObservers*"></a>
+  <h4 id="Mirage_NetworkConnection_RemoveObservers" data-uid="Mirage.NetworkConnection.RemoveObservers">RemoveObservers()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveObservers()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_RemoveOwnedObject_Mirage_NetworkIdentity_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.RemoveOwnedObject(Mirage.NetworkIdentity)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L332">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_RemoveOwnedObject_" data-uid="Mirage.NetworkConnection.RemoveOwnedObject*"></a>
+  <h4 id="Mirage_NetworkConnection_RemoveOwnedObject_Mirage_NetworkIdentity_" data-uid="Mirage.NetworkConnection.RemoveOwnedObject(Mirage.NetworkIdentity)">RemoveOwnedObject(NetworkIdentity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveOwnedObject(NetworkIdentity networkIdentity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">networkIdentity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_Send__1___0_System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.Send%60%601(%60%600%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L189">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_Send_" data-uid="Mirage.NetworkConnection.Send*"></a>
+  <h4 id="Mirage_NetworkConnection_Send__1___0_System_Int32_" data-uid="Mirage.NetworkConnection.Send``1(``0,System.Int32)">Send&lt;T&gt;(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>This sends a network message to the connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Send&lt;T&gt;(T msg, int channelId = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>The message to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>The transport layer channel to send on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_Send__1_IEnumerable_Mirage_INetworkConnection____0_System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.Send%60%601(IEnumerable%7BMirage.INetworkConnection%7D%2C%60%600%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L194">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_Send_" data-uid="Mirage.NetworkConnection.Send*"></a>
+  <h4 id="Mirage_NetworkConnection_Send__1_IEnumerable_Mirage_INetworkConnection____0_System_Int32_" data-uid="Mirage.NetworkConnection.Send``1(IEnumerable{Mirage.INetworkConnection},``0,System.Int32)">Send&lt;T&gt;(IEnumerable&lt;INetworkConnection&gt;, T, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Send&lt;T&gt;(IEnumerable&lt;INetworkConnection&gt; connections, T msg, int channelId = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a>&gt;</td>
+        <td><span class="parametername">connections</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_SendAsync_ArraySegment_System_Byte__System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.SendAsync(ArraySegment%7BSystem.Byte%7D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L234">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_SendAsync_" data-uid="Mirage.NetworkConnection.SendAsync*"></a>
+  <h4 id="Mirage_NetworkConnection_SendAsync_ArraySegment_System_Byte__System_Int32_" data-uid="Mirage.NetworkConnection.SendAsync(ArraySegment{System.Byte},System.Int32)">SendAsync(ArraySegment&lt;Byte&gt;, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniTask SendAsync(ArraySegment&lt;byte&gt; segment, int channelId = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ArraySegment</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td><span class="parametername">segment</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_SendAsync__1___0_System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.SendAsync%60%601(%60%600%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L221">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_SendAsync_" data-uid="Mirage.NetworkConnection.SendAsync*"></a>
+  <h4 id="Mirage_NetworkConnection_SendAsync__1___0_System_Int32_" data-uid="Mirage.NetworkConnection.SendAsync``1(``0,System.Int32)">SendAsync&lt;T&gt;(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>This sends a network message to the connection. You can await it to check for errors</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual UniTask SendAsync&lt;T&gt;(T msg, int channelId = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>The transport layer channel to send on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_SendNotify__1___0_System_Object_System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.SendNotify%60%601(%60%600%2CSystem.Object%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L406">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_SendNotify_" data-uid="Mirage.NetworkConnection.SendNotify*"></a>
+  <h4 id="Mirage_NetworkConnection_SendNotify__1___0_System_Object_System_Int32_" data-uid="Mirage.NetworkConnection.SendNotify``1(``0,System.Object,System.Int32)">SendNotify&lt;T&gt;(T, Object, Int32)</h4>
+  <div class="markdown level1 summary"><p>Sends a message, but notify when it is delivered or lost</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendNotify&lt;T&gt;(T msg, object token, int channelId = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>message to send</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">token</span></td>
+        <td><p>a arbitrary object that the sender will receive with their notification</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>type of message to send</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_ToString.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L240">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_ToString_" data-uid="Mirage.NetworkConnection.ToString*"></a>
+  <h4 id="Mirage_NetworkConnection_ToString" data-uid="Mirage.NetworkConnection.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_UnregisterHandler__1.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.UnregisterHandler%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L168">View Source</a>
+  </span>
+  <a id="Mirage_NetworkConnection_UnregisterHandler_" data-uid="Mirage.NetworkConnection.UnregisterHandler*"></a>
+  <h4 id="Mirage_NetworkConnection_UnregisterHandler__1" data-uid="Mirage.NetworkConnection.UnregisterHandler``1">UnregisterHandler&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Unregisters a handler for a particular message type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void UnregisterHandler&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_NotifyDelivered.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.NotifyDelivered%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L503">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkConnection_NotifyDelivered" data-uid="Mirage.NetworkConnection.NotifyDelivered">NotifyDelivered</h4>
+  <div class="markdown level1 summary"><p>Raised when a message is delivered</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;INetworkConnection, object&gt; NotifyDelivered</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection_NotifyLost.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection.NotifyLost%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L508">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkConnection_NotifyLost" data-uid="Mirage.NetworkConnection.NotifyLost">NotifyLost</h4>
+  <div class="markdown level1 summary"><p>Raised when a message is lost</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event Action&lt;INetworkConnection, object&gt; NotifyLost</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.IMessageHandler.html">IMessageHandler</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.IVisibilityTracker.html">IVisibilityTracker</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.IObjectOwner.html">IObjectOwner</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkConnection.md&amp;value=---%0Auid%3A%20Mirage.NetworkConnection%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkConnection.cs/#L26" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>MirrorNG Networking for Unity </title>
+    <title>Mirage Networking </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="MirrorNG Networking for Unity ">
+    <meta name="title" content="Mirage Networking ">
     <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="favicon.ico">
@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="logo.png" alt="">
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -70,36 +72,24 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="mirrorng-networking-for-unity">MirrorNG Networking for Unity</h1>
+<h1 id="mirage-networking">Mirage Networking</h1>
 
-<p><strong>MirrorNG is the most compatible direct replacement for the deprecated Unity Networking API.</strong></p>
-<p>MirrorNG has nearly all of the components and features from UNet, making networking easy, concise and maintainable, whether you're starting from scratch or converting an existing project.</p>
-<p>Built to support games of any scale, from LAN party games to dedicated high-volume authoritative servers running hundreds of players, MirrorNG is the core networking solution for <a href="https://www.cubica.net/">Cubica</a>, and <a href="Articles/General/Showcase.html">more</a>!</p>
+<p><strong>Mirage is an open source, easy to use and modular networking library for Unity.</strong></p>
+<h2 id="key-features">Key Features</h2>
 <ul>
-<li><strong>Full Source included</strong> for debugging convenience</li>
-<li>Several working examples included</li>
-<li>Active <a href="https://discord.gg/2BvnM4R">Discord</a> for prompt support</li>
-<li><strong>Requires Unity 2018.4 LTS and Runtime .Net 4.x (default in Unity 2019) and .Net 2.0 Compatibility is recommended</strong></li>
-<li>Alpha / Beta Unity versions cannot be supported</li>
+<li><strong>Modularity:</strong> Mirage is built on top of modular components and is easily extensible. Use only the features that you need.</li>
+<li><strong>Shared codebase:</strong> Both server and client can share the same code in a single project which improves productivity and simplifies development.</li>
+<li><strong>Package Manager support:</strong> Use Unity Package Manager (UPM) to easily install Mirage and any of its modules.</li>
+<li><strong>State synchronization:</strong> Use <a href="Articles/Guides/Sync/index.html">SyncVars</a> to easily synchronize your game state over the network.</li>
+<li><strong>Server authoritative:</strong> Utilize the <a href="Articles/Guides/Communications/RemoteActions.html">Server RPCs</a> to do server-authoritative tasks.</li>
+<li><strong>Message system:</strong> Send classes or structs as network messages for low-level operations.</li>
+<li><strong>Unity's Fast domain reload support</strong></li>
+<li><strong>Great community:</strong> Visit our <a href="https://discord.gg/DTBPBYvexy">Discord server</a> to discuss your ideas or problems.</li>
 </ul>
-<p><strong>Key Features &amp; Components:</strong></p>
-<ul>
-<li><a href="Articles/Transports/index.html">Transports</a> are interchangeable components</li>
-<li><a href="Articles/Components/NetworkSceneManager.html">NetworkSceneManager</a> to load normal and additive network scenes.</li>
-<li>Single and separated Unity projects supported</li>
-<li><a href="Articles/Components/Authenticators/index.html">Network Authenticators</a> to manage access to your game</li>
-<li><a href="Articles/Components/NetworkDiscovery.html">Network Discovery</a> to easily connect LAN players to a LAN Server or Host</li>
-<li><a href="Articles/Components/NetworkManager.html">Network Manager</a> and <a href="Articles/Components/NetworkManagerHUD.html">HUD</a></li>
-<li><a href="Articles/Components/NetworkRoomManager.html">Network Room Manager</a> and <a href="Articles/Components/NetworkRoomPlayer.html">Room Player</a></li>
-<li><a href="Articles/Components/NetworkIdentity.html">Network Identity</a></li>
-<li><a href="Articles/Components/NetworkTransform.html">Network Transform</a> to sync position, rotation, and scale with interpolation</li>
-<li><a href="Articles/Components/NetworkAnimator.html">Network Animator</a> with 64 parameters</li>
-<li><a href="Articles/Components/NetworkProximityChecker.html">Network Proximity Checker</a> to help with Area of Interest</li>
-<li><a href="Articles/Components/NetworkSceneChecker.html">Network Scene Checker</a> to isolate players and networked objects to Additive scene instances</li>
-<li><a href="Articles/Components/NetworkMatchChecker.html">Network Match Checker</a> to isolate players and networked objects by <a href="Articles/Guides/Visibility.html">Network Visibility</a></li>
-<li><a href="Articles/Guides/Sync/SyncVars.html">SyncVar</a>, <a href="Articles/Guides/Sync/SyncLists.html">SyncList</a>, <a href="Articles/Guides/Sync/SyncDictionary.html">SyncDictionary</a>, and <a href="Articles/Guides/Sync/SyncHashSet.html">SyncHashSet</a></li>
-<li><a href="https://mirror-networking.com/list-server/">List Server</a> where game servers can register and clients can connect to find those servers to play on them.</li>
-</ul>
+<h2 id="getting-started">Getting started</h2>
+<p>Check out our <a href="Articles/General/Start.html">Getting Started</a> guide.</p>
+<h2 id="requirements">Requirements</h2>
+<p>Mirage requires Unity 2019.3 or higher.</p>
 </article>
           </div>
           

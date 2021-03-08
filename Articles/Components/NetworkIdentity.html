@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="network-identity">Network Identity</h1>
 
-<p><strong>See also <a class="xref" href="../../api/Mirror.NetworkIdentity.html">NetworkIdentity</a> in the API Reference.</strong></p>
+<p><strong>See also <a class="xref" href="../../api/Mirage.NetworkIdentity.html">NetworkIdentity</a> in the API Reference.</strong></p>
 <p>The Network Identity component is at the heart of the Unity networking high-level API. It controls a game object’s unique identity on the network, and it uses that identity to make the networking system aware of the game object. It offers two different options for configuration and they are mutually exclusive, which means either one of the options or none can be checked.</p>
 <ul>
 <li><strong>Server Only</strong><br>
@@ -87,7 +89,7 @@ Tick this checkbox to ensure that Unity only spawns the game object on the serve
 </ul>
 <p><img src="NetworkIdentity.PNG" alt="Inspector"></p>
 <h2 id="instantiated-network-game-objects">Instantiated Network Game Objects</h2>
-<p>With the MirrorNG’s server-authoritative networking system, the server must spawn networked game objects with network identities, using <code>NetworkServer.Spawn</code>. This automatically creates them on clients that are connected to the server, and assigns them a <code>netId</code>.</p>
+<p>With the Mirage’s server-authoritative networking system, the server must spawn networked game objects with network identities, using <code>NetworkServer.Spawn</code>. This automatically creates them on clients that are connected to the server, and assigns them a <code>netId</code>.</p>
 <p>You must put a Network Identity component on any Prefabs that spawn at runtime for the network system to use them. See <a href="../Guides/GameObjects/SpawnObject.html">Object Spawning</a> for more information.</p>
 <h2 id="scene-based-network-game-objects">Scene-based Network Game Objects</h2>
 <p>You can also network game objects that are saved as part of your Scene (for example, environmental props). Networking game objects makes them behave slightly differently, because you need to have them spawn across the network.</p>

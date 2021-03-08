@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="components-overview">Components Overview</h1>
 
-<p>These core components are included in MirrorNG:</p>
+<p>These core components are included in Mirage:</p>
 <ul>
 <li><a href="NetworkAnimator.html">Network Animator</a><br>
 The Network Animator component allows you to synchronize animation states for networked objects. It synchronizes state and parameters from an Animator Controller.</li>
@@ -88,7 +90,7 @@ Network Authenticators facilitate integration of user accounts and credentials i
 <li><a href="NetworkDiscovery.html">Network Discovery</a><br>
 Network Discovery uses a UDP broadcast on the LAN enabling clients to find the running server and connect to it.</li>
 <li><a href="NetworkIdentity.html">Network Identity</a><br>
-The Network Identity component is at the heart of the MirrorNG networking high-level API. It controls a game object’s unique identity on the network, and it uses that identity to make the networking system aware of the game object. It offers two different options for configuration and they are mutually exclusive, which means either one of the options or none can be checked.</li>
+The Network Identity component is at the heart of the Mirage networking high-level API. It controls a game object’s unique identity on the network, and it uses that identity to make the networking system aware of the game object. It offers two different options for configuration and they are mutually exclusive, which means either one of the options or none can be checked.</li>
 <li><a href="NetworkLogSettings.html">Network LogSettings</a><br>
 Adds logging levels per class for Mirror components</li>
 <li><a href="NetworkManager.html">Network Manager</a><br>

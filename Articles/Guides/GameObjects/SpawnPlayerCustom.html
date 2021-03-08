@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="custom-character-spawning">Custom Character Spawning</h1>
 
-<p>MirrorNG comes with a PlayerSpawner which will automatically spawn a player object when a client connects.</p>
+<p>Mirage comes with a PlayerSpawner which will automatically spawn a player object when a client connects.</p>
 <p>Many games need character customization. You may want to pick the color of the hair, eyes, skin, height, race, etc.</p>
 <p>In this case,  you will need to create your own PlayerSpawner.  Follow these steps:</p>
 <ol>

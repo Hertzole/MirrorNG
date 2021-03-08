@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -131,10 +133,10 @@ public void UnSpawnCoin(GameObject spawned)
 <h2 id="setting-up-a-game-object-pool-with-custom-spawn-handlers">Setting Up a Game Object Pool with Custom Spawn Handlers</h2>
 <p>Here is an example of how you might set up a simple game object pooling system with custom spawn handlers. Spawning and unspawning then puts game objects in or out of the pool.</p>
 <pre><code class="lang-cs">using System.Collections.Generic;
-using MirrorNG;
+using Mirage;
 using UnityEngine;
 
-namespace MirrorNG.Examples
+namespace Mirage.Examples
 {
     public class PrefabPoolManager : MonoBehaviour
     {

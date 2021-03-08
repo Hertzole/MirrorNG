@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PooledNetworkWriter
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PooledNetworkWriter
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage.PooledNetworkWriter">
+  
+  
+  <h1 id="Mirage_PooledNetworkWriter" data-uid="Mirage.PooledNetworkWriter" class="text-break">Class PooledNetworkWriter
+  </h1>
+  <div class="markdown level0 summary"><p>NetworkWriter to be used with <a class="xref" href="Mirage.NetworkWriterPool.html">NetworkWriterPool</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></div>
+    <div class="level2"><span class="xref">PooledNetworkWriter</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_MaxStringLength">NetworkWriter.MaxStringLength</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_Length">NetworkWriter.Length</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_Position">NetworkWriter.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_Reset">NetworkWriter.Reset()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_SetLength_System_Int32_">NetworkWriter.SetLength(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_ToArray">NetworkWriter.ToArray()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_ToArraySegment">NetworkWriter.ToArraySegment()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_WriteByte_System_Byte_">NetworkWriter.WriteByte(Byte)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_WriteBytes_System_Byte___System_Int32_System_Int32_">NetworkWriter.WriteBytes(Byte[], Int32, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_WriteUInt32_System_UInt32_">NetworkWriter.WriteUInt32(UInt32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_WriteInt32_System_Int32_">NetworkWriter.WriteInt32(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_WriteUInt64_System_UInt64_">NetworkWriter.WriteUInt64(UInt64)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_WriteInt64_System_Int64_">NetworkWriter.WriteInt64(Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkWriter.html#Mirage_NetworkWriter_Write__1___0_">NetworkWriter.Write&lt;T&gt;(T)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirage.html">Mirage</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirage_PooledNetworkWriter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PooledNetworkWriter : NetworkWriter, IDisposable</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_PooledNetworkWriter_Dispose.md&amp;value=---%0Auid%3A%20Mirage.PooledNetworkWriter.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkWriterPool.cs/#L11">View Source</a>
+  </span>
+  <a id="Mirage_PooledNetworkWriter_Dispose_" data-uid="Mirage.PooledNetworkWriter.Dispose*"></a>
+  <h4 id="Mirage_PooledNetworkWriter_Dispose" data-uid="Mirage.PooledNetworkWriter.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IDisposable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mirage.GameObjectSerializers.html#Mirage_GameObjectSerializers_WriteGameObjectSyncVar_Mirage_NetworkWriter_Mirage_GameObjectSyncvar_">GameObjectSerializers.WriteGameObjectSyncVar(NetworkWriter, GameObjectSyncvar)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkBehaviorSerializers.html#Mirage_NetworkBehaviorSerializers_WriteNetworkBehaviorSyncVar_Mirage_NetworkWriter_Mirage_NetworkBehaviorSyncvar_">NetworkBehaviorSerializers.WriteNetworkBehaviorSyncVar(NetworkWriter, NetworkBehaviorSyncvar)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkIdentitySerializers.html#Mirage_NetworkIdentitySerializers_WriteNetworkIdentitySyncVar_Mirage_NetworkWriter_Mirage_NetworkIdentitySyncvar_">NetworkIdentitySerializers.WriteNetworkIdentitySyncVar(NetworkWriter, NetworkIdentitySyncvar)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteByte_Mirage_NetworkWriter_System_Byte_">NetworkWriterExtensions.WriteByte(NetworkWriter, Byte)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteSByte_Mirage_NetworkWriter_System_SByte_">NetworkWriterExtensions.WriteSByte(NetworkWriter, SByte)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteChar_Mirage_NetworkWriter_System_Char_">NetworkWriterExtensions.WriteChar(NetworkWriter, Char)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteBoolean_Mirage_NetworkWriter_System_Boolean_">NetworkWriterExtensions.WriteBoolean(NetworkWriter, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteUInt16_Mirage_NetworkWriter_System_UInt16_">NetworkWriterExtensions.WriteUInt16(NetworkWriter, UInt16)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteInt16_Mirage_NetworkWriter_System_Int16_">NetworkWriterExtensions.WriteInt16(NetworkWriter, Int16)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteSingle_Mirage_NetworkWriter_System_Single_">NetworkWriterExtensions.WriteSingle(NetworkWriter, Single)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteDouble_Mirage_NetworkWriter_System_Double_">NetworkWriterExtensions.WriteDouble(NetworkWriter, Double)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteDecimal_Mirage_NetworkWriter_System_Decimal_">NetworkWriterExtensions.WriteDecimal(NetworkWriter, Decimal)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteString_Mirage_NetworkWriter_System_String_">NetworkWriterExtensions.WriteString(NetworkWriter, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteBytesAndSize_Mirage_NetworkWriter_System_Byte___System_Int32_System_Int32_">NetworkWriterExtensions.WriteBytesAndSize(NetworkWriter, Byte[], Int32, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteBytesAndSize_Mirage_NetworkWriter_System_Byte___">NetworkWriterExtensions.WriteBytesAndSize(NetworkWriter, Byte[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteBytesAndSizeSegment_Mirage_NetworkWriter_ArraySegment_System_Byte__">NetworkWriterExtensions.WriteBytesAndSizeSegment(NetworkWriter, ArraySegment&lt;Byte&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WritePackedInt32_Mirage_NetworkWriter_System_Int32_">NetworkWriterExtensions.WritePackedInt32(NetworkWriter, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WritePackedUInt32_Mirage_NetworkWriter_System_UInt32_">NetworkWriterExtensions.WritePackedUInt32(NetworkWriter, UInt32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WritePackedInt64_Mirage_NetworkWriter_System_Int64_">NetworkWriterExtensions.WritePackedInt64(NetworkWriter, Int64)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WritePackedUInt64_Mirage_NetworkWriter_System_UInt64_">NetworkWriterExtensions.WritePackedUInt64(NetworkWriter, UInt64)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteVector2_Mirage_NetworkWriter_Vector2_">NetworkWriterExtensions.WriteVector2(NetworkWriter, Vector2)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteVector3_Mirage_NetworkWriter_Vector3_">NetworkWriterExtensions.WriteVector3(NetworkWriter, Vector3)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteVector4_Mirage_NetworkWriter_Vector4_">NetworkWriterExtensions.WriteVector4(NetworkWriter, Vector4)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteVector2Int_Mirage_NetworkWriter_Vector2Int_">NetworkWriterExtensions.WriteVector2Int(NetworkWriter, Vector2Int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteVector3Int_Mirage_NetworkWriter_Vector3Int_">NetworkWriterExtensions.WriteVector3Int(NetworkWriter, Vector3Int)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteColor_Mirage_NetworkWriter_Color_">NetworkWriterExtensions.WriteColor(NetworkWriter, Color)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteColor32_Mirage_NetworkWriter_Color32_">NetworkWriterExtensions.WriteColor32(NetworkWriter, Color32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteQuaternion_Mirage_NetworkWriter_Quaternion_">NetworkWriterExtensions.WriteQuaternion(NetworkWriter, Quaternion)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteRect_Mirage_NetworkWriter_Rect_">NetworkWriterExtensions.WriteRect(NetworkWriter, Rect)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WritePlane_Mirage_NetworkWriter_Plane_">NetworkWriterExtensions.WritePlane(NetworkWriter, Plane)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteRay_Mirage_NetworkWriter_Ray_">NetworkWriterExtensions.WriteRay(NetworkWriter, Ray)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteMatrix4X4_Mirage_NetworkWriter_Matrix4x4_">NetworkWriterExtensions.WriteMatrix4X4(NetworkWriter, Matrix4x4)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteGuid_Mirage_NetworkWriter_Guid_">NetworkWriterExtensions.WriteGuid(NetworkWriter, Guid)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteNetworkIdentity_Mirage_NetworkWriter_Mirage_NetworkIdentity_">NetworkWriterExtensions.WriteNetworkIdentity(NetworkWriter, NetworkIdentity)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteUri_Mirage_NetworkWriter_Uri_">NetworkWriterExtensions.WriteUri(NetworkWriter, Uri)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteList__1_Mirage_NetworkWriter_List___0__">NetworkWriterExtensions.WriteList&lt;T&gt;(NetworkWriter, List&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteArray__1_Mirage_NetworkWriter___0___">NetworkWriterExtensions.WriteArray&lt;T&gt;(NetworkWriter, T[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteArraySegment__1_Mirage_NetworkWriter_ArraySegment___0__">NetworkWriterExtensions.WriteArraySegment&lt;T&gt;(NetworkWriter, ArraySegment&lt;T&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteNetworkBehaviour_Mirage_NetworkWriter_Mirage_NetworkBehaviour_">NetworkWriterExtensions.WriteNetworkBehaviour(NetworkWriter, NetworkBehaviour)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkWriterExtensions.html#Mirage_NetworkWriterExtensions_WriteGameObject_Mirage_NetworkWriter_GameObject_">NetworkWriterExtensions.WriteGameObject(NetworkWriter, GameObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NotifyPacketSerializer.html#Mirage_NotifyPacketSerializer_WriteNotifyPacket_Mirage_NetworkWriter_Mirage_NotifyPacket_">NotifyPacketSerializer.WriteNotifyPacket(NetworkWriter, NotifyPacket)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_PooledNetworkWriter.md&amp;value=---%0Auid%3A%20Mirage.PooledNetworkWriter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkWriterPool.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

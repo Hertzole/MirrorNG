@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,10 +82,10 @@
 <h1 id="troubleshooting">Troubleshooting</h1>
 
 <h2 id="no-writer-found-for-x">No Writer found for X</h2>
-<p>MirrorNG normally generates readers and writers for any <a href="../Guides/DataTypes.html">Data Type</a>
+<p>Mirage normally generates readers and writers for any <a href="../Guides/DataTypes.html">Data Type</a>
 In order to do so,  it needs to know what types you want to read or write.
-You are getting this error because MirrorNG did not know you wanted to read or write this type.</p>
-<p>MirrorNG scans your code looking for calls to Send, ReceiveHandler, Write or Read. It will also recognize syncvars and parameters to rpc methods. If it does not find one,  it assumes you are not trying to serialize the type so it does not generate the reader and writer.</p>
+You are getting this error because Mirage did not know you wanted to read or write this type.</p>
+<p>Mirage scans your code looking for calls to <code>Send</code>, <code>ReceiveHandler</code>, <code>Write</code> or <code>Read</code>. It will also recognize <a href="../Guides/Sync/index.html">SyncVars</a> and parameters of <a href="../Guides/Communications/RemoteActions.html">RPC methods</a>. If it does not find one,  it assumes you are not trying to serialize the type so it does not generate the reader and writer.</p>
 <p>For example, you might get this error with this code when trying to sync the synclist.</p>
 <pre><code class="lang-cs">struct MyCustomType {
     public int id;
@@ -94,23 +96,12 @@ class MyBehaviour : NetworkBehaviour {
     SyncList&lt;MyCustomType&gt; mylist = new SyncList&lt;MyCustomType&gt;();
 }
 </code></pre>
-<p>In this case there is no direct invocation to send or receive.  So MirrorNG does not know about it.</p>
-<p>There is a simple workaround: add a call to <code>NetworkWriter.Write&lt;MyCustomType&gt;</code> anywhere in your code. For example:</p>
-<pre><code class="lang-cs">struct MyCustomType {
+<p>In this case there is no direct invocation to send or receive.  So Mirage does not know about it.</p>
+<p><strong>There is a simple workaround:</strong> add a <a class="xref" href="../../api/Mirage.NetworkMessageAttribute.html">[NetworkMessage]</a> attribute to your class or struct.</p>
+<pre><code class="lang-cs">[NetworkMessage]
+struct MyCustomType {
     public int id;
     public string name;
-}
-
-class MyBehaviour : NetworkBehaviour {
-    SyncList&lt;MyCustomType&gt; mylist = new SyncList&lt;MyCustomType&gt;();
-
-    // This is a dummy method that is never called.
-    // When MirrorNG builds your app,  it will look at this code
-    // and realize that you do want to read and write MyCustomType
-    // so it will generate the reader and writer for it
-    void DummyWrite(NetworkWriter writer) {
-        writer.Write(new MyCustomType());
-    }
 }
 </code></pre>
 </article>

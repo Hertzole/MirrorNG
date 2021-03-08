@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="networkbehaviour-callbacks">NetworkBehaviour Callbacks</h1>
 
-<p><strong>See also <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> in the API Reference.</strong></p>
+<p><strong>See also <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> in the API Reference.</strong></p>
 <p>There are a number of events relating to network behaviours that can occur over the course of a normal multiplayer game. These include events such as the host starting up, a player joining, or a player leaving. Each of these possible events has an associated callback that you can implement in your own code to take action when the event occurs.</p>
 <p>When you create a script which inherits from <code>NetworkBehaviour</code>, you can write your own implementation of what should happen when these events occur. To do this, you override the virtual methods on the <code>NetworkBehaviour</code> class with your own implementation of what should happen when the given event occurs.</p>
 <p>This is a full list of virtual methods (callbacks) that you can implement on <code>NetworkBehaviour</code>, and where they are called</p>
@@ -133,7 +135,7 @@
 <h1 id="example-flows">Example flows</h1>
 <p>Below is some example call order for different modes</p>
 <blockquote>
-<p>NOTE: <code>Start</code> is called by unity before the first frame, while normally this happens after MirrorNG's callbacks. But if you dont call <code> NetworkServer.Spawn</code> the same frame as <code>instantiate</code> then start may be called first</p>
+<p>NOTE: <code>Start</code> is called by unity before the first frame, while normally this happens after Mirage's callbacks. But if you dont call <code> NetworkServer.Spawn</code> the same frame as <code>instantiate</code> then start may be called first</p>
 </blockquote>
 <blockquote>
 <p>Note: <code>OnRebuildObservers</code> and <code>OnSetHostVisibility</code> is now on <code>NetworkVisibility</code> instead of <code>NetworkBehaviour</code></p>

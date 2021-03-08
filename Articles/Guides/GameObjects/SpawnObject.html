@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,9 +81,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="spawning-game-objects">Spawning Game Objects</h1>
 
-<p>In Unity, you usually “spawn” (that is, create) new game objects with <code>Instantiate</code>. However, in MirrorNG, the word “spawn” means something more specific. In the server-authoritative model of the MirrorNG, to “spawn” a game object on the server means that the game object is created on clients connected to the server, and is managed by the spawning system.</p>
-<p>Once the game object is spawned using this system, state updates are sent to clients whenever the game object changes on the server. When MirrorNG destroys the game object on the server, it also destroys it on the clients. The server manages spawned game objects alongside all other networked game objects, so that if another client joins the game later, the server can spawn the game objects on that client. These spawned game objects have a unique network instance ID called “netId” that is the same on the server and clients for each game object. The unique network instance ID is used to route messages set across the network to game objects, and to identify game objects.</p>
-<p>When the server spawns a game object with a Network Identity component, the game object spawned on the client has the same “state”. This means it is identical to the game object on the server; it has the same Transform, movement state, and (if Network Transform and SyncVars are used) synchronized variables. Therefore, client game objects are always up-to-date when MirrorNG creates them. This avoids issues such as game objects spawning at the wrong initial location, then reappearing at their correct position when a state update arrives.</p>
+<p>In Unity, you usually “spawn” (that is, create) new game objects with <code>Instantiate</code>. However, in Mirage, the word “spawn” means something more specific. In the server-authoritative model of the Mirage, to “spawn” a game object on the server means that the game object is created on clients connected to the server, and is managed by the spawning system.</p>
+<p>Once the game object is spawned using this system, state updates are sent to clients whenever the game object changes on the server. When Mirage destroys the game object on the server, it also destroys it on the clients. The server manages spawned game objects alongside all other networked game objects, so that if another client joins the game later, the server can spawn the game objects on that client. These spawned game objects have a unique network instance ID called “netId” that is the same on the server and clients for each game object. The unique network instance ID is used to route messages set across the network to game objects, and to identify game objects.</p>
+<p>When the server spawns a game object with a Network Identity component, the game object spawned on the client has the same “state”. This means it is identical to the game object on the server; it has the same Transform, movement state, and (if Network Transform and SyncVars are used) synchronized variables. Therefore, client game objects are always up-to-date when Mirage creates them. This avoids issues such as game objects spawning at the wrong initial location, then reappearing at their correct position when a state update arrives.</p>
 <p>A game object Prefab must have a Network Identity component before trying to register it with the Network Manager.</p>
 <p>To register a Prefab with the Network Manager in the Editor, select the Network Manager game object, and in the Inspector, navigate to the Network Manager component. Click the triangle next to Spawn Info to open the settings, then under Registered Spawnable Prefabs, click the plus (+) button. Drag and drop Prefabs into the empty field to assign them to the list.</p>
 <p><img src="SpawnObjects.PNG" alt="Registered Spawnable Prefabs"></p>
@@ -89,7 +91,7 @@
 <p>For more advanced users, you may find that you want to register Prefabs and spawn game objects without using the Network Manager component.</p>
 <p>To spawn game objects without using the Network Manager, you can handle the Prefab registration yourself via script. Use the <code>ClientScene.RegisterPrefab</code> method to register Prefabs to the Network Manager.</p>
 <pre><code class="lang-cs">using UnityEngine;
-using MirrorNG;
+using Mirage;
 
 public class MyNetworkManager : MonoBehaviour 
 {
@@ -145,11 +147,11 @@ void OnServerConnect(NetworkConnection conn, ConnectMessage msg)
 }
 </code></pre>
 <p>The server does not need to register anything, as it knows what game object is being spawned (and the asset ID is sent in the spawn message). The client needs to be able to look up the game object, so it must be registered on the client.</p>
-<p>When writing your own network manager, it’s important to make the client ready to receive state updates before calling the spawn command on the server, otherwise they won’t be sent. If you’re using MirrorNG’s built-in Network Manager component, this happens automatically.</p>
+<p>When writing your own network manager, it’s important to make the client ready to receive state updates before calling the spawn command on the server, otherwise they won’t be sent. If you’re using Mirage’s built-in Network Manager component, this happens automatically.</p>
 <p>For more advanced uses, such as object pools or dynamically created Assets, you can use the <code>ClientScene.RegisterSpawnHandler</code> method, which allows callback functions to be registered for client-side spawning. See documentation on Custom Spawn Functions for an example of this.</p>
 <p>If the game object has a network state like synchronized variables, then that state is synchronized with the spawn message. In the following example, this script is attached to the tree Prefab:</p>
 <pre><code class="lang-cs">using UnityEngine;
-using MirrorNG;
+using Mirage;
 
 class Tree : NetworkBehaviour
 {

@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,11 +82,11 @@
 <h1 id="actions-and-communication">Actions and Communication</h1>
 
 <p>When you are making a multiplayer game, In addition to synchronizing the properties of networked game objects, you are likely to need to send, receive, and react to other pieces of information - such as when the match starts, when a player joins or leaves the match, or other information specific to your type of game, for example a notification to all players that a flag has been captured in a “capture-the-flag” style game.</p>
-<p>Within the MirrorNG networking High-Level API there are three main ways to communicate this type of information.</p>
+<p>Within the Mirage networking High-Level API there are three main ways to communicate this type of information.</p>
 <h2 id="remote-actions">Remote Actions</h2>
 <p>Remote actions allow you to call a method in your script across the network. You can make the server call methods on all clients or individual clients specifically. You can also make clients call methods on the server. Using remote actions, you can pass data as parameters to your methods in a very similar way to how you call methods in local (non-multiplayer) projects.</p>
 <h2 id="networking-callbacks">Networking Callbacks</h2>
-<p>Networking callbacks allow you to hook into built-in MirrorNG events which occur during the course of the game, such as when players join or leave, when game objects are created or destroyed, or when a new Scene is loaded. There are two types of networking callbacks that you can implement:</p>
+<p>Networking callbacks allow you to hook into built-in Mirage events which occur during the course of the game, such as when players join or leave, when game objects are created or destroyed, or when a new Scene is loaded. There are two types of networking callbacks that you can implement:</p>
 <ul>
 <li>Network manager callbacks, for callbacks relating to the network manager itself (such as when clients connect or disconnect)</li>
 <li>Network behaviour callbacks, for callbacks relating to individual networked game objects (such as when its Start function is called, or what this particular game object should do if a new player joins the game)</li>

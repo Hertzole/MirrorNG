@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -90,15 +92,15 @@
 <li>Use a web service in your website</li>
 </ul>
 <h2 id="encryption-notice">Encryption Notice</h2>
-<p>By default MirrorNG uses Kcp, which is not encrypted, so if you want to do authentication through MirrorNG, we highly recommend you use a transport that supports encryption.</p>
+<p>By default Mirage uses Kcp, which is not encrypted, so if you want to do authentication through Mirage, we highly recommend you use a transport that supports encryption.</p>
 <h2 id="basic-authenticator">Basic Authenticator</h2>
 <ul>
 <li><a href="Basic.html">Basic Authenticator</a><br>
-MirrorNG includes a Basic Authenticator in the MirrorNG / Authenticators folder which just uses a simple username and password.</li>
+Mirage includes a Basic Authenticator in the Mirage / Authenticators folder which just uses a simple username and password.</li>
 </ul>
 <h2 id="custom-authenticators">Custom Authenticators</h2>
 <p>Authenticators are derived from an <code>Authenticator</code> abstract class that allows you to implement any authentication scheme you need.</p>
-<p>From the Assets menu, click Create &gt; MirrorNG &gt; Network Authenticator to make your own custom Authenticator from our <a href="../../General/ScriptTemplates.html">Script Templates</a>, and just fill in the messages and validation code to suit your needs. When a client is successfully authenticated,  call <code>base.OnServerAuthenticated.Invoke(conn)</code> on the server and <code>base.OnClientAuthenticated.Invoke(conn)</code> on the client. MirrorNG is listening for these events to proceed with the connection sequence. Subscribe to OnServerAuthenticated and OnClientAuthenticated events if you wish to perform additional steps after authentication.</p>
+<p>When a client is successfully authenticated,  call <code>base.OnServerAuthenticated.Invoke(conn)</code> on the server and <code>base.OnClientAuthenticated.Invoke(conn)</code> on the client. Mirage is listening for these events to proceed with the connection sequence. Subscribe to OnServerAuthenticated and OnClientAuthenticated events if you wish to perform additional steps after authentication.</p>
 <h2 id="message-registration">Message Registration</h2>
 <p>By default all messages registered to <code>NetworkServer</code> and <code>NetworkClient</code> require authentication unless explicitly indicated otherwise. To register messages to bypass authentication, you need to specify <code>false</code> for a bool parameter to the <code>RegisterMessage</code> method:</p>
 <pre><code>NetworkServer.RegisterHandler&lt;AuthenticationRequest&gt;(OnAuthRequestMessage, false);
@@ -127,7 +129,7 @@ MirrorNG includes a Basic Authenticator in the MirrorNG / Authenticators folder 
 <ul>
 <li>Register handlers for messages in <code>OnStartServer</code> and <code>OnStartClient</code>. They're called from StartServer/StartHost, and StartClient, respectively.</li>
 <li>Send a message to the client if authentication fails, especially if there's some issue they can resolve.</li>
-<li>Call the <code>Disconnect()</code> method of the <code>NetworkConnection</code> on the server and client when authentication fails. If you want to give the user a few tries to get their credentials right, you certainly can, but MirrorNG will not do the disconnect for you.
+<li>Call the <code>Disconnect()</code> method of the <code>NetworkConnection</code> on the server and client when authentication fails. If you want to give the user a few tries to get their credentials right, you certainly can, but Mirage will not do the disconnect for you.
 <ul>
 <li>Remember to put a small delay on the Disconnect call on the server if you send a failure message so that it has a chance to be delivered before the connection is dropped.</li>
 </ul>
@@ -136,7 +138,7 @@ MirrorNG includes a Basic Authenticator in the MirrorNG / Authenticators folder 
 </ul>
 <p>Now that you have the foundation of a custom Authenticator component, the rest is up to you. You can exchange any number of custom messages between the server and client as necessary to complete your authentication process before approving the client.</p>
 <p>Authentication can also be extended to character selection and customization, just by crafting additional messages and exchanging them with the client before completing the authentication process.  This means this process takes place before the client player actually enters the game or changes to the Online scene.</p>
-<p>If you write a good authenticator, consider sharing it with other users or donating it to the MirrorNG project.</p>
+<p>If you write a good authenticator, consider sharing it with other users or donating it to the Mirage project.</p>
 </article>
           </div>
           

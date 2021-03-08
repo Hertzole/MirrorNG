@@ -1,0 +1,478 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mirror Migration Guide </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Mirror Migration Guide ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mirror-migration-guide">Mirror Migration Guide</h1>
+
+<p>This is a simple guide describing how to convert your Mirror project to Mirage.</p>
+<h2 id="namespace">Namespace</h2>
+<p>First of all, <code>Mirror</code> namespace needs to be changed to <code>Mirage</code>. So in your code, replace all:</p>
+<pre><code class="lang-cs">using Mirror;
+</code></pre>
+<p>with</p>
+<pre><code class="lang-cs">using Mirage;
+</code></pre>
+<h2 id="components">Components</h2>
+<p>Many roles that <code>NetworkManager</code> fulfilled in Mirror were split into multiple simpler components in Mirage, such as <code>NetworkClient</code>, <code>NetworkServer</code> and <code>NetworkSceneManager</code>. Those clases are no longer static singletons, they are MonoBehaviours instead, so you need to add them to your scene and reference them. <code>NetworkManager</code> in Mirage only serves as a reference holder for server and client.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>The easiest way to get started is to right click in the Hierarchy &gt; Network &gt; NetworkManager. This will create a GameObject with all the necessary components and references already set up.</p>
+</div>
+<h3 id="accessing-mirage-components-from-networkbehaviour">Accessing Mirage components from NetworkBehaviour</h3>
+<p>Despite Mirage removing all static state, you can still access the important networking components from within <code>NetworkBehaviour</code> easily. This table shows how to access different components in comparison to Mirror:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mirror (static)</th>
+<th style="text-align: center;">Mirage (property of <code>NetworkBehaviour</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>NetworkServer</code></td>
+<td style="text-align: center;"><code>Server</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkClient</code></td>
+<td style="text-align: center;"><code>Client</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkTime</code></td>
+<td style="text-align: center;"><code>NetworkTime</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">doesn't exist</td>
+<td style="text-align: center;"><code>ClientObjectManager</code></td>
+</tr>
+<tr>
+<td style="text-align: center;">doesn't exist</td>
+<td style="text-align: center;"><code>ServerObjectManager</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="network-events-lifecycle">Network Events Lifecycle</h2>
+<p>Lifecycle management is no longer based on overrides. Instead, there are many UnityEvents that can be hooked into without direct coupling. They can also be used to hook callbacks via Unity Inspector.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>This guide only shows the Mirror counterpart events, but Mirage has more events available, so be sure to check them out as they might be useful.</p>
+</div>
+<h3 id="server-and-client-events">Server and client events</h3>
+<p>The table below shows the override method names from Mirror's <code>NetworkManager</code> and the corresponding events from Mirage.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mirror (override)</th>
+<th style="text-align: center;">Mirage (event)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>OnStartServer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkServer.html#Mirage_NetworkServer_Started">NetworkServer.Started</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnServerConnect</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkServer.html#Mirage_NetworkServer_Authenticated">NetworkServer.Authenticated</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnServerDisconnect</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkServer.html#Mirage_NetworkServer_Disconnected">NetworkServer.Disconnected</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStopServer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkServer.html#Mirage_NetworkServer_Stopped">NetworkServer.Stopped</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnClientConnect</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkClient.html#Mirage_NetworkClient_Authenticated">NetworkClient.Authenticated</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnClientDisconnect</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkClient.html#Mirage_NetworkClient_Disconnected">NetworkClient.Disconnected</a></td>
+</tr>
+</tbody>
+</table>
+<p>For example, this code from Mirror:</p>
+<pre><code class="lang-cs">using Mirror;
+
+class MyNetworkManager : NetworkManager {
+    public override void OnStartServer() {
+        // Server started
+    }
+
+    public override void OnServerConnect(NetworkConnection conn) {
+        // Client connected on server
+    }
+
+    public override void OnStopServer() {
+        // Server stopped
+    }
+
+    public override void OnClinetConnect(NetworkConnection conn) {
+        // Client connected
+    }
+
+    public override void OnClientDisconenct(NetworkConnection conn) {
+        // Client disconnected
+    }
+}
+</code></pre>
+<p>should be changed to:</p>
+<pre><code class="lang-cs">using Mirage;
+
+class MyNetworkManager : NetworkManager {
+    void Awake() {
+        Server.Started.AddListener(OnStartServer);
+        Server.Authenticated.AddListener(OnServerConnect);
+        Server.Stopped.AddListener(OnStopServer);
+        Client.Authenticated.AddListener(OnClientConnect);
+        Client.Disconnected.AddListener(OnClientDisconenct);
+    }
+
+    void OnStartServer() {
+        // Server started
+    }
+
+    void OnServerConnect(INetworkConnection conn) {
+        // Client connected (and authenticated) on server
+    }
+
+    void OnStopServer() {
+        // Server stopped
+    }
+
+    void OnClinetConnect(INetworkConnection conn) {
+        // Client connected
+    }
+
+    void OnClientDisconenct() {
+        // Client disconnected
+    }
+}
+</code></pre>
+<h3 id="networkbehaviour-events">NetworkBehaviour events</h3>
+<p>Table below shows the Mirror's <code>NetworkBehaviour</code> override method names on the left and the Mirage events on the right.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mirror (override)</th>
+<th style="text-align: center;">Mirage (event)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>OnStartServer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartServer">NetIdentity.OnStartServer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStopServer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStopServer">NetIdentity.OnStopServer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStartClient</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartClient">NetIdentity.OnStartClient</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStopClient</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStopClient">NetIdentity.OnStopClient</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStartLocalPlayer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartLocalPlayer">NetIdentity.OnStartLocalPlayer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStartAuthority</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStartAuthority">NetIdentity.OnStartAuthority</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>OnStopAuthority</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_OnStopAuthority">NetIdentity.OnStopAuthority</a></td>
+</tr>
+</tbody>
+</table>
+<p>Let's take this <code>Player</code> class as an example. In Mirror, you would do:</p>
+<pre><code class="lang-cs">using Mirror;
+
+public class Player : NetworkBehaviour {
+    public override void OnStartServer() {
+        // Player started on server
+    }
+
+    public override void OnStartClient() {
+        // Player started on client
+    }
+}
+</code></pre>
+<p>Which should be changed like so in Mirage:</p>
+<pre><code class="lang-cs">using Mirage;
+
+public class Player : NetworkBehaviour {
+    void Awake() {
+        NetIdentity.OnStartServer.AddListener(OnStartServer);
+        NetIdentity.OnStartClient.AddListener(OnStartClient);
+    }
+
+    void OnStartServer() {
+        // Player started on server
+    }
+
+    void OnStartClient() {
+        // Player started on client
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Please note that due to timing all event callbacks should be registered in <code>Awake</code> method or via Unity inspector in order for them to be invoked consistently.</p>
+</div>
+<h2 id="attributes">Attributes</h2>
+<p>The table below shows the new attribute names in Mirage.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mirror</th>
+<th style="text-align: center;">Mirage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>[Command]</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.ServerRpcAttribute.html">[ServerRpc]</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>[TargetRpc]</code></td>
+<td style="text-align: center;">[<a class="xref" href="../../api/Mirage.ClientRpcAttribute.html">ClientRpc(target = Mirage.Client enum)</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>[ServerCallback]</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.ServerAttribute.html">[Server(error = false)]</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="renames">Renames</h2>
+<p>These fields/properties have been renamed:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mirror</th>
+<th style="text-align: center;">Mirage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>ClientScene.localPlayer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.ClientObjectManager.html#Mirage_ClientObjectManager_LocalPlayer">ClientObjectManager.LocalPlayer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>ClientScene.ready</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkConnection.html#Mirage_NetworkConnection_IsReady">NetworkClient.Connection.IsReady</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkIdentity.assetId</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_AssetId">NetworkIdentity.AssetId</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkIdentity.netId</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_NetId">NetworkIdentity.NetId</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkIdentity.connectionToClient</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_ConnectionToClient">NetworkIdentity.ConnectionToClient</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.isServer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_IsServer">NetworkBehaviour.IsServer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.connectionToClient</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_ConnectionToClient">NetworkBehaviour.ConnectionToClient</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.connectionToServer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_ConnectionToServer">NetworkBehaviour.ConnectionToServer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.hasAuthority</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_HasAuthority">NetworkBehaviour.HasAuthority</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.netIdentity</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_NetIdentity">NetworkBehaviour.NetIdentity</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.netId</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_NetId">NetworkBehaviour.NetId</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.isClientOnly</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_IsClientOnly">NetworkBehaviour.IsClientOnly</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkBehaviour.islocalPlayer</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkBehaviour.html#Mirage_NetworkBehaviour_IsLocalPlayer">NetworkBehaviour.IsLocalPlayer</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkConnection.isReady</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkConnection.html#Mirage_NetworkConnection_IsReady">NetworkConnection.IsReady</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkConnection.identity</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkConnection.html#Mirage_NetworkConnection_Identity">NetworkConnection.Identity</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkServer.active</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkServer.html#Mirage_NetworkServer_Active">NetworkServer.Active</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkServer.localConnection</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkServer.html#Mirage_NetworkServer_LocalConnection">NetworkServer.LocalConnection</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkClient.connection</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkClient.html#Mirage_NetworkClient_Connection">NetworkClient.Connection</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkTime.time</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.NetworkTime.html#Mirage_NetworkTime_Time">NetworkTime.Time</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="object-management">Object Management</h2>
+<p>Registered spawnable prefabs were moved from <code>NetworkManager</code> to <a class="xref" href="../../api/Mirage.ClientObjectManager.html">ClientObjectManager</a> component. You can use the Inspector to register all NetworkIdentities via single click.</p>
+<h3 id="spawning-and-destroying">Spawning and destroying</h3>
+<p>Table below shows how to spawn objects in Mirage from <code>NetworkBehaviour</code>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Mirror</th>
+<th style="text-align: center;">Mirage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><code>NetworkServer.Spawn</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.ServerObjectManager.html#Mirage_ServerObjectManager_Spawn_Mirage_NetworkIdentity_">ServerObjectManager.Spawn</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><code>NetworkServer.Destroy</code></td>
+<td style="text-align: center;"><a class="xref" href="../../api/Mirage.ServerObjectManager.html#Mirage_ServerObjectManager_Destroy_GameObject_">ServerObjectManager.Destroy</a></td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/doc/Articles/Guides/MirrorMigration.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

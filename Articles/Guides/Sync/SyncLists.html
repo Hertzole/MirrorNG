@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,18 +82,17 @@
 <h1 id="synclists">SyncLists</h1>
 
 <p>SyncLists are array based lists similar to C# <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netframework-4.7.2">List&lt;T&gt;</a> that synchronize their contents from the server to the clients.</p>
-<p>A SyncList can contain any <a href="../DataTypes.html">supported MirrorNG type</a>.</p>
-<h2 id="differences-with-hlapi">Differences with HLAPI</h2>
-<p>HLAPI also supports SyncLists, but we have redesigned them to better suit our needs. Some of the key differences include:</p>
-<ul>
-<li>In HLAPI, SyncLists were synchronized immediately when they changed. If you add 10 elements, that means 10 separate messages. MirrorNG synchronizes SyncLists with the SyncVars. The 10 elements and other SyncVars are batched together into a single message. MirrorNG also respects the sync interval when synchronizing lists.</li>
-<li>In HLAPI if you want a list of structs, you have to use <code>SyncListStruct&lt;MyStructure&gt;</code>, we changed it to just <code>SyncList&lt;MyStructure&gt;</code></li>
-<li>In HLAPI the Callback is a delegate. In MirrorNG we changed it to an event, so that you can add many subscribers.</li>
-<li>In HLAPI the Callback tells you the operation and index. In MirrorNG, the callback also receives an item. We made this change so that we could tell what item was removed.</li>
-</ul>
+<p>A <a class="xref" href="../../../api/Mirage.SyncList-1.html">SyncList&lt;T&gt;</a> can contain any <a href="../DataTypes.html">supported Mirage type</a>.</p>
 <h2 id="usage">Usage</h2>
-<p>Create a class that derives from SyncList for your specific type. This is necessary because MirrorNG will add methods to that class with the weaver. Then add a SyncList field to your NetworkBehaviour class. For example:</p>
-<pre><code class="lang-cs">[System.Serializable]
+<p>Add a field of type <code>SyncList&lt;T&gt;</code> on any <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> where <code>T</code> can be any supported Mirage type and initialize it.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>You need to initialize the SyncList immediately after definition in order for them to work. You can mark them as <code>readonly</code> to enforce proper usage.</p>
+</div>
+<h3 id="basic-example">Basic example</h3>
+<pre><code class="lang-cs">using Mirage;
+
+[System.Serializable]
 public struct Item
 {
     public string name;
@@ -99,17 +100,14 @@ public struct Item
     public Color32 color;
 }
 
-[System.Serializable]
-public class SyncListItem : SyncList&lt;Item&gt; {}
-
 public class Player : NetworkBehaviour
 {
-    readonly SyncListItem inventory = new SyncListItem();
+    readonly SyncList&lt;Item&gt; inventory = new SyncList&lt;Item&gt;();
 
     public int coins = 100;
 
-    [Command]
-    public void CmdPurchase(string itemName)
+    [ServerRpc]
+    public void Purchase(string itemName)
     {
         if (coins &gt; 10)
         {
@@ -127,62 +125,51 @@ public class Player : NetworkBehaviour
     }
 }
 </code></pre>
-<p>There are some ready made SyncLists you can use:</p>
+<h2 id="callbacks">Callbacks</h2>
+<p>You can detect when a SyncList changes on the client and/or server. This is especially useful for refreshing your UI, character appearance etc.</p>
+<p>There are different callbacks for different operations, such as <code>OnChange</code> (any change to the list), <code>OnInsert</code> (adding new element) etc. Please check the <a class="xref" href="../../../api/Mirage.SyncList-1.html">SyncList API reference</a> for the complete list of callbacks.</p>
+<p>Depending on where you want to invoke the callbacks, you can use these methods to register them:</p>
 <ul>
-<li>SyncListString</li>
-<li>SyncListFloat</li>
-<li>SyncListInt</li>
-<li>SyncListUInt</li>
-<li>SyncListBool</li>
+<li><code>Awake</code> for both client and server</li>
+<li><code>NetIdentity.OnStartServer</code> event for server-only</li>
+<li><code>NetIdentity.OnStartClient</code> event for cleint-only</li>
 </ul>
-<p>You can also detect when a SyncList changes in the client or server. This is useful for refreshing your character when you add equipment or determining when you need to update your database. Subscribe to the Callback event typically during <code>Start</code>, <code>OnClientStart</code>, or <code>OnServerStart</code> for that.</p>
-<blockquote>
-<p>Note that by the time you subscribe, the list will already be initialized, so you will not get a call for the initial data, only updates.</p>
-Note SyncLists must be initialized in the constructor, not in Startxxx().  You can make them readonly to ensure correct usage.<p>
-</blockquote>
-<pre><code class="lang-cs">class Player : NetworkBehaviour {
+<div class="NOTE">
+<h5>Note</h5>
+<p>By the time you subscribe, the list will already be initialized, so you will not get a call for the initial data, only updates.</p>
+</div>
+<h3 id="example">Example</h3>
+<pre><code class="lang-cs">using Mirage;
 
-    readonly SyncListItem inventory = new SyncListItem();
+public class Player : NetworkBehaviour {
+    readonly SyncList&lt;Item&gt; inventory = new SyncList&lt;Item&gt;();
+    readonly SyncList&lt;Item&gt; hotbar = new SyncList&lt;Item&gt;();
 
-    // this will add the delegates on both server and client.
-    // Use OnStartClient instead if you just want the client to act upon updates
-    void Start()
+    // this will hook the callback on both server and client
+    void Awake()
     {
-        inventory.Callback += OnInventoryUpdated;
+        inventory.OnChange += UpdateInventory;
+        NetIdentity.OnStartClient.AddListener(OnStartClient);
     }
 
-    void OnInventoryUpdated(SyncListItem.Operation op, int index, Item oldItem, Item newItem)
+    // hotbar changes will only be invoked on clients
+    void OnStartClient() {
+        hotbar.OnChange += UpdateHotbar;
+    }
+
+    void UpdateInventory()
     {
-        switch (op)
-        {
-            case SyncListItem.Operation.OP_ADD:
-                // index is where it got added in the list
-                // item is the new item
-                break;
-            case SyncListItem.Operation.OP_CLEAR:
-                // list got cleared
-                break;
-            case SyncListItem.Operation.OP_INSERT:
-                // index is where it got added in the list
-                // item is the new item
-                break;
-            case SyncListItem.Operation.OP_REMOVEAT:
-                // index is where it got removed in the list
-                // item is the item that was removed
-                break;
-            case SyncListItem.Operation.OP_SET:
-                // index is the index of the item that was updated
-                // item is the previous item
-                break;
-        }
+        // here you can refresh your UI for instance
+    }
+
+    void UpdateHotbar()
+    {
+        // here you can refresh your UI for instance
     }
 }
 </code></pre>
-<p>By default, SyncList uses a List to store it's data. If you want to use a different list implementation, add a constructor and pass the list implementation to the parent constructor. For example:</p>
-<pre><code class="lang-cs">class SyncListItem : SyncList&lt;Item&gt;
-{
-    public SyncListItem() : base(new MyIList&lt;Item&gt;()) {}
-}
+<p>By default, <code>SyncList</code> uses a List to store its data. If you want to use a different list implementation, add a constructor and pass the list implementation to the parent constructor. For example:</p>
+<pre><code class="lang-cs">public SyncList&lt;Item&gt; myList = new SyncList&lt;Item&gt;(new MyIList&lt;Item&gt;());
 </code></pre>
 </article>
           </div>

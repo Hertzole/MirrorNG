@@ -1,0 +1,1630 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkBehaviour
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkBehaviour
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage.NetworkBehaviour">
+  
+  
+  <h1 id="Mirage_NetworkBehaviour" data-uid="Mirage.NetworkBehaviour" class="text-break">Class NetworkBehaviour
+  </h1>
+  <div class="markdown level0 summary"><p>Base class which should be inherited by scripts which contain networking functionality.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">NetworkBehaviour</span></div>
+      <div class="level2"><a class="xref" href="Mirage.Experimental.NetworkLerpRigidbody.html">NetworkLerpRigidbody</a></div>
+      <div class="level2"><a class="xref" href="Mirage.Experimental.NetworkRigidbody.html">NetworkRigidbody</a></div>
+      <div class="level2"><a class="xref" href="Mirage.Experimental.NetworkTransformBase.html">NetworkTransformBase</a></div>
+      <div class="level2"><a class="xref" href="Mirage.NetworkAnimator.html">NetworkAnimator</a></div>
+      <div class="level2"><a class="xref" href="Mirage.NetworkTransformBase.html">NetworkTransformBase</a></div>
+      <div class="level2"><a class="xref" href="Mirage.NetworkVisibility.html">NetworkVisibility</a></div>
+      <div class="level2"><a class="xref" href="Mirage.ObjectReady.html">ObjectReady</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirage.html">Mirage</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirage_NetworkBehaviour_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class NetworkBehaviour : MonoBehaviour</code></pre>
+  </div>
+  <h5 id="Mirage_NetworkBehaviour_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This is a MonoBehaviour class so scripts which need to use the networking feature should inherit this class instead of MonoBehaviour. It allows you to invoke networked actions, receive various callbacks, and automatically synchronize state from server-to-client.</p>
+<p>The NetworkBehaviour component requires a NetworkIdentity on the game object. There can be multiple NetworkBehaviours on a single game object. For an object with sub-components in a hierarchy, the NetworkIdentity must be on the root object, and NetworkBehaviour scripts must also be on the root object.</p>
+<p>Some of the built-in components of the networking system are derived from NetworkBehaviour, including NetworkTransport, NetworkAnimator and NetworkProximityChecker.</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_syncInterval.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.syncInterval%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L44">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkBehaviour_syncInterval" data-uid="Mirage.NetworkBehaviour.syncInterval">syncInterval</h4>
+  <div class="markdown level1 summary"><p>sync interval for OnSerialize (in seconds)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float syncInterval</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.single">Single</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_syncMode.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.syncMode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L35">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkBehaviour_syncMode" data-uid="Mirage.NetworkBehaviour.syncMode">syncMode</h4>
+  <div class="markdown level1 summary"><p>sync mode for OnSerialize</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SyncMode syncMode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.SyncMode.html">SyncMode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_syncObjects.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.syncObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L144">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkBehaviour_syncObjects" data-uid="Mirage.NetworkBehaviour.syncObjects">syncObjects</h4>
+  <div class="markdown level1 summary"><p>objects that can synchronize themselves, such as synclists</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly List&lt;ISyncObject&gt; syncObjects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<a class="xref" href="Mirage.ISyncObject.html">ISyncObject</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_Client.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L103">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_Client_" data-uid="Mirage.NetworkBehaviour.Client*"></a>
+  <h4 id="Mirage_NetworkBehaviour_Client" data-uid="Mirage.NetworkBehaviour.Client">Client</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a> associated to this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkClient Client { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkClient.html">NetworkClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_ClientObjectManager.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.ClientObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L108">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_ClientObjectManager_" data-uid="Mirage.NetworkBehaviour.ClientObjectManager*"></a>
+  <h4 id="Mirage_NetworkBehaviour_ClientObjectManager" data-uid="Mirage.NetworkBehaviour.ClientObjectManager">ClientObjectManager</h4>
+  <div class="markdown level1 summary"><p>Quick Reference to the NetworkIdentities ClientObjectManager. Present only for instances instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientObjectManager ClientObjectManager { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.ClientObjectManager.html">ClientObjectManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_ComponentIndex.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.ComponentIndex%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L185">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_ComponentIndex_" data-uid="Mirage.NetworkBehaviour.ComponentIndex*"></a>
+  <h4 id="Mirage_NetworkBehaviour_ComponentIndex" data-uid="Mirage.NetworkBehaviour.ComponentIndex">ComponentIndex</h4>
+  <div class="markdown level1 summary"><p>Returns the index of the component on this object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ComponentIndex { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_ConnectionToClient.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.ConnectionToClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L118">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_ConnectionToClient_" data-uid="Mirage.NetworkBehaviour.ConnectionToClient*"></a>
+  <h4 id="Mirage_NetworkBehaviour_ConnectionToClient" data-uid="Mirage.NetworkBehaviour.ConnectionToClient">ConnectionToClient</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Mirage.NetworkConnection.html">NetworkConnection</a> associated with this <a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a> This is only valid for player objects on the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public INetworkConnection ConnectionToClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_ConnectionToServer.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.ConnectionToServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L113">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_ConnectionToServer_" data-uid="Mirage.NetworkBehaviour.ConnectionToServer*"></a>
+  <h4 id="Mirage_NetworkBehaviour_ConnectionToServer" data-uid="Mirage.NetworkBehaviour.ConnectionToServer">ConnectionToServer</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Mirage.NetworkConnection.html">NetworkConnection</a> associated with this <a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a> This is only valid for player objects on the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public INetworkConnection ConnectionToServer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_HasAuthority.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.HasAuthority%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L82">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_HasAuthority_" data-uid="Mirage.NetworkBehaviour.HasAuthority*"></a>
+  <h4 id="Mirage_NetworkBehaviour_HasAuthority" data-uid="Mirage.NetworkBehaviour.HasAuthority">HasAuthority</h4>
+  <div class="markdown level1 summary"><p>This returns true if this object is the authoritative version of the object in the distributed network application.</p>
+<p>The <a class="xref" href="Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_HasAuthority">HasAuthority</a> value on the NetworkIdentity determines how authority is determined. For most objects, authority is held by the server. For objects with <a class="xref" href="Mirage.NetworkIdentity.html#Mirage_NetworkIdentity_HasAuthority">HasAuthority</a> set, authority is held by the client of that player.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HasAuthority { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsClient.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L55">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsClient_" data-uid="Mirage.NetworkBehaviour.IsClient*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsClient" data-uid="Mirage.NetworkBehaviour.IsClient">IsClient</h4>
+  <div class="markdown level1 summary"><p>Returns true if running as a client and this object was spawned by a server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsClientOnly.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsClientOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L76">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsClientOnly_" data-uid="Mirage.NetworkBehaviour.IsClientOnly*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsClientOnly" data-uid="Mirage.NetworkBehaviour.IsClientOnly">IsClientOnly</h4>
+  <div class="markdown level1 summary"><p>True if this object exists on a client that is not also acting as a server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsClientOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsLocalClient.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsLocalClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L60">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsLocalClient_" data-uid="Mirage.NetworkBehaviour.IsLocalClient*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsLocalClient" data-uid="Mirage.NetworkBehaviour.IsLocalClient">IsLocalClient</h4>
+  <div class="markdown level1 summary"><p>Returns true if we're on host mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLocalClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsLocalPlayer.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsLocalPlayer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L66">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsLocalPlayer_" data-uid="Mirage.NetworkBehaviour.IsLocalPlayer*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsLocalPlayer" data-uid="Mirage.NetworkBehaviour.IsLocalPlayer">IsLocalPlayer</h4>
+  <div class="markdown level1 summary"><p>This returns true if this object is the one that represents the player on the local machine.</p>
+<p>In multiplayer games, there are multiple instances of the Player object. The client needs to know which one is for &quot;themselves&quot; so that only that player processes input and potentially has a camera attached. The IsLocalPlayer function will return true only for the player instance that belongs to the player on the local machine, so it can be used to filter out input for non-local players.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsLocalPlayer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsServer.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsServer%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L50">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsServer_" data-uid="Mirage.NetworkBehaviour.IsServer*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsServer" data-uid="Mirage.NetworkBehaviour.IsServer">IsServer</h4>
+  <div class="markdown level1 summary"><p>Returns true if this object is active on an active server.</p>
+<p>This is only true if the object has been spawned. This is different from NetworkServer.active, which is true if the server itself is active rather than this object being active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsServer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsServerOnly.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsServerOnly%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L71">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsServerOnly_" data-uid="Mirage.NetworkBehaviour.IsServerOnly*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsServerOnly" data-uid="Mirage.NetworkBehaviour.IsServerOnly">IsServerOnly</h4>
+  <div class="markdown level1 summary"><p>True if this object only exists on the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsServerOnly { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_NetId.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.NetId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L88">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_NetId_" data-uid="Mirage.NetworkBehaviour.NetId*"></a>
+  <h4 id="Mirage_NetworkBehaviour_NetId" data-uid="Mirage.NetworkBehaviour.NetId">NetId</h4>
+  <div class="markdown level1 summary"><p>The unique network Id of this object.</p>
+<p>This is assigned at runtime by the network server and will be unique for all objects for that network session.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint NetId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_NetIdentity.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.NetIdentity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L154">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_NetIdentity_" data-uid="Mirage.NetworkBehaviour.NetIdentity*"></a>
+  <h4 id="Mirage_NetworkBehaviour_NetIdentity" data-uid="Mirage.NetworkBehaviour.NetIdentity">NetIdentity</h4>
+  <div class="markdown level1 summary"><p>Returns the NetworkIdentity of this object</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkIdentity NetIdentity { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_NetworkTime.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.NetworkTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L123">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_NetworkTime_" data-uid="Mirage.NetworkBehaviour.NetworkTime*"></a>
+  <h4 id="Mirage_NetworkBehaviour_NetworkTime" data-uid="Mirage.NetworkBehaviour.NetworkTime">NetworkTime</h4>
+  <div class="markdown level1 summary"><p>Returns the appropriate NetworkTime instance based on if this NetworkBehaviour is running as a Server or Client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkTime NetworkTime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkTime.html">NetworkTime</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_Server.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.Server%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L93">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_Server_" data-uid="Mirage.NetworkBehaviour.Server*"></a>
+  <h4 id="Mirage_NetworkBehaviour_Server" data-uid="Mirage.NetworkBehaviour.Server">Server</h4>
+  <div class="markdown level1 summary"><p>The <a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a> associated to this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkServer Server { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkServer.html">NetworkServer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_ServerObjectManager.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.ServerObjectManager%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L98">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_ServerObjectManager_" data-uid="Mirage.NetworkBehaviour.ServerObjectManager*"></a>
+  <h4 id="Mirage_NetworkBehaviour_ServerObjectManager" data-uid="Mirage.NetworkBehaviour.ServerObjectManager">ServerObjectManager</h4>
+  <div class="markdown level1 summary"><p>Quick Reference to the NetworkIdentities ServerObjectManager. Present only for server/host instances.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServerObjectManager ServerObjectManager { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.ServerObjectManager.html">ServerObjectManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SyncVarDirtyBits.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SyncVarDirtyBits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L125">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SyncVarDirtyBits_" data-uid="Mirage.NetworkBehaviour.SyncVarDirtyBits*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SyncVarDirtyBits" data-uid="Mirage.NetworkBehaviour.SyncVarDirtyBits">SyncVarDirtyBits</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ulong SyncVarDirtyBits { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_ClearAllDirtyBits.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.ClearAllDirtyBits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L391">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_ClearAllDirtyBits_" data-uid="Mirage.NetworkBehaviour.ClearAllDirtyBits*"></a>
+  <h4 id="Mirage_NetworkBehaviour_ClearAllDirtyBits" data-uid="Mirage.NetworkBehaviour.ClearAllDirtyBits">ClearAllDirtyBits()</h4>
+  <div class="markdown level1 summary"><p>This clears all the dirty bits that were set on this script by SetDirtyBits();</p>
+<p>This is automatically invoked when an update is sent for this object, but can be called manually as well.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearAllDirtyBits()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_DeserializeSyncVars_Mirage_NetworkReader_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.DeserializeSyncVars(Mirage.NetworkReader%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L503">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_DeserializeSyncVars_" data-uid="Mirage.NetworkBehaviour.DeserializeSyncVars*"></a>
+  <h4 id="Mirage_NetworkBehaviour_DeserializeSyncVars_Mirage_NetworkReader_System_Boolean_" data-uid="Mirage.NetworkBehaviour.DeserializeSyncVars(Mirage.NetworkReader,System.Boolean)">DeserializeSyncVars(NetworkReader, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void DeserializeSyncVars(NetworkReader reader, bool initialState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkReader.html">NetworkReader</a></td>
+        <td><span class="parametername">reader</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">initialState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_GetSyncVarHookGuard_System_UInt64_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.GetSyncVarHookGuard(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L128">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_GetSyncVarHookGuard_" data-uid="Mirage.NetworkBehaviour.GetSyncVarHookGuard*"></a>
+  <h4 id="Mirage_NetworkBehaviour_GetSyncVarHookGuard_System_UInt64_" data-uid="Mirage.NetworkBehaviour.GetSyncVarHookGuard(System.UInt64)">GetSyncVarHookGuard(UInt64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool GetSyncVarHookGuard(ulong dirtyBit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><span class="parametername">dirtyBit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_InitSyncObject_Mirage_ISyncObject_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.InitSyncObject(Mirage.ISyncObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L213">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_InitSyncObject_" data-uid="Mirage.NetworkBehaviour.InitSyncObject*"></a>
+  <h4 id="Mirage_NetworkBehaviour_InitSyncObject_Mirage_ISyncObject_" data-uid="Mirage.NetworkBehaviour.InitSyncObject(Mirage.ISyncObject)">InitSyncObject(ISyncObject)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void InitSyncObject(ISyncObject syncObject)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.ISyncObject.html">ISyncObject</a></td>
+        <td><span class="parametername">syncObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_IsDirty.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.IsDirty%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L421">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_IsDirty_" data-uid="Mirage.NetworkBehaviour.IsDirty*"></a>
+  <h4 id="Mirage_NetworkBehaviour_IsDirty" data-uid="Mirage.NetworkBehaviour.IsDirty">IsDirty()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsDirty()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_OnDeserialize_Mirage_NetworkReader_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.OnDeserialize(Mirage.NetworkReader%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L474">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_OnDeserialize_" data-uid="Mirage.NetworkBehaviour.OnDeserialize*"></a>
+  <h4 id="Mirage_NetworkBehaviour_OnDeserialize_Mirage_NetworkReader_System_Boolean_" data-uid="Mirage.NetworkBehaviour.OnDeserialize(Mirage.NetworkReader,System.Boolean)">OnDeserialize(NetworkReader, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Virtual function to override to receive custom serialization data. The corresponding function to send serialization data is OnSerialize().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnDeserialize(NetworkReader reader, bool initialState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkReader.html">NetworkReader</a></td>
+        <td><span class="parametername">reader</span></td>
+        <td><p>Reader to read from the stream.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">initialState</span></td>
+        <td><p>True if being sent initial state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_OnSerialize_Mirage_NetworkWriter_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.OnSerialize(Mirage.NetworkWriter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L449">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_OnSerialize_" data-uid="Mirage.NetworkBehaviour.OnSerialize*"></a>
+  <h4 id="Mirage_NetworkBehaviour_OnSerialize_Mirage_NetworkWriter_System_Boolean_" data-uid="Mirage.NetworkBehaviour.OnSerialize(Mirage.NetworkWriter,System.Boolean)">OnSerialize(NetworkWriter, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Virtual function to override to send custom serialization data. The corresponding function to send serialization data is OnDeserialize().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool OnSerialize(NetworkWriter writer, bool initialState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td><p>Writer to use to write to the stream.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">initialState</span></td>
+        <td><p>If this is being called to send initial state.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p>True if data was written.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Mirage_NetworkBehaviour_OnSerialize_Mirage_NetworkWriter_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The initialState flag is useful to differentiate between the first time an object is serialized and when incremental updates can be sent. The first time an object is sent to a client, it must include a full state snapshot, but subsequent updates can save on bandwidth by including only incremental changes. Note that SyncVar hook functions are not called when initialState is true, only for incremental updates.</p>
+<p>If a class has SyncVars, then an implementation of this function and OnDeserialize() are added automatically to the class. So a class that has SyncVars cannot also have custom serialization functions.</p>
+<p>The OnSerialize function should return true to indicate that an update should be sent. If it returns true, then the dirty bits for that script are set to zero, if it returns false then the dirty bits are not changed. This allows multiple changes to a script to be accumulated over time and sent when the system is ready, instead of every frame.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SendRpcInternal_Type_System_String_Mirage_NetworkWriter_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SendRpcInternal(Type%2CSystem.String%2CMirage.NetworkWriter%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L295">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SendRpcInternal_" data-uid="Mirage.NetworkBehaviour.SendRpcInternal*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SendRpcInternal_Type_System_String_Mirage_NetworkWriter_System_Int32_System_Boolean_" data-uid="Mirage.NetworkBehaviour.SendRpcInternal(Type,System.String,Mirage.NetworkWriter,System.Int32,System.Boolean)">SendRpcInternal(Type, String, NetworkWriter, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendRpcInternal(Type invokeClass, string rpcName, NetworkWriter writer, int channelId, bool excludeOwner)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">invokeClass</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">rpcName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">excludeOwner</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SendServerRpcInternal_Type_System_String_Mirage_NetworkWriter_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SendServerRpcInternal(Type%2CSystem.String%2CMirage.NetworkWriter%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L228">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SendServerRpcInternal_" data-uid="Mirage.NetworkBehaviour.SendServerRpcInternal*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SendServerRpcInternal_Type_System_String_Mirage_NetworkWriter_System_Int32_System_Boolean_" data-uid="Mirage.NetworkBehaviour.SendServerRpcInternal(Type,System.String,Mirage.NetworkWriter,System.Int32,System.Boolean)">SendServerRpcInternal(Type, String, NetworkWriter, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendServerRpcInternal(Type invokeClass, string cmdName, NetworkWriter writer, int channelId, bool requireAuthority = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">invokeClass</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">cmdName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">requireAuthority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SendServerRpcWithReturn__1_Type_System_String_Mirage_NetworkWriter_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SendServerRpcWithReturn%60%601(Type%2CSystem.String%2CMirage.NetworkWriter%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L269">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SendServerRpcWithReturn_" data-uid="Mirage.NetworkBehaviour.SendServerRpcWithReturn*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SendServerRpcWithReturn__1_Type_System_String_Mirage_NetworkWriter_System_Int32_System_Boolean_" data-uid="Mirage.NetworkBehaviour.SendServerRpcWithReturn``1(Type,System.String,Mirage.NetworkWriter,System.Int32,System.Boolean)">SendServerRpcWithReturn&lt;T&gt;(Type, String, NetworkWriter, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UniTask&lt;T&gt; SendServerRpcWithReturn&lt;T&gt;(Type invokeClass, string cmdName, NetworkWriter writer, int channelId, bool requireAuthority = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">invokeClass</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">cmdName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">requireAuthority</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UniTask</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SendTargetRpcInternal_Mirage_INetworkConnection_Type_System_String_Mirage_NetworkWriter_System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SendTargetRpcInternal(Mirage.INetworkConnection%2CType%2CSystem.String%2CMirage.NetworkWriter%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L327">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SendTargetRpcInternal_" data-uid="Mirage.NetworkBehaviour.SendTargetRpcInternal*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SendTargetRpcInternal_Mirage_INetworkConnection_Type_System_String_Mirage_NetworkWriter_System_Int32_" data-uid="Mirage.NetworkBehaviour.SendTargetRpcInternal(Mirage.INetworkConnection,Type,System.String,Mirage.NetworkWriter,System.Int32)">SendTargetRpcInternal(INetworkConnection, Type, String, NetworkWriter, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SendTargetRpcInternal(INetworkConnection conn, Type invokeClass, string rpcName, NetworkWriter writer, int channelId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.INetworkConnection.html">INetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Type</span></td>
+        <td><span class="parametername">invokeClass</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">rpcName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SerializeObjectsAll_Mirage_NetworkWriter_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SerializeObjectsAll(Mirage.NetworkWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L528">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SerializeObjectsAll_" data-uid="Mirage.NetworkBehaviour.SerializeObjectsAll*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SerializeObjectsAll_Mirage_NetworkWriter_" data-uid="Mirage.NetworkBehaviour.SerializeObjectsAll(Mirage.NetworkWriter)">SerializeObjectsAll(NetworkWriter)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SerializeObjectsAll(NetworkWriter writer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SerializeObjectsDelta_Mirage_NetworkWriter_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SerializeObjectsDelta(Mirage.NetworkWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L540">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SerializeObjectsDelta_" data-uid="Mirage.NetworkBehaviour.SerializeObjectsDelta*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SerializeObjectsDelta_Mirage_NetworkWriter_" data-uid="Mirage.NetworkBehaviour.SerializeObjectsDelta(Mirage.NetworkWriter)">SerializeObjectsDelta(NetworkWriter)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SerializeObjectsDelta(NetworkWriter writer)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SerializeSyncVars_Mirage_NetworkWriter_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SerializeSyncVars(Mirage.NetworkWriter%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L489">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SerializeSyncVars_" data-uid="Mirage.NetworkBehaviour.SerializeSyncVars*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SerializeSyncVars_Mirage_NetworkWriter_System_Boolean_" data-uid="Mirage.NetworkBehaviour.SerializeSyncVars(Mirage.NetworkWriter,System.Boolean)">SerializeSyncVars(NetworkWriter, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool SerializeSyncVars(NetworkWriter writer, bool initialState)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.NetworkWriter.html">NetworkWriter</a></td>
+        <td><span class="parametername">writer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">initialState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SetDirtyBit_System_UInt64_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SetDirtyBit(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L380">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SetDirtyBit_" data-uid="Mirage.NetworkBehaviour.SetDirtyBit*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SetDirtyBit_System_UInt64_" data-uid="Mirage.NetworkBehaviour.SetDirtyBit(System.UInt64)">SetDirtyBit(UInt64)</h4>
+  <div class="markdown level1 summary"><p>Used to set the behaviour as dirty, so that a network update will be sent for the object.
+these are masks, not bit numbers, ie. 0x004 not 2</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDirtyBit(ulong dirtyBit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><span class="parametername">dirtyBit</span></td>
+        <td><p>Bit mask to set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SetSyncVarHookGuard_System_UInt64_System_Boolean_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SetSyncVarHookGuard(System.UInt64%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L133">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SetSyncVarHookGuard_" data-uid="Mirage.NetworkBehaviour.SetSyncVarHookGuard*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SetSyncVarHookGuard_System_UInt64_System_Boolean_" data-uid="Mirage.NetworkBehaviour.SetSyncVarHookGuard(System.UInt64,System.Boolean)">SetSyncVarHookGuard(UInt64, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetSyncVarHookGuard(ulong dirtyBit, bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><span class="parametername">dirtyBit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_StillDirty.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.StillDirty%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L433">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_StillDirty_" data-uid="Mirage.NetworkBehaviour.StillDirty*"></a>
+  <h4 id="Mirage_NetworkBehaviour_StillDirty" data-uid="Mirage.NetworkBehaviour.StillDirty">StillDirty()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool StillDirty()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour_SyncVarEqual__1___0___0_.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour.SyncVarEqual%60%601(%60%600%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L366">View Source</a>
+  </span>
+  <a id="Mirage_NetworkBehaviour_SyncVarEqual_" data-uid="Mirage.NetworkBehaviour.SyncVarEqual*"></a>
+  <h4 id="Mirage_NetworkBehaviour_SyncVarEqual__1___0___0_" data-uid="Mirage.NetworkBehaviour.SyncVarEqual``1(``0,``0)">SyncVarEqual&lt;T&gt;(T, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool SyncVarEqual&lt;T&gt;(T value, T fieldValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">fieldValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkBehaviour.md&amp;value=---%0Auid%3A%20Mirage.NetworkBehaviour%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkBehaviour.cs/#L23" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

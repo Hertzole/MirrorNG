@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,7 +82,7 @@
 <h1 id="data-types">Data types</h1>
 
 <p>The client and server can pass data to each other via <a href="Communications/RemoteActions.html">Remote methods</a>, <a href="Sync/index.html">State Synchronization</a> or via <a href="Communications/NetworkMessages.html">Network Messages</a></p>
-<p>MirrorNG supports a number of data types you can use with these, including:</p>
+<p>Mirage supports a number of data types you can use with these, including:</p>
 <ul>
 <li>Basic c# types (byte, int, char, uint, UInt64, float, string, etc)</li>
 <li>Built-in Unity math type (Vector3, Quaternion, Rect, Plane, Vector3Int, etc)</li>
@@ -122,7 +124,7 @@
 <ul>
 <li>As long as the game object <em>already exists</em> on both the server and the client, the reference should be fine.</li>
 </ul>
-<p>When the sync data arrives at the client, the referenced game object may not yet exist on that client, resulting in null values in the sync data.  This is because interally MirrorNG passes the <code>netId</code> from the <code>NetworkIdentity</code> and tries to look it up on the client's <code>NetworkIdentity.spawned</code> dictionary.</p>
+<p>When the sync data arrives at the client, the referenced game object may not yet exist on that client, resulting in null values in the sync data.  This is because interally Mirage passes the <code>netId</code> from the <code>NetworkIdentity</code> and tries to look it up on the client's <code>NetworkIdentity.spawned</code> dictionary.</p>
 <p>If the object hasn't been spawned on the client yet, no match will be found. It could be in the same payload, especially for joining clients, but after the sync data from another object.<br>
 It could also be null because the game object is excluded from a client due to network visibility, e.g. <code>NetworkProximityChecker</code>.</p>
 <p>You may find that it's more robust to sync the <code>NetworkIdentity.netID</code> (uint) instead, and do your own lookup in <code>NetworkIdentity.spawned</code> to get the object, perhaps in a coroutine:</p>
@@ -151,7 +153,7 @@ It could also be null because the game object is excluded from a client due to n
 </code></pre>
 <h2 id="custom-data-types">Custom Data Types</h2>
 <p>Sometimes you don't want mirror to generate serialization for your own types. For example, instead of serializing quest data, you may want to serialize just the quest id, and the receiver can look up the quest by id in a predefined list.</p>
-<p>Sometimes you may want to serialize data which uses a different type not supported by MirrorNG, such as DateTime or System.Uri</p>
+<p>Sometimes you may want to serialize data which uses a different type not supported by Mirage, such as DateTime or System.Uri</p>
 <p>You can add support for any type by adding extension methods to <code>NetworkWriter</code> and <code>NetworkReader</code>. For example, to add support for <code>DateTime</code>, add this somewhere in your project:</p>
 <pre><code class="lang-cs">public static class DateTimeReaderWriter
 {
@@ -168,7 +170,7 @@ It could also be null because the game object is excluded from a client due to n
 </code></pre>
 <p>...then you can use <code>DateTime</code> in your <code>[ServerRpc]</code> or <code>SyncList</code></p>
 <h2 id="inheritance-and-polymorphism">Inheritance and Polymorphism</h2>
-<p>Sometimes you might want to send a polymorphic data type to your commands. MirrorNG does not serialize the type name to keep messages small and for security reasons, therefore MirrorNG cannot figure out the type of object it received by looking at the message.</p>
+<p>Sometimes you might want to send a polymorphic data type to your commands. Mirage does not serialize the type name to keep messages small and for security reasons, therefore Mirage cannot figure out the type of object it received by looking at the message.</p>
 <blockquote>
 <p><strong>This code does not work out of the box.</strong></p>
 </blockquote>
@@ -193,7 +195,7 @@ class Player : NetworkBehaviour
     [ServerRpc]
     void CmdEquip(Item item)
     {
-        // IMPORTANT: this does not work. MirrorNG will pass you an object of type item
+        // IMPORTANT: this does not work. Mirage will pass you an object of type item
         // even if you pass a weapon or an armor.
         if (item is Weapon weapon)
         {
@@ -263,7 +265,7 @@ public static class ItemSerializer
 }
 </code></pre>
 <h2 id="scriptable-objects">Scriptable Objects</h2>
-<p>People often want to send scriptable objects from the client or server. For example, you may have a bunch of swords created as scriptable objects and you want put the equipped sword in a syncvar. This will work fine, MirrorNG will generate a reader and writer for scriptable objects by calling ScriptableObject.CreateInstance and copy all the data.</p>
+<p>People often want to send scriptable objects from the client or server. For example, you may have a bunch of swords created as scriptable objects and you want put the equipped sword in a syncvar. This will work fine, Mirage will generate a reader and writer for scriptable objects by calling ScriptableObject.CreateInstance and copy all the data.</p>
 <p>However the generated reader and writer are not suitable for every occasion. Scriptable objects often reference other assets such as textures, prefabs, or other types that can't be serialized. Scriptable objects are often saved in the in the Resources folder. Scriptable objects sometimes have a large amount of data in them. The generated reader and writers may not work or may be inneficient for these situations.</p>
 <p>Instead of passing the scriptable object data, you can pass the name and the other side can lookup the same object by name. This way you can have any kind of data in your scriptable object. You can do that by providing a custom reader and writer.  Here is an example:</p>
 <pre><code class="lang-cs">[CreateAssetMenu(fileName = &quot;New Armor&quot;, menuName = &quot;Armor Data&quot;)]

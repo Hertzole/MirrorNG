@@ -1,0 +1,769 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkReader
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkReader
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage.NetworkReader">
+  
+  
+  <h1 id="Mirage_NetworkReader" data-uid="Mirage.NetworkReader" class="text-break">Class NetworkReader
+  </h1>
+  <div class="markdown level0 summary"><p>Binary stream Reader. Supports simple types, buffers, arrays, structs, and nested types</p>
+<p>Use <a class="xref" href="Mirage.NetworkReaderPool.html#Mirage_NetworkReaderPool_GetReader_System_Byte___">GetReader(Byte[])</a> to reduce memory allocation</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">NetworkReader</span></div>
+      <div class="level2"><a class="xref" href="Mirage.PooledNetworkReader.html">PooledNetworkReader</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirage.html">Mirage</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirage_NetworkReader_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NetworkReader : object</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader__ctor_ArraySegment_System_Byte__.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.%23ctor(ArraySegment%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L72">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader__ctor_" data-uid="Mirage.NetworkReader.#ctor*"></a>
+  <h4 id="Mirage_NetworkReader__ctor_ArraySegment_System_Byte__" data-uid="Mirage.NetworkReader.#ctor(ArraySegment{System.Byte})">NetworkReader(ArraySegment&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkReader(ArraySegment&lt;byte&gt; segment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ArraySegment</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td><span class="parametername">segment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader__ctor_System_Byte___.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.%23ctor(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L67">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader__ctor_" data-uid="Mirage.NetworkReader.#ctor*"></a>
+  <h4 id="Mirage_NetworkReader__ctor_System_Byte___" data-uid="Mirage.NetworkReader.#ctor(System.Byte[])">NetworkReader(Byte[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkReader(byte[] bytes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_Position.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.Position%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L59">View Source</a>
+  </span>
+  <h4 id="Mirage_NetworkReader_Position" data-uid="Mirage.NetworkReader.Position">Position</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Position</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_Length.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.Length%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L60">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_Length_" data-uid="Mirage.NetworkReader.Length*"></a>
+  <h4 id="Mirage_NetworkReader_Length" data-uid="Mirage.NetworkReader.Length">Length</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Length { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ObjectLocator.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ObjectLocator%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L65">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ObjectLocator_" data-uid="Mirage.NetworkReader.ObjectLocator*"></a>
+  <h4 id="Mirage_NetworkReader_ObjectLocator" data-uid="Mirage.NetworkReader.ObjectLocator">ObjectLocator</h4>
+  <div class="markdown level1 summary"><p>some service object that can find objects by net id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IObjectLocator ObjectLocator { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirage.IObjectLocator.html">IObjectLocator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_Read__1.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.Read%60%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L150">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_Read_" data-uid="Mirage.NetworkReader.Read*"></a>
+  <h4 id="Mirage_NetworkReader_Read__1" data-uid="Mirage.NetworkReader.Read``1">Read&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Reads any data type that mirror supports</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Read&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadByte.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadByte%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L77">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadByte_" data-uid="Mirage.NetworkReader.ReadByte*"></a>
+  <h4 id="Mirage_NetworkReader_ReadByte" data-uid="Mirage.NetworkReader.ReadByte">ReadByte()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte ReadByte()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadBytes_System_Byte___System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadBytes(System.Byte%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L112">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadBytes_" data-uid="Mirage.NetworkReader.ReadBytes*"></a>
+  <h4 id="Mirage_NetworkReader_ReadBytes_System_Byte___System_Int32_" data-uid="Mirage.NetworkReader.ReadBytes(System.Byte[],System.Int32)">ReadBytes(Byte[], Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] ReadBytes(byte[] bytes, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td><span class="parametername">bytes</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadBytesSegment_System_Int32_.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadBytesSegment(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L126">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadBytesSegment_" data-uid="Mirage.NetworkReader.ReadBytesSegment*"></a>
+  <h4 id="Mirage_NetworkReader_ReadBytesSegment_System_Int32_" data-uid="Mirage.NetworkReader.ReadBytesSegment(System.Int32)">ReadBytesSegment(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ArraySegment&lt;byte&gt; ReadBytesSegment(int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ArraySegment</span>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadInt32.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadInt32%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L86">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadInt32_" data-uid="Mirage.NetworkReader.ReadInt32*"></a>
+  <h4 id="Mirage_NetworkReader_ReadInt32" data-uid="Mirage.NetworkReader.ReadInt32">ReadInt32()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ReadInt32()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadInt64.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadInt64%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L96">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadInt64_" data-uid="Mirage.NetworkReader.ReadInt64*"></a>
+  <h4 id="Mirage_NetworkReader_ReadInt64" data-uid="Mirage.NetworkReader.ReadInt64">ReadInt64()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ReadInt64()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadUInt32.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadUInt32%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L87">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadUInt32_" data-uid="Mirage.NetworkReader.ReadUInt32*"></a>
+  <h4 id="Mirage_NetworkReader_ReadUInt32" data-uid="Mirage.NetworkReader.ReadUInt32">ReadUInt32()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint ReadUInt32()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint32">UInt32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ReadUInt64.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ReadUInt64%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L97">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ReadUInt64_" data-uid="Mirage.NetworkReader.ReadUInt64*"></a>
+  <h4 id="Mirage_NetworkReader_ReadUInt64" data-uid="Mirage.NetworkReader.ReadUInt64">ReadUInt64()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong ReadUInt64()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader_ToString.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L140">View Source</a>
+  </span>
+  <a id="Mirage_NetworkReader_ToString_" data-uid="Mirage.NetworkReader.ToString*"></a>
+  <h4 id="Mirage_NetworkReader_ToString" data-uid="Mirage.NetworkReader.ToString">ToString()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mirage.GameObjectSerializers.html#Mirage_GameObjectSerializers_ReadGameObjectSyncVar_Mirage_NetworkReader_">GameObjectSerializers.ReadGameObjectSyncVar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkBehaviorSerializers.html#Mirage_NetworkBehaviorSerializers_ReadNetworkBehaviourSyncVar_Mirage_NetworkReader_">NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkIdentitySerializers.html#Mirage_NetworkIdentitySerializers_ReadNetworkIdentitySyncVar_Mirage_NetworkReader_">NetworkIdentitySerializers.ReadNetworkIdentitySyncVar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadByte_Mirage_NetworkReader_">NetworkReaderExtensions.ReadByte(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadSByte_Mirage_NetworkReader_">NetworkReaderExtensions.ReadSByte(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadChar_Mirage_NetworkReader_">NetworkReaderExtensions.ReadChar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBoolean_Mirage_NetworkReader_">NetworkReaderExtensions.ReadBoolean(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadInt16_Mirage_NetworkReader_">NetworkReaderExtensions.ReadInt16(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUInt16_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUInt16(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadSingle_Mirage_NetworkReader_">NetworkReaderExtensions.ReadSingle(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadDouble_Mirage_NetworkReader_">NetworkReaderExtensions.ReadDouble(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadDecimal_Mirage_NetworkReader_">NetworkReaderExtensions.ReadDecimal(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadString_Mirage_NetworkReader_">NetworkReaderExtensions.ReadString(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBytesAndSize_Mirage_NetworkReader_">NetworkReaderExtensions.ReadBytesAndSize(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBytesAndSizeSegment_Mirage_NetworkReader_">NetworkReaderExtensions.ReadBytesAndSizeSegment(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedUInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedUInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedUInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedUInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector2_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector2(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector3_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector3(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector4_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector4(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector2Int_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector2Int(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector3Int_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector3Int(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadColor_Mirage_NetworkReader_">NetworkReaderExtensions.ReadColor(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadColor32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadColor32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadQuaternion_Mirage_NetworkReader_">NetworkReaderExtensions.ReadQuaternion(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadRect_Mirage_NetworkReader_">NetworkReaderExtensions.ReadRect(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPlane_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPlane(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadRay_Mirage_NetworkReader_">NetworkReaderExtensions.ReadRay(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadMatrix4x4_Mirage_NetworkReader_">NetworkReaderExtensions.ReadMatrix4x4(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBytes_Mirage_NetworkReader_System_Int32_">NetworkReaderExtensions.ReadBytes(NetworkReader, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadGuid_Mirage_NetworkReader_">NetworkReaderExtensions.ReadGuid(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadNetworkIdentity_Mirage_NetworkReader_">NetworkReaderExtensions.ReadNetworkIdentity(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadList__1_Mirage_NetworkReader_">NetworkReaderExtensions.ReadList&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadArray__1_Mirage_NetworkReader_">NetworkReaderExtensions.ReadArray&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUri_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUri(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadNetworkBehaviour_Mirage_NetworkReader_">NetworkReaderExtensions.ReadNetworkBehaviour(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadNetworkBehaviour__1_Mirage_NetworkReader_">NetworkReaderExtensions.ReadNetworkBehaviour&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadGameObject_Mirage_NetworkReader_">NetworkReaderExtensions.ReadGameObject(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NotifyPacketSerializer.html#Mirage_NotifyPacketSerializer_ReadNotifyPacket_Mirage_NetworkReader_">NotifyPacketSerializer.ReadNotifyPacket(NetworkReader)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_NetworkReader.md&amp;value=---%0Auid%3A%20Mirage.NetworkReader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReader.cs/#L50" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,9 +81,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="networkbehaviour">NetworkBehaviour</h1>
 
-<p><strong>See also <a class="xref" href="../../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> in the API Reference.</strong></p>
+<p><strong>See also <a class="xref" href="../../../api/Mirage.NetworkBehaviour.html">NetworkBehaviour</a> in the API Reference.</strong></p>
 <p>Network Behaviour scripts work with game objects that have a NetworkIdentity component. These scripts can perform high-level API functions such as ServerRpcs, ClientRpcs and SyncVars.</p>
-<p>With the server-authoritative system of MirrorNG, the server must use the <code>NetworkServer.Spawn</code> function to spawn game objects with Network Identity components. Spawning them this way assigns them a <code>netId</code> and creates them on clients connected to the server.</p>
+<p>With the server-authoritative system of Mirage, the server must use the <code>NetworkServer.Spawn</code> function to spawn game objects with Network Identity components. Spawning them this way assigns them a <code>netId</code> and creates them on clients connected to the server.</p>
 <p><strong>Note:</strong> This is not a component that you can add to a game object directly. Instead, you must create a script which inherits from <code>NetworkBehaviour</code> (instead of the default <code>MonoBehaviour</code>), then you can add your script as a component to a game object.</p>
 <p>NetworkBehaviour scripts have the following features:</p>
 <ul>
@@ -95,11 +97,11 @@
 </li>
 </ul>
 <p><img src="UNetDirections.jpg" alt="Data Flow Graph"></p>
-<p><strong>Note:</strong> NetworkBehaviors in Mirror and in UNet provide virtual functions as a way for you to add logic in response to lifecycle events.  MirrorNG does not,  instead add listeners to the events in <a href="../../Components/NetworkIdentity.html">NetworkIdentity</a>.</p>
+<p><strong>Note:</strong> NetworkBehaviors in Mirror and in UNet provide virtual functions as a way for you to add logic in response to lifecycle events.  Mirage does not,  instead add listeners to the events in <a href="../../Components/NetworkIdentity.html">NetworkIdentity</a>.</p>
 <h2 id="synchronized-variables">Synchronized variables</h2>
 <p>Your component can have data which is automatically synchronized from the server to the client. You can use <a href="../Sync/SyncVars.html">SyncVars</a> as well as <a href="../Sync/SyncLists.html">SyncLists</a>, <a href="../Sync/SyncHashSet.html">SyncSet</a> and <a href="../Sync/SyncDictionary.html">SyncDictionary</a> inside a NetworkBehaviour.  They will be automatically propagated to the clients whenever their value change in the server.</p>
 <h2 id="server-and-client-functions">Server and Client functions</h2>
-<p>You can tag member functions in NetworkBehaviour scripts with custom attributes to designate them as server-only or client-only functions. <a class="xref" href="../../../api/Mirror.ServerAttribute.html">ServerAttribute</a> will check that the function is called in the server. Likewise, <a class="xref" href="../../../api/Mirror.ClientAttribute.html">ClientAttribute</a> will check if the function is called in the client.</p>
+<p>You can tag member functions in NetworkBehaviour scripts with custom attributes to designate them as server-only or client-only functions. <a class="xref" href="../../../api/Mirage.ServerAttribute.html">ServerAttribute</a> will check that the function is called in the server. Likewise, <a class="xref" href="../../../api/Mirage.ClientAttribute.html">ClientAttribute</a> will check if the function is called in the client.</p>
 <p>For more information, see <a href="../Attributes.html">Attributes</a>.</p>
 <h2 id="server-rpc-calls">Server RPC Calls</h2>
 <p>To execute code on the server, you must use Server RPC calls. The high-level API is a server-authoritative system, so ServerRpc are the only way for a client to trigger some code on the server.</p>

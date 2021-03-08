@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -84,7 +86,7 @@
 <p>Any object with this component on it will only be visible to other objects in the same match.</p>
 <p>This would be used to isolate players to their respective matches within a single game server instance.</p>
 <p>When you create a match, generate and store, in a List for example, a new match id with <code>System.Guid.NewGuid();</code> and assign the same match id to the Network Match Checker via <code>GetComponent&lt;NetworkMatchChecker&gt;().matchId</code>.</p>
-<p>MirrorNG's built-in Observers system will isolate SyncVar's and ClientRpc's on networked objects to only send updates to clients with the same match id.</p>
+<p>Mirage's built-in Observers system will isolate SyncVar's and ClientRpc's on networked objects to only send updates to clients with the same match id.</p>
 </article>
           </div>
           

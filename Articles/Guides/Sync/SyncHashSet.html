@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../../logo.png" alt="">
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,9 +82,9 @@
 <h1 id="synchashset">SyncHashSet</h1>
 
 <p><code>SyncHashSet</code> are sets similar to C# <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1">HashSet&lt;T&gt;</a> that synchronize their contents from the server to the clients.</p>
-<p>A SyncHashSet can contain any <a href="../DataTypes.html">supported MirrorNG type</a></p>
+<p>A SyncHashSet can contain any <a href="../DataTypes.html">supported Mirage type</a></p>
 <h2 id="usage">Usage</h2>
-<p>Create a class that derives from SyncHashSet for your specific type. This is necessary because MirrorNG will add methods to that class with the weaver. Then add a SyncHashSet field to your NetworkBehaviour class. For example:</p>
+<p>Create a class that derives from SyncHashSet for your specific type. This is necessary because Mirage will add methods to that class with the weaver. Then add a SyncHashSet field to your NetworkBehaviour class. For example:</p>
 <pre><code class="lang-cs">[System.Serializable]
 public class SyncSkillSet : SyncHashSet&lt;string&gt; {}
 

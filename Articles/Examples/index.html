@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="samples-overview">Samples Overview</h1>
 
-<p>MirrorNG includes several small examples to help you learn how to use various features and how to set things up so they work together.</p>
+<p>Mirage includes several small examples to help you learn how to use various features and how to set things up so they work together.</p>
 <ul>
 <li><a href="AdditiveScenes/index.html">Additive Scenes</a><br>
 The Additive Scenes example demonstrates a server additively loading a sub-scene into a main scene at startup, and having a server-only trigger that generates a message to any client whose player enters the trigger zone to also load the sub-scene, and subsequently unload it when they leave the trigger zone. Only players inside the trigger zone can see the objects in the sub-scene. Network Proximity Checker components are key to making this scenario work.</li>
@@ -90,7 +92,7 @@ A simple text chat for multiple networked clients.</li>
 <li><a href="ChangeScene/index.html">ChangeScene</a><br>
 Provides examples for Normal and Additive network scene changing.</li>
 <li><a href="Pong/index.html">Pong</a><br>
-A simple example for &quot;How to build a multiplayer game with MirrorNG&quot; is Pong. It illustrates the usage of <code>NetworkManager</code>, <code>NetworkManagerHUD</code>, NetworkBehaviour, NetworkIdentity, <code>NetworkTransform</code>, <code>NetworkStartPosition</code>and various Attributes.</li>
+A simple example for &quot;How to build a multiplayer game with Mirage&quot; is Pong. It illustrates the usage of <code>NetworkManager</code>, <code>NetworkManagerHUD</code>, NetworkBehaviour, NetworkIdentity, <code>NetworkTransform</code>, <code>NetworkStartPosition</code>and various Attributes.</li>
 <li><a href="Tanks/index.html">Tanks</a><br>
 This is a simple scene with animated tanks, networked rigidbody projectiles, and NavMesh movement</li>
 </ul>

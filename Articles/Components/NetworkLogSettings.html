@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="network-log-settings">Network Log Settings</h1>
 
-<p><strong>See also <a class="xref" href="../../api/Mirror.LogFactory.html">LogFactory</a> in the API Reference.</strong></p>
+<p><strong>See also <a class="xref" href="../../api/Mirage.LogFactory.html">LogFactory</a> in the API Reference.</strong></p>
 <h2 id="network-log-settings-component">Network Log Settings component</h2>
 <p>The Network Log Settings component allows you to configure logging levels and load the settings in a build.</p>
 <p>When you first add NetworkLogSettings you will have to Create a new LogSettings asset that will store the settings.</p>
@@ -88,13 +90,13 @@
 <p><strong>Note:</strong> If a LogSettings asset already exists the NetworkLogSettings component will set the Settings field when it is added to a game object.</p>
 </blockquote>
 <h2 id="log-settings">Log Settings</h2>
-<p>When you first set up LogSettings the list of components may be empty or incomplete. Running the game will cause MirrorNG scripts to add their respective loggers to the list so their logging levels can be changed.</p>
+<p>When you first set up LogSettings the list of components may be empty or incomplete. Running the game will cause Mirage scripts to add their respective loggers to the list so their logging levels can be changed.</p>
 <p><img src="NetworkLogSettings.png" alt="Inspector"></p>
-<p>Log settings can also be changed using the &quot;MirrorNG Log Level&quot; window, which can be opened from the editor menu: Window &gt; Analysis &gt; MirrorNG Log Levels.</p>
+<p>Log settings can also be changed using the &quot;Mirage Log Level&quot; window, which can be opened from the editor menu: Window &gt; Analysis &gt; Mirage Log Levels.</p>
 <p><img src="LogLevelWindow.png" alt="Window"></p>
-<p>To change settings at runtime please see <a class="xref" href="../../api/Mirror.LogFactory.html">LogFactory</a>.</p>
+<p>To change settings at runtime please see <a class="xref" href="../../api/Mirage.LogFactory.html">LogFactory</a>.</p>
 <h2 id="issues">Issues</h2>
-<p>Mirrors Logging api is currently work in progress. If there is a bug or a feature you want added please make an issue <a href="https://github.com/vis2k/MirrorNG/issues">here</a>.</p>
+<p>Mirrors Logging api is currently work in progress. If there is a bug or a feature you want added please make an issue <a href="https://github.com/MirageNet/Mirage/issues">here</a>.</p>
 </article>
           </div>
           

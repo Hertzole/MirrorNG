@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PooledNetworkReader
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PooledNetworkReader
+   ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirage.PooledNetworkReader">
+  
+  
+  <h1 id="Mirage_PooledNetworkReader" data-uid="Mirage.PooledNetworkReader" class="text-break">Class PooledNetworkReader
+  </h1>
+  <div class="markdown level0 summary"><p>NetworkReader to be used with <a class="xref" href="Mirage.NetworkReaderPool.html">NetworkReaderPool</a></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="Mirage.NetworkReader.html">NetworkReader</a></div>
+    <div class="level2"><span class="xref">PooledNetworkReader</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_Position">NetworkReader.Position</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_Length">NetworkReader.Length</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ObjectLocator">NetworkReader.ObjectLocator</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadByte">NetworkReader.ReadByte()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadInt32">NetworkReader.ReadInt32()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadUInt32">NetworkReader.ReadUInt32()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadInt64">NetworkReader.ReadInt64()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadUInt64">NetworkReader.ReadUInt64()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadBytes_System_Byte___System_Int32_">NetworkReader.ReadBytes(Byte[], Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ReadBytesSegment_System_Int32_">NetworkReader.ReadBytesSegment(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_ToString">NetworkReader.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirage.NetworkReader.html#Mirage_NetworkReader_Read__1">NetworkReader.Read&lt;T&gt;()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirage.html">Mirage</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirage_PooledNetworkReader_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class PooledNetworkReader : NetworkReader, IDisposable</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_PooledNetworkReader_Dispose.md&amp;value=---%0Auid%3A%20Mirage.PooledNetworkReader.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReaderPool.cs/#L15">View Source</a>
+  </span>
+  <a id="Mirage_PooledNetworkReader_Dispose_" data-uid="Mirage.PooledNetworkReader.Dispose*"></a>
+  <h4 id="Mirage_PooledNetworkReader_Dispose" data-uid="Mirage.PooledNetworkReader.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IDisposable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Mirage.GameObjectSerializers.html#Mirage_GameObjectSerializers_ReadGameObjectSyncVar_Mirage_NetworkReader_">GameObjectSerializers.ReadGameObjectSyncVar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkBehaviorSerializers.html#Mirage_NetworkBehaviorSerializers_ReadNetworkBehaviourSyncVar_Mirage_NetworkReader_">NetworkBehaviorSerializers.ReadNetworkBehaviourSyncVar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkIdentitySerializers.html#Mirage_NetworkIdentitySerializers_ReadNetworkIdentitySyncVar_Mirage_NetworkReader_">NetworkIdentitySerializers.ReadNetworkIdentitySyncVar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadByte_Mirage_NetworkReader_">NetworkReaderExtensions.ReadByte(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadSByte_Mirage_NetworkReader_">NetworkReaderExtensions.ReadSByte(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadChar_Mirage_NetworkReader_">NetworkReaderExtensions.ReadChar(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBoolean_Mirage_NetworkReader_">NetworkReaderExtensions.ReadBoolean(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadInt16_Mirage_NetworkReader_">NetworkReaderExtensions.ReadInt16(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUInt16_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUInt16(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadSingle_Mirage_NetworkReader_">NetworkReaderExtensions.ReadSingle(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadDouble_Mirage_NetworkReader_">NetworkReaderExtensions.ReadDouble(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadDecimal_Mirage_NetworkReader_">NetworkReaderExtensions.ReadDecimal(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadString_Mirage_NetworkReader_">NetworkReaderExtensions.ReadString(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBytesAndSize_Mirage_NetworkReader_">NetworkReaderExtensions.ReadBytesAndSize(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBytesAndSizeSegment_Mirage_NetworkReader_">NetworkReaderExtensions.ReadBytesAndSizeSegment(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedUInt32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedUInt32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPackedUInt64_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPackedUInt64(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector2_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector2(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector3_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector3(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector4_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector4(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector2Int_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector2Int(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadVector3Int_Mirage_NetworkReader_">NetworkReaderExtensions.ReadVector3Int(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadColor_Mirage_NetworkReader_">NetworkReaderExtensions.ReadColor(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadColor32_Mirage_NetworkReader_">NetworkReaderExtensions.ReadColor32(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadQuaternion_Mirage_NetworkReader_">NetworkReaderExtensions.ReadQuaternion(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadRect_Mirage_NetworkReader_">NetworkReaderExtensions.ReadRect(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadPlane_Mirage_NetworkReader_">NetworkReaderExtensions.ReadPlane(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadRay_Mirage_NetworkReader_">NetworkReaderExtensions.ReadRay(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadMatrix4x4_Mirage_NetworkReader_">NetworkReaderExtensions.ReadMatrix4x4(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadBytes_Mirage_NetworkReader_System_Int32_">NetworkReaderExtensions.ReadBytes(NetworkReader, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadGuid_Mirage_NetworkReader_">NetworkReaderExtensions.ReadGuid(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadNetworkIdentity_Mirage_NetworkReader_">NetworkReaderExtensions.ReadNetworkIdentity(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadList__1_Mirage_NetworkReader_">NetworkReaderExtensions.ReadList&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadArray__1_Mirage_NetworkReader_">NetworkReaderExtensions.ReadArray&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadUri_Mirage_NetworkReader_">NetworkReaderExtensions.ReadUri(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadNetworkBehaviour_Mirage_NetworkReader_">NetworkReaderExtensions.ReadNetworkBehaviour(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadNetworkBehaviour__1_Mirage_NetworkReader_">NetworkReaderExtensions.ReadNetworkBehaviour&lt;T&gt;(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NetworkReaderExtensions.html#Mirage_NetworkReaderExtensions_ReadGameObject_Mirage_NetworkReader_">NetworkReaderExtensions.ReadGameObject(NetworkReader)</a>
+  </div>
+  <div>
+      <a class="xref" href="Mirage.NotifyPacketSerializer.html#Mirage_NotifyPacketSerializer_ReadNotifyPacket_Mirage_NetworkReader_">NotifyPacketSerializer.ReadNotifyPacket(NetworkReader)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/new/master/apiSpec/new?filename=Mirage_PooledNetworkReader.md&amp;value=---%0Auid%3A%20Mirage.PooledNetworkReader%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Hertzole/MirrorNG/blob/master/Assets/Mirage/Runtime/NetworkReaderPool.cs/#L9" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

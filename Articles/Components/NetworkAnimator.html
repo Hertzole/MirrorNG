@@ -20,6 +20,8 @@
     
     <meta property="docfx:rel" content="../../">
     
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
   </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
@@ -34,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" style="display:flex;" href="https://github.com/MirrorNG/MirrorNG">
-                <img id="logo" class="svg" style="vertical-align: middle;align-self:center;" src="../../logo.png" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,7 +82,7 @@
 <h1 id="network-animator">Network Animator</h1>
 
 <p>The Network Animator component allows you to synchronize animation states for networked objects. It synchronizes state and parameters from an Animator Controller.</p>
-<p>Note that if you create a Network Animator component on an empty game object, MirrorNG also creates a Network Identity component and an Animator component on that game object.</p>
+<p>Note that if you create a Network Animator component on an empty game object, Mirage also creates a Network Identity component and an Animator component on that game object.</p>
 <p><img src="NetworkAnimatorComponent.png" alt="The Network Animator component in the Inspector window"></p>
 <ul>
 <li><p><strong>Client Authority</strong><br>
